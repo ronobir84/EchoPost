@@ -1,6 +1,6 @@
  <header id="header_component" class="py-5">
-     <nav class="current__header bg-white rounded-full border border-black-200 text-black duration-150 px-4">
-         <div class="navbar justify-between">
+     <nav class="current__header bg-white rounded-full border border-black-200 text-black duration-150 px-8">
+         <div class="navbar justify-between ">
              <div class=" ">
                  <button class="" onclick="searchModal.showModal()">
                      <i class="fa-solid fa-magnifying-glass text-[#6A4EE9]"></i>
@@ -12,7 +12,7 @@
                      <?php echo $_SESSION['image'] ?>
                  </a>
              </div>
-             <div class=" ">
+             <div class=" flex gap-7 ">
                  <button class="px-5 py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
                      Subscribe
                  </button>
@@ -40,10 +40,14 @@
  </header>
 
  <!-- Search Modal -->
+ <!--  -->
  <dialog id="searchModal" class="modal">
-     <div class="modal-box">
-         <h3 class="text-lg font-bold">Hello!</h3>
-         <p class="py-4">Press ESC key or click outside to close</p>
+     <div class="modal-box bg-transparent shadow-none max-w-3xl">
+         <p class="pb-10 text-center text-3xl font-bold text-white">Press ESC to close</p>
+         <form class="flex " action="">
+             <input placeholder="Type to start your search" class="w-full h-16 duration-200 rounded  px-4 bg-white text-black " type="text">
+             <button class="px-7 py-2.5 absolute right-0  mr-8  mt-2 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">Search</button>
+         </form>
      </div>
      <form method="dialog" class="modal-backdrop">
          <button>close</button>
