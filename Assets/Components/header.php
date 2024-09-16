@@ -13,7 +13,7 @@
                  </a>
              </div>
              <div class=" ">
-                 <button class="px-4 py-2 bg-[#6A4EE9]">
+                 <button class="px-5 py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
                      Subscribe
                  </button>
                  <div class="drawer drawer-end">
@@ -21,7 +21,7 @@
                      <div class="drawer-content">
                          <!-- Page content here -->
                          <label for="nav-drawer" class="drawer-button cursor-pointer">
-                             Side
+                             <img class="w-10 h-10" src="https://icons.iconarchive.com/icons/ionic/ionicons/256/grid-icon.png" alt="">
                          </label>
 
                      </div>
