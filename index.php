@@ -32,7 +32,7 @@ $_SESSION['image2'] = $image2;
 // $banner1 = '<img class="max-w-3xl" src="" alt="">';
 // $_SESSION['banner1'] = $banner1;
 
- 
+
 
 
 
@@ -43,14 +43,16 @@ $_SESSION['image2'] = $image2;
 
 <?php include_once('./Assets/Components/header.php') ?>
 
-<!-- banner  -->
-<?php include_once('./Assets/Components/banner.php')?>
+<!-- banner  section-->
+<?php include_once('./Assets/Components/banner.php') ?>
 
 
 
 
+<!-- Trending Topics section-->
 
- 
+<?php include_once('./Assets/Components/trending_topics.php')?>
+
 
 
 
