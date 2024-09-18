@@ -1,3 +1,48 @@
+ <?php session_start() ?>
+
+ <!DOCTYPE html>
+ <html lang="en">
+
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>EchoPost</title>
+     <!-- #Cuastom CSS File -->
+     <link rel="stylesheet" href="./Assets/Css/index.css">
+     <!-- #Tailwind CDN -->
+     <script src="https://cdn.tailwindcss.com"></script>
+     <!-- #DaisyUI CDN -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+     <!-- #Fontawesome CDN -->
+     <script src="https://kit.fontawesome.com/337002c4cc.js" crossorigin="anonymous"></script>
+     <link
+         rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+ </head>
+ <?php
+
+
+    // $image2 = '<img class="w-5 h-5" src="./Assets/Images/footer_image/pink-star (1).png" alt="">';
+    // $_SESSION['image2'] = $image2;
+
+
+
+
+
+
+
+    ?>
+
+
+
+
+
+
+
+
  <header id="header_component" class="py-5">
      <nav class="current__header  w-10/12  z-50 bg-white rounded-full border border-black-200 text-black duration-150 px-8">
          <div class="navbar justify-between ">
@@ -9,7 +54,9 @@
              </div>
              <div class="">
                  <a class="" href="">
-                     <?php echo $_SESSION['image'] ?>
+
+                     <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
+
                  </a>
              </div>
              <div class=" flex gap-7 ">
@@ -26,14 +73,22 @@
 
                      </div>
                      <div class="drawer-side">
+                         <label for="nav-drawer" aria-label="close sidebar"
+                             class="bg-[#6A4EE9] text-white rounded-l-full pl-4 pr-6 py-2 hover:pr-8 duration-300 absolute top-8 right-0 cursor-pointer">
+                             <i class="fa-solid fa-xmark fa-2x"></i>
+                         </label>
                          <label for="nav-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
                          <ul class=" bg-white    min-h-full w-96 px-14 ">
+                             <label for="nav-drawer" aria-label="close sidebar"
+                                 class="bg-[#6A4EE9] text-white rounded-l-full pl-4 pr-6 py-3 hover:pr-8 duration-300 absolute top-5 right-0 cursor-pointer">
+                                 <i class="fa-solid fa-xmark fa-2x"></i>
+                             </label>
 
 
                              <div class="relative top-20 space-y-8">
                                  <li class="">
                                      <a class="relative left-6" href="index.php">
-                                         <?php echo $_SESSION['image'] ?>
+                                         <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
                                      </a>
                                  </li>
                                  <!-- sidevar drop down section -->
@@ -43,9 +98,9 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
-                                         <h4 class="text-xl font-bold text-black hover:underline duration-300">
+                                         <h4 class=" text-xl font-bold text-black hover:underline duration-300">
                                              Home
                                          </h4>
                                      </a>
@@ -58,7 +113,7 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
                                          <h4 class="text-xl font-bold text-black hover:underline duration-300">
                                              Product
@@ -73,7 +128,7 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
                                          <h4 class="text-xl font-bold text-black hover:underline duration-300">
                                              Shop
@@ -88,7 +143,7 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
                                          <h4 class="text-xl font-bold text-black hover:underline duration-300">
                                              Category
@@ -118,7 +173,7 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
                                          <h4 class="text-xl font-bold text-black hover:underline duration-300">
                                              Explore Categories 🚀

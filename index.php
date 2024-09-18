@@ -1,43 +1,4 @@
-<?php session_start() ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EchoPost</title>
-    <!-- #Cuastom CSS File -->
-    <link rel="stylesheet" href="./Assets/Css/index.css">
-    <!-- #Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- #DaisyUI CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <!-- #Fontawesome CDN -->
-    <script src="https://kit.fontawesome.com/337002c4cc.js" crossorigin="anonymous"></script>
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-</head>
-<?php
-
-$image = '<img class="w-52 h-20 object-cover" src="./Assets/Images/echopost-logo.png" alt="">';
-$_SESSION['image'] = $image;
-$image2 = '<img class="w-5 h-5" src="./Assets/Images/footer_image/pink-star (1).png" alt="">';
-$_SESSION['image2'] = $image2;
-// banerr 
-// $banner1 = '<img class="max-w-3xl" src="" alt="">';
-// $_SESSION['banner1'] = $banner1;
-
-
-
-
-
-
-?>
 
 
 
@@ -55,10 +16,13 @@ $_SESSION['image2'] = $image2;
 
 
 
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia deleniti perspiciatis dolor omnis. Ex, aliquid. Eum cupiditate sunt quam accusamus corporis molestias ea illo alias doloremque quia labore amet, voluptate, libero incidunt rem. Nesciunt earum cupiditate fugit in obcaecati? Fugit aliquam repellat quo error velit. Animi possimus nesciunt placeat? Fuga asperiores velit veritatis inventore? Earum quia ad vel obcaecati eos ratione doloremque rem tenetur distinctio voluptas molestiae, soluta non quisquam in qui, eius, error similique eaque neque sapiente perspiciatis impedit voluptate quos. Eum fuga itaque a dolorem optio asperiores. Dolores nesciunt nulla eligendi? Cumque molestiae suscipit, vel sapiente praesentium assumenda possimus! Sapiente hic alias neque distinctio esse in soluta, doloremque excepturi consequatur ipsa itaque rerum repellendus. Autem cumque vel tenetur, eum pariatur libero quos numquam esse beatae qui magnam animi perferendis illo consequatur at id sed blanditiis ab sequi quia, explicabo provident? Dolorem omnis quisquam quibusdam quos consequatur maiores qui fugit aspernatur accusamus molestias voluptatibus ullam harum cum vitae numquam corrupti, vero, quidem est? Ullam eum repellendus, aliquam consequatur aspernatur nisi perspiciatis excepturi, aliquid, fugiat officia incidunt nam molestias. Totam nemo sunt consequuntur quia? Nesciunt id vitae accusantium qui dolor quia incidunt ipsa vel quidem voluptatem, nisi sint omnis laboriosam explicabo sit dolore dolorum ea doloremque. Unde reprehenderit officia dolorem, quaerat quod accusamus laborum at sint vitae perspiciatis quas, consectetur numquam distinctio, corrupti dolor enim. Dolores ad alias itaque, minima quisquam in explicabo consectetur nulla! Itaque sequi perferendis voluptatibus optio, aliquam odio. Iste laboriosam natus officia eum velit suscipit corporis molestiae praesentium at repellat dolores, sit necessitatibus distinctio autem ipsam tempora deserunt nemo minima maxime dolorem labore cumque cupiditate consequuntur? Repudiandae corporis praesentium doloremque magnam maiores. Magni assumenda quasi provident laborum aut nesciunt rem quos, vero nihil voluptate ad ex quas vel corporis perferendis in esse autem ab. Voluptates, similique? Velit cum perspiciatis fuga natus voluptate sequi exercitationem voluptas aut. Eius enim vero optio aperiam veritatis mollitia molestiae nihil eveniet repellendus, ullam quis delectus omnis beatae tempora fugiat ab necessitatibus harum dolores dignissimos laudantium id rem culpa nesciunt magnam! Est sint labore veniam consequuntur aliquid repellat voluptate asperiores, recusandae excepturi reprehenderit nulla consectetur delectus itaque facere non expedita laborum tenetur impedit architecto similique omnis nihil, blanditiis odit. Libero vitae sit tempore deleniti accusamus dolorem impedit enim eligendi assumenda vel alias illum, nulla obcaecati nihil id quibusdam, fuga ratione illo? Voluptatibus, eum facilis tenetur ipsa debitis similique, inventore dolore vel nemo voluptates ullam dignissimos ab neque id alias in repudiandae assumenda. Dolorum eius velit mollitia sequi quos impedit similique obcaecati ex nihil rerum commodi, ipsum hic nobis pariatur veniam explicabo suscipit deleniti. Culpa laboriosam suscipit dolores ex labore dignissimos impedit non earum eaque dolorem. Molestiae amet facilis ea excepturi eligendi laudantium aliquam animi nesciunt quisquam omnis maiores placeat cum sit corporis explicabo eveniet doloremque ratione id magnam, porro aut officia voluptates molestias laborum? Eius id explicabo esse? Esse, quaerat voluptates, sit iusto sapiente ad amet minima facilis adipisci accusantium assumenda fugit illum repellat nam consequatur veritatis vitae voluptatum optio in cupiditate. Ex, nesciunt voluptas! Iure aut, dolor id, praesentium sequi aspernatur eligendi voluptate, quia quidem placeat quo quaerat? Voluptatum, nemo rerum! Dignissimos similique vero eligendi itaque in rerum cupiditate quaerat, veniam ut hic, aut possimus doloremque soluta quam ducimus deleniti dolorum. Saepe, alias sit impedit nobis quia, nam reiciendis quod enim explicabo laudantium vel quam, veniam beatae est tenetur quaerat iusto dolorum! Et sapiente est unde nesciunt corporis incidunt placeat aut? Non libero consectetur assumenda, magni iure doloremque commodi aperiam ducimus dolor animi nostrum sit, veritatis unde! Accusantium esse incidunt rerum aut consequuntur enim repellat necessitatibus amet eveniet asperiores magni distinctio ratione soluta numquam tempora ea assumenda odio aliquid, eos nisi blanditiis inventore. Maxime voluptatem, quibusdam alias animi explicabo ipsum. Corrupti totam maxime optio, odit sapiente, veritatis accusantium assumenda vitae obcaecati mollitia repellat consectetur perferendis commodi molestiae, temporibus ullam perspiciatis voluptatem reiciendis nostrum expedita laudantium harum esse. At laudantium ut quidem, deleniti accusantium reprehenderit distinctio minima eveniet maiores similique unde qui quas, ex quos. Eligendi dolore iusto suscipit ex! Atque molestias laborum aperiam minima animi dolorum, omnis nihil, pariatur repellat quae labore, dignissimos eius! Unde atque, voluptates ipsum nemo modi fugit sequi facilis itaque, exercitationem ipsa et ea? Qui quam consectetur dolorum asperiores? Corrupti distinctio molestiae quos ducimus ut, perferendis at deserunt qui harum quasi doloribus facilis aperiam recusandae voluptas delectus architecto voluptates nemo fuga iste suscipit ex maxime! Aperiam inventore cupiditate nostrum sapiente deserunt excepturi! Eum qui odit asperiores molestiae. Repellat ullam laudantium omnis adipisci, culpa assumenda at quia itaque explicabo! Minima reprehenderit deserunt quae nemo enim. Esse dolor culpa totam necessitatibus facilis dolorem suscipit perspiciatis ad tenetur ipsa, aut, odit officiis ex dicta iure fugiat voluptatem ab quam veniam delectus. Officiis doloremque repellendus nobis fuga! Repellendus neque cum laboriosam, voluptas earum dolorum delectus? Omnis asperiores sint ullam optio iure, adipisci, cupiditate dolores tempora architecto esse quod dolor dolore doloribus facere amet. Maxime rerum minus exercitationem, veritatis sunt debitis sapiente illo vel! Pariatur nisi tempore illum laboriosam, quisquam, minima quibusdam debitis voluptas nemo quos, aperiam explicabo at sequi possimus mollitia a itaque illo accusantium quia laborum. Facere quo iste adipisci. Ea iste possimus distinctio velit ipsam voluptatum eius? Voluptatem debitis officia, nostrum laborum molestias minus voluptatum dolor amet reiciendis explicabo numquam possimus quae aut a facilis eaque at tempora velit delectus itaque incidunt ea vitae quasi. Aspernatur, quas dignissimos odit magnam nihil enim omnis reprehenderit temporibus voluptate consequatur aperiam excepturi id perferendis facilis. Dolorum iusto ullam ea culpa? Atque laborum ipsum temporibus. Ad ullam nisi laboriosam repellendus dolor ex inventore saepe eos distinctio rerum itaque, reprehenderit, nemo ipsa laudantium aut a in aspernatur molestias aliquid sit eum incidunt. Blanditiis aperiam veniam omnis, itaque suscipit quia vitae consequuntur quas reiciendis sunt, totam corrupti dignissimos, id quisquam ducimus sequi distinctio vero doloribus reprehenderit dolore quos. Facere rerum, ullam sequi eaque libero numquam expedita? Vel sint mollitia id odit suscipit sequi nulla similique voluptas eum at voluptate sunt harum dolore, molestiae odio. Facilis architecto veritatis delectus quisquam cum! Provident quo repudiandae animi aliquam.</p>
+
+ 
 
 
 
-/
+
 
 <!-- #Footer Component Here -->
 
@@ -66,8 +30,3 @@ $_SESSION['image2'] = $image2;
 
 
 
-<script src="https:cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-<script src="./Assets/Js/header.js"></script>
-</body>
-
-</html>
