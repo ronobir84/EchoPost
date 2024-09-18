@@ -1,19 +1,19 @@
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 justify-between px-16">
             <!-- category section -->
             <div>
 
                 <!-- Topics Index -->
-                <div class="flex items-center gap-2 pl-5">
+                <!-- <div class="flex items-center gap-2 relative right-8">
                     <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
                     <h2 class="text-2xl font-bold text-black ">Topics Index </h2>
-                </div>
+                </div> -->
 
-                <div class="px-16">
+                <div class="">
                     <!-- sidebar start -->
-                    <div class="  max-w-2xl   py-2 flex flex-col md:flex-row ">
+                    <div class="   border-2 border-black   py-2 flex flex-col md:flex-row ">
 
                         <ul class="basis-1/2">
                             <!-- first category section -->
@@ -27,7 +27,7 @@
                                 </button>
                                 <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
                                     <ol class="list-decimal relative left-8 ">
-                                        <li>Hello</li>
+                                        <li>Hello Lorem ipsum dolor sit amet, consectetur  nnnnnnnnnnnnnnnnnnn</li>
                                         <li>Hello</li>
                                         <li>Hello</li>
                                         <li>Hello</li>
@@ -91,6 +91,8 @@
             <!-- post section -->
 
             <div>
+
+            <?php include_once('./Assets/Components/side_post.php') ?>
 
             
 
