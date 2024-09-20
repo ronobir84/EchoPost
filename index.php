@@ -16,13 +16,15 @@
 <?php include_once('./Assets/Components/Category.php') ?>
 
 
- 
-
- 
 
 
 
 
+
+
+<!-- community_banner -->
+
+<?php include_once('./Assets/Components/community_banner.php')?>
 
 
 <!-- #Footer Component Here -->
