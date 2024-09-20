@@ -1,6 +1,6 @@
 <!-- #Footer Component Here -->
 <footer>
-    <div class="grid grid-cols-3 gap-8 container mx-auto py-20">
+    <div class="grid grid-cols-3 gap-8 container mx-auto py-20 ">
         <!-- col 1 -->
         <div class="mr-8">
             <h3 class="text-xl relative right-6 font-bold mb-5 flex items-center gap-2 text-black">
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    
+
 
 </footer>
 

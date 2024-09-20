@@ -35,14 +35,6 @@
 
 
     ?>
-
-
-
-
-
-
-
-
  <header id="header_component" class="py-5">
      <nav class="current__header  w-10/12  z-50 bg-white rounded-full border border-black-200 text-black duration-150 px-8">
          <div class="navbar justify-between ">
@@ -186,9 +178,11 @@
 
 
                                  <li>
-                                     <button class="px-5  mt-4   md:block py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
-                                         Sign In
-                                     </button>
+                                     <a href="./login.php">
+                                         <button class="px-5  mt-4   md:block py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
+                                             Sign In
+                                         </button>
+                                     </a>
                                  </li>
 
 
