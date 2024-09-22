@@ -84,7 +84,7 @@
                 <span class="font-semibold text-black">exclusive updates.</span>
             </p>
             <h3 class="text-[18px] font-medium text-black">Let's connect</h3>
-            <input placeholder="Type to start your search" class="w-full h-14 duration-200 rounded  px-4 bg-white text-black " type="text">
+            <input placeholder="Type to start your search" class="w-full h-14 duration-200 rounded  px-4 bg-white text-black focus:outline-none " type="text">
             <button class="px-5 py-2 absolute right-0 mr-20    mt-1.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">Get Started</button>
             </form>
         </div>

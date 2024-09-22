@@ -10,7 +10,7 @@
     <div class="card shadow relative top-10">
         <div class="card-header py-3 d-flex justify-content-between ">
 
-            <a href="">
+            <a href="add_user.php">
                 <button
                     type="button"
                     class="bg-white text-center w-48 rounded-sm shadow   h-14 relative font-sans text-black text-xl font-semibold group">
@@ -104,4 +104,4 @@
 
 
 
-<?php include_once('./adminPartials/Admin_footer.php') ?>
+<?php include_once('./adminPartials/Admin_header.php') ?>

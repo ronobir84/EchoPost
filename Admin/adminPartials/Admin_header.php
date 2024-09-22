@@ -15,18 +15,25 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
     <title>EchoPost Admin</title>
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
 
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         .active {
             background-color: #6A4EE9;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: weight;
+            font-style: normal;
+
         }
     </style>
 
@@ -42,7 +49,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             <div class="bg-[#282424] w-[350px]  relative shadow-md  min-h-screen  py-14">
                 <div>
                     <div class="  py-2 px-3 absolute  top-0">
-                        <a  href="index.php" >
+                        <a href="index.php">
                             <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
                         </a>
 
@@ -75,7 +82,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
                         <li>
                             <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
                                 <i class="fa-solid fa-list text-lg"></i>
-                                <button class="text-lg font-semibold ">Category</button>
+                                <button class="text-lg font-semibold ">Categories</button>
                             </a>
                         </li>
 

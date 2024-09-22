@@ -207,7 +207,7 @@
      <div class="modal-box bg-transparent shadow-none max-w-3xl">
          <p class="pb-10 text-center text-3xl font-bold text-white">Press ESC to close</p>
          <form class="flex " action="">
-             <input placeholder="Type to start your search" class="w-full h-16 duration-200 rounded  px-4 bg-white text-black " type="text">
+             <input placeholder="Type to start your search" class="w-full h-16 duration-200 rounded  px-4 bg-white text-black focus:outline-none " type="text">
              <button class="px-7 py-2.5 absolute right-0  mr-8  mt-2 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">Search</button>
          </form>
      </div>

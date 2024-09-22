@@ -1,4 +1,14 @@
  
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+body{
+    font-family: "DM Sans", sans-serif;
+
+}
+
 *,
 *::before,
 *::after {
@@ -6,7 +16,7 @@
 }
 
 html {
-  font-family: sans-serif;
+   
   line-height: 1.15;
    
    
