@@ -1,3 +1,8 @@
+<?php
+$page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 1);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         .active {
-            background-color: #309267;
+            background-color: #6A4EE9;
         }
     </style>
 
@@ -47,35 +52,35 @@
                     <!-- Sidebar - Brand -->
 
 
-                    <div class="relative top-10 space-y-4 px-4">
+                    <div class="relative top-10 space-y-10 px-4">
 
                         <li>
-                            <a class="   flex hover:bg-[#309267]   gap-3 px-2 items-center  py-1.5  text-white rounded-sm  duration-500] duration-500    w-40  mt-4  <?= $page == "index.php" ? 'active' : '' ?>" href="index.php">
-                                <i class="fa-solid fa-house"></i>
+                            <a class="   flex hover:bg-[#6A4EE9]   gap-3 px-2 items-center  py-1.5  text-white rounded-sm  duration-500] duration-500    w-40  mt-4  <?= $page == "index.php" ? 'active' : '' ?>" href="index.php">
+                                <i class="fa-solid fa-house text-lg"></i>
                                 <button class="text-lg font-semibold ">Dashboard </button>
                             </a>
                         </li>
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#309267] duration-500] duration-500  w-44 " href="">
-                                <i class="fa-solid fa-circle-exclamation"></i>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500  w-44 " href="">
+                                <i class="fa-solid fa-blog text-lg"></i>
                                 <button class="text-lg font-semibold ">Blog</button>
                             </a>
                         </li>
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#309267] duration-500] duration-500   w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
-                                <i class="fa-solid fa-book-open"></i>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
+                                <i class="fa-solid fa-list text-lg"></i>
                                 <button class="text-lg font-semibold ">Category</button>
                             </a>
                         </li>
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#309267] duration-500] duration-500   w-36 <?= $page == "user.php" ? 'active' : ''; ?>" href="user.php">
-                                <i class="fa-solid fa-user"></i>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "user.php" ? 'active' : ''; ?>" href="user.php">
+                                <i class="fa-solid fa-user text-lg"></i>
                                 <button class="text-lg font-semibold ">Users</button>
                             </a>
                         </li>
@@ -111,18 +116,18 @@
                                 </div>
 
                                 <!-- Dropdown menu -->
-                                <div id="dropdownAvatar" class="z-10 hidden bg-[#17082D]  absolute    divide-gray-100  shadow-md w-44 h-40">
+                                <div id="dropdownAvatar" class="z-10 hidden bg-[#282424]  absolute    divide-gray-100  shadow-md w-44 h-40">
 
 
                                     <ul class="py-3  font-semibold text-lg text-white text-center">
                                         <li>
-                                            <a href="#" class="block px-4 py-2 hover:bg-[#309267]  duration-500">Profile</a>
+                                            <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
                                         </li>
                                         <li>
-                                            <a href="#" class="block px-4 py-2 hover:bg-[#309267]  duration-500  ">Settings</a>
+                                            <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
                                         </li>
                                         <li>
-                                            <a href="Logout.php" class="block px-4 py-2 hover:bg-[#309267]  duration-500  ">Logout</a>
+                                            <a href="Logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
                                         </li>
                                     </ul>
 
