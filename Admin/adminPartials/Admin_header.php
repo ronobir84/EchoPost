@@ -41,8 +41,10 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             <!-- Sidebar -->
             <div class="bg-[#282424] w-[350px]  relative shadow-md  min-h-screen  py-14">
                 <div>
-                    <div class="f    py-2 px-3 absolute  top-0">
-                        <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
+                    <div class="  py-2 px-3 absolute  top-0">
+                        <a  href="index.php" >
+                            <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
+                        </a>
 
 
                     </div>
@@ -79,7 +81,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "user.php" ? 'active' : ''; ?>" href="user.php">
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
                                 <i class="fa-solid fa-user text-lg"></i>
                                 <button class="text-lg font-semibold ">Users</button>
                             </a>

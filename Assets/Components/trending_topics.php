@@ -1,6 +1,7 @@
 <div class="mt-20">
     <div class="flex justify-center  items-center">
-        <span><?php echo $_SESSION['image2'] ?></span>
+        <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
+        <img src="" alt="">
         <h2 class="text-xl text-black font-bold text-center">Trending Topics</h2>
     </div>
     <div class="w-10/12 bg-white shadow-md mt-10  rounded-full py-3 mx-auto ">

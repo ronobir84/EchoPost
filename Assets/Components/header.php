@@ -19,7 +19,7 @@
          rel="stylesheet"
          href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    
+
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
  </head>
  <?php
@@ -150,7 +150,7 @@
 
 
                                      <a href="" class="flex gap-1">
-                                         <span><?php echo $_SESSION['image2'] ?></span>
+                                         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
 
                                          <h4 class="text-xl font-bold text-black hover:underline duration-300">
                                              Features
