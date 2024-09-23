@@ -62,28 +62,52 @@
                     </thead>
                     <tbody>
 
-
-
-                        <tr class="text-center text-lg text-[#282424] font-medium">
-                            <td>1</td>
-                            <td>Ronobir</td>
-                            <td>Ronobir@gmail.com</td>
-                            <td>3</td>
-                            <td>
-                                <a href="">edit</a>
-                                <a href="">Delete</a>
-                                <a href="">view</a>
-
-                            </td>
+                        <?php
+                        $sql = "SELECT * FROM users";
+                        $query = mysqli_query($database, $sql);
+                        $rows = mysqli_num_rows($query);
+                        if ($rows) {
+                            while ($row = mysqli_fetch_assoc($query)) {
 
 
 
-                        </tr>
+                        ?>
 
 
-                        <!-- <tr>
+
+                                <tr class="text-center text-lg text-[#282424] font-medium">
+                                    <td><?php echo $row['user_id']?></td>
+                                    <td><?php echo $row['user_name']?></td>
+                                    <td><?php echo $row['user_email'] ?></td>
+                                    <td>
+                                        <?php 
+                                        if ($row['user_role'] == 1) {
+                                            echo "Admin";
+                                        }elseif($row['user_role'] == 0){
+                                            echo "CO-Admin";
+                                        }else {
+                                            echo "other";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <a href="">edit</a>
+                                        <a href="">Delete</a>
+                                        <a href="">view</a>
+
+                                    </td>
+
+
+
+                                </tr>
+                        <?php  }
+                        } else { ?>
+
+                        <tr>
                                 <td colspan="7">No Record Found</td>
-                            </tr> -->
+                            </tr>
+
+                            <?php }?>
 
 
 
