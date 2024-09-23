@@ -35,7 +35,9 @@
             <!-- second section -->
             <div class=" pt-10">
                 <div>
-                    <h1 class="text-2xl font-bold text-black">Crafting Engaging CSS Animations step by step guide hhhh hhhhhhhh hhhhhh hhhhh hhhhhh</h1>
+                    <a href="">
+                        <h1 class="text-2xl font-bold text-black hover:underline duration-300">Crafting Engaging CSS Animations step by step guide hhhh hhhhhhhh hhhhhh hhhhh hhhhhh</h1>
+                    </a>
                     <p class="text-lg font-medium text-gray-600 pt-8">At the core of the internet lies a complex yet fascinating ecosystem known as the World Wide Web. To unravel its workings, we need to…</p>
                 </div>
                 <div class="flex justify-between pt-8">

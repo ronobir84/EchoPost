@@ -1,23 +1,115 @@
+<?php ob_start() ?>
+
 <?php include_once('./adminPartials/Admin_header.php') ?>
+<?php
+if (isset($_POST['add_user'])) {
+    // user name
+    $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
+    if (strlen($user_name) < 4 || strlen($user_name) > 100) {
+        $error = 'User Name Must be 4 Character please';
+    }
+    // user email
+    $user_email = mysqli_real_escape_string($database, $_POST['user_email']);
+    $sql = "SELECT * FROM users WHERE user_email = '$user_email'";
+    $query = mysqli_query($database, $sql);
+    $row = mysqli_num_rows($query);
+    if ($row >= 1) {
+        $error = "Email Already Exist";
+        echo $error;
+    }
+    // user Password
+    $user_password = mysqli_real_escape_string($database, $_POST['user_password']);
+    $confirm_password = mysqli_real_escape_string($database, $_POST['confirm_password']);
+    if (strlen($user_password) < 4) {
+        $error = "Password Must be 4 Character please";
+        echo $error;
+    }elseif($user_password != $confirm_password){
+        $error = "Password doesn't Not Match";
+         
+    }
+    // user image 
+    $file_name = $_FILES['images'] ['name'];
+    $tmp_name = $_FILES['images'] ['tmp_name'];
+    $size = $_FILES['images']['size'];
+    $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $allow_type = ['jpg', 'png', 'jpeg'];
+    $destination = "upload/" . $file_name;
+
+    $role = mysqli_real_escape_string($database, $_POST['role']);
+
+    if (in_array($image_ext , $allow_type)) {
+         if ($size <= 2000000) {
+            move_uploaded_file($tmp_name, $destination);
+            $sql2 = "INSERT INTO users( user_name, user_email, user_password, user_image, user_role) VALUES ('$user_name','$user_email','$user_password','$file_name','$role')";
+            $query2 = mysqli_query($database, $sql2);
+            if ($query2) {
+                $_SESSION['useradd_mes'] = "User Added Successful";
+                header("location: users.php");
+            }else{
+                $_SESSION['user_error'] = "Failed Please try Agin";
+            }
+         }else{
+            $error = "Image size should be 2mb";
+         }
+    }else{
+        $error = "file type is not allow";
+
+    }
 
 
+}
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
+
+
+<div class="group absolute ml-[7%] mt-14 inline-block  ">
+    <a href="index.php">
+        <button class="focus:outline-none  ">
+
+            <i class="fa-solid fa-arrow-left text-lg  w-12 h-12  p-2  duration-500 hover:bg-[#17082D] border-2 border-[#282424] hover:text-white  text-[#17082D] rounded-full"></i>
+
+
+        </button>
+    </a>
+    <button
+        class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20  w-24 h-10 text-base font-bold text-white bg-[#17082D] rounded shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Go Back</button>
+
+
+</div>
 
 <div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
 
     <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded">
+        <div>
 
-        <form class="p-12 ">
-            <div class="mb-4">
+            <h1 id="title_font" class="text-3xl relative top-5  text-center font-bold from-green-600 via-pink-700 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">Add User</h1>
+        </div>
 
-                <input type="text" name="user_name" class="bg-gray-200 rounded px-4  py-2.5 focus:outline-none w-full" placeholder="Username" />
+        <form method="post" class=" p-12 " action="" enctype="multipart/form-data">
+            <div class=" mb-4">
+
+                <input type="text" name="user_name" class="bg-gray-200 rounded text-black duration-200 px-4  py-2.5 focus:outline-none w-full" placeholder="Username" />
             </div>
             <div class="mb-4">
 
-                <input type="email" name="user_email" class="bg-gray-200 rounded px-4  py-2.5 focus:outline-none w-full" placeholder="User email" />
+                <input type="email" name="user_email" class="bg-gray-200 text-black  rounded px-4  py-2.5 focus:outline-none w-full" placeholder="User email" />
             </div>
             <div class="mb-4">
 
-                <input type="password" name="user_password" class="bg-gray-200 rounded px-4  py-2.5 focus:outline-none w-full" placeholder="User Password" />
+                <input type="password" name="user_password" class="bg-gray-200 text-black rounded px-4  py-2.5 focus:outline-none w-full" placeholder="User Password" />
             </div>
             <div class="mb-4">
 
@@ -25,7 +117,7 @@
                 <div class="" x-data="{ show: true }">
 
                     <div class="relative">
-                        <input required name="confirm_password" placeholder="confirm Password" :type="show ? 'password' : 'text'" class=" rounded bg-gray-200 px-4   py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
+                        <input name="confirm_password" placeholder="confirm Password" :type="show ? 'password' : 'text'" class=" rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
                         <div class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
                             <svg class="h-6 text-gray-700 cursor-pointer" fill="none" @click="show = !show"
                                 :class="{'block': !show, 'hidden':show }" xmlns="http://www.w3.org/2000/svg"
@@ -52,19 +144,19 @@
                 </div>
             </div>
             <div class=" mb-4">
-                <input name="images" type="file" class="w-full p-2.5  bg-gray-200 cursor-pointer px-4 rounded focus:ring-1   transition ease-in-out duration-150">
+                <input name="images" type="file" class="w-full p-2.5  text-black bg-gray-200 cursor-pointer px-4 rounded focus:ring-1   transition ease-in-out duration-150">
 
             </div>
             <div class="mb-4">
-                <select class="w-full py-2.5 bg-gray-200 px-4 rounded" name="">
+                <select class="w-full py-2.5 bg-gray-200 text-black  px-4 rounded" name="role">
                     <option value="">Select Categories</option>
-                    <option value="">hello</option>
-                    <option value="">hello</option>
-                    <option value="">hello</option>
+                    <option value="1">Admin</option>
+                    <option value="0">CO-Admin</option>
+                   
                 </select>
 
             </div>
-            <button class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold p-2 md:p-4 text-white uppercase w-full rounded">Login</button>
+            <button name="add_user" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold p-2 md:p-4 text-white  w-full rounded">Add User</button>
         </form>
     </div>
 </div>
