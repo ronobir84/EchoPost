@@ -76,7 +76,7 @@ if (isset($_POST['add_user'])) {
 
 
 <div class="group absolute ml-[7%] mt-14 inline-block  ">
-    <a href="index.php">
+    <a href="users.php">
         <button class="focus:outline-none  ">
 
             <i class="fa-solid fa-arrow-left text-lg  w-12 h-12  p-2  duration-500 hover:bg-[#17082D] border-2 border-[#282424] hover:text-white  text-[#17082D] rounded-full"></i>

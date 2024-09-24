@@ -76,16 +76,16 @@
 
 
                                 <tr class="text-center text-lg text-[#282424] font-medium">
-                                    <td><?php echo $row['user_id']?></td>
-                                    <td><?php echo $row['user_name']?></td>
+                                    <td><?php echo $row['user_id'] ?></td>
+                                    <td><?php echo $row['user_name'] ?></td>
                                     <td><?php echo $row['user_email'] ?></td>
                                     <td>
-                                        <?php 
+                                        <?php
                                         if ($row['user_role'] == 1) {
                                             echo "Admin";
-                                        }elseif($row['user_role'] == 0){
+                                        } elseif ($row['user_role'] == 0) {
                                             echo "CO-Admin";
-                                        }else {
+                                        } else {
                                             echo "other";
                                         }
                                         ?>
@@ -100,14 +100,14 @@
 
 
                                 </tr>
-                        <?php  }
+                            <?php  }
                         } else { ?>
 
-                        <tr>
+                            <tr>
                                 <td colspan="7">No Record Found</td>
                             </tr>
 
-                            <?php }?>
+                        <?php } ?>
 
 
 
@@ -126,6 +126,6 @@
 
 
 
+ 
 
-
-<?php include_once('./adminPartials/Admin_header.php') ?>
+<?php include_once('./adminPartials/Admin_footer.php') ?>

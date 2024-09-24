@@ -1,6 +1,11 @@
 <?php
+session_start();
 $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 1);
 include_once('../database.php');
+
+if (!isset($_SESSION['user_data'])) {
+    header("Location: http://localhost/EchoPost/login.php");
+}
 
 ?>
 
@@ -25,6 +30,7 @@ include_once('../database.php');
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
+
     <style>
         .active {
             background-color: #6A4EE9;
@@ -39,9 +45,9 @@ include_once('../database.php');
         }
 
         #title_font {
-            
-                font-family: "Cormorant", serif;
-            
+
+            font-family: "Cormorant", serif;
+
         }
     </style>
 
@@ -88,7 +94,7 @@ include_once('../database.php');
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
                                 <i class="fa-solid fa-list text-lg"></i>
                                 <button class="text-lg font-semibold ">Categories</button>
                             </a>
@@ -96,7 +102,7 @@ include_once('../database.php');
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
                                 <i class="fa-solid fa-user text-lg"></i>
                                 <button class="text-lg font-semibold ">Users</button>
                             </a>
@@ -144,7 +150,7 @@ include_once('../database.php');
                                             <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
                                         </li>
                                         <li>
-                                            <a href="Logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
+                                            <a href="logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
                                         </li>
                                     </ul>
 
