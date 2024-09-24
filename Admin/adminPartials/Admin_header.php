@@ -94,7 +94,7 @@ if (!isset($_SESSION['user_data'])) {
 
 
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "subject.php" ? 'active' : ''; ?>" href="subject.php">
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">
                                 <i class="fa-solid fa-list text-lg"></i>
                                 <button class="text-lg font-semibold ">Categories</button>
                             </a>
