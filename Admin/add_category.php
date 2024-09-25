@@ -1,7 +1,36 @@
+<?php ob_start() ?>
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
-<
+
+<?php
+include_once('../database.php');
+
+if (isset($_POST['add_category'])) {
+    $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
+    $category_color = mysqli_real_escape_string($database, $_POST['category_color']);
+
+    $sql = "SELECT * FROM categories WHERE category_name = '{$category_name}'";
+    $query = mysqli_query($database, $sql);
+    $row = mysqli_num_rows($query);
+    if ($row) {
+        $_SESSION['cat_error'] = "Category Name Is Already Exist";
+    } else {
+        $sql2 = "INSERT INTO categories(category_name, category_color) VALUES ('$category_name','$category_color')";
+        $query2 = mysqli_query($database, $sql2);
+        if ($query2) {
+            $_SESSION['cat_succ'] = "Category Added Has Been Successful";
+           echo "<script>window.location.href='categories.php'</script>";
+        } else {
+            $_SESSION['not_error'] = "Failed Please Try Agin";
+        }
+    }
+}
+
+
+
+
+?>
 
 <div class="group absolute ml-[7%] mt-14 inline-block  ">
     <a href="categories.php">
@@ -33,13 +62,13 @@
             </div>
             <div class="mb-4">
 
-                <input type="color" class=" rounded w-full h-11 cursor-pointer" name="" id="">
+                <input type="color" class=" rounded w-full h-11 cursor-pointer" name="category_color" id="">
             </div>
 
 
 
 
-            <button name="add_user" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Category</button>
+            <button name="add_category" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Category</button>
         </form>
     </div>
 </div>

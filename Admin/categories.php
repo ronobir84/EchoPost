@@ -53,41 +53,55 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="text-center text-[#6A4EE9] text-lg font-semibold">
-                            <th>Category id</th>
+                            <th>Category Id</th>
                             <th>Category Name</th>
                             <th>Category Color</th>
-                             
                             <th colspan="2">Action</th>
-
                         </tr>
+
                     </thead>
                     <tbody>
 
-                       
+                        <?php
+
+
+                        $sql = "SELECT * FROM categories";
+                        $query = mysqli_query($database, $sql);
+                        $rows = mysqli_num_rows($query);
+                        if ($rows) {
+                            while ($row = mysqli_fetch_assoc($query)) {
 
 
 
-                                <tr class="text-center text-lg text-[#282424] font-medium">
-                                    <td>01 </td>
-                                    <td>Javascript</td>
-                                    <td>#000000<td>
-                                     
+                                ?>
+
+
+
+
+
+                                <tr class="text-center text-lg text-[#282424] font-medium ">
+                                    <td><?php echo $row['category_id'] ?></td>
+                                    <td><?php echo $row['category_name'] ?></td>
+                                    <td><?php echo $row['category_color'] ?></td>
                                     <td>
-                                        <a href="">edit</a>
+                                        <a href="">Edit</a>
                                         <a href="">Delete</a>
-                                        <a href="">view</a>
-
+                                        <a href="">View</a>
                                     </td>
 
 
 
+
                                 </tr>
-                            
+
+                             <?php }
+                        } else {
+                            ?>
 
                             <tr>
                                 <td colspan="7">No Record Found</td>
                             </tr>
-
+<?php }?>
                         
 
 
