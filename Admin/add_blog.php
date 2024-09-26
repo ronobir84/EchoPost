@@ -1,8 +1,8 @@
-<?php  ob_start() ?>
+<?php ob_start() ?>
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
-<?php 
+<?php
 if (isset($_POST['add_post'])) {
     $post_name = mysqli_real_escape_string($database, $_POST['post_name']);
     $file_name = $_FILES['images']['name'];
@@ -17,26 +17,23 @@ if (isset($_POST['add_post'])) {
     $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
     $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
 
-    if (in_array($image_ext , $allow_type)) {
-         if ($size <= 2000000) {
+    if (in_array($image_ext, $allow_type)) {
+        if ($size <= 2000000) {
             move_uploaded_file($tmp_name, $destination);
-            $sql3 = "INSERT INTO posts( post_title,  post_image, category_id,  user_id, post_content ) VALUES ('$post_name','$file_name','$category_name','$user_name','$post_body')";
+            $sql3 = "INSERT INTO `posts`( `post_title`, `post_image`, `post_content`, `user_id`, `category_id`) VALUES ('$post_name','$file_name','$post_body','$user_name','$category_name') ";
             $query3 = mysqli_query($database, $sql3);
             if ($query3) {
                 $_SESSION['post_succ'] = "Post Published Successful";
-                header("Location : blogs.php");
-            }else{
+                echo "<script>window.location.href='blogs.php'</script>";
+            } else {
                 $_SESSION['post_error'] = "Failed Please try again";
             }
-         }else{
+        } else {
             $_SESSION['img_error'] = "image size should be 2mb";
-
-         }
-    }else{
+        }
+    } else {
         $_SESSION['img_file'] = "File type is not allow";
     }
-     
-     
 }
 
 
@@ -83,22 +80,22 @@ if (isset($_POST['add_post'])) {
                 $sql2 = "SELECT * FROM categories";
                 $query2 = mysqli_query($database, $sql2);
                 $cats = mysqli_num_rows($query2);
-                
+
                 ?>
                 <select class="w-full py-[11px] cursor-pointer bg-gray-200 text-black  px-4 rounded" name="category_name">
                     <option value="">Select Categories</option>
-                    <?php 
+                    <?php
                     if ($cats) {
                         while ($cat = mysqli_fetch_assoc($query2)) {
-                            
-                       
-                    
+
+
+
                     ?>
-                    <option  value="<?php echo $cat['category_id'] ?>"><?php echo $cat['category_name'] ?></option>
+                            <option value="<?php echo $cat['category_id'] ?>"><?php echo $cat['category_name'] ?></option>
 
                     <?php  }
                     } ?>
-                     
+
 
                 </select>
 
@@ -111,20 +108,20 @@ if (isset($_POST['add_post'])) {
                 $sql = "SELECT * FROM users";
                 $query = mysqli_query($database, $sql);
                 $rows = mysqli_num_rows($query);
-                
+
                 ?>
                 <select class="w-full py-[11px] bg-gray-200 cursor-pointer text-black  px-4 rounded" name="user_name">
                     <option value="">Select User Name</option>
                     <?php
                     if ($rows) {
                         while ($row1 = mysqli_fetch_assoc($query)) {
-                             
-                        
-                    
+
+
+
                     ?>
-                    <option value="<?php echo $row1['user_id'] ?>"><?php echo $row1['user_name'] ?></option>
-                     <?php }
-                    }?>
+                            <option value="<?php echo $row1['user_id'] ?>"><?php echo $row1['user_name'] ?></option>
+                    <?php }
+                    } ?>
 
                 </select>
 
