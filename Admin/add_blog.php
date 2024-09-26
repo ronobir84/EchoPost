@@ -4,6 +4,12 @@
 <?php 
 if (isset($_POST['add_post'])) {
     $post_name = mysqli_real_escape_string($database, $_POST['post_name']);
+    $file_name = $_FILES['images']['name'];
+    $tmp_name = $_FILES['images']['tmp_name'];
+    $size = $_FILES['images']['size'];
+    $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $allow_type = ['jpg', 'png', 'jpeg'];
+    $destination = 'upload/' . $file_name;
      
      
 }
@@ -48,10 +54,26 @@ if (isset($_POST['add_post'])) {
 
             </div>
             <div class="mb-3">
-                <select class="w-full py-[11px] bg-gray-200 text-black  px-4 rounded" name="category_name">
+                <?php
+                $sql2 = "SELECT * FROM categories";
+                $query2 = mysqli_query($database, $sql2);
+                $cats = mysqli_num_rows($query2);
+                
+                ?>
+                <select class="w-full py-[11px] cursor-pointer bg-gray-200 text-black  px-4 rounded" name="category_name">
                     <option value="">Select Categories</option>
-                    <option value="1">Admin</option>
-                    <option value="0">CO-Admin</option>
+                    <?php 
+                    if ($cats) {
+                        while ($cat = mysqli_fetch_assoc($query2)) {
+                            
+                       
+                    
+                    ?>
+                    <option  value="<?php echo $cat['category_id'] ?>"><?php echo $cat['category_name'] ?></option>
+
+                    <?php  }
+                    } ?>
+                     
 
                 </select>
 
@@ -66,7 +88,7 @@ if (isset($_POST['add_post'])) {
                 $rows = mysqli_num_rows($query);
                 
                 ?>
-                <select class="w-full py-[11px] bg-gray-200 text-black  px-4 rounded" name="user_name">
+                <select class="w-full py-[11px] bg-gray-200 cursor-pointer text-black  px-4 rounded" name="user_name">
                     <option value="">Select User Name</option>
                     <?php
                     if ($rows) {
