@@ -85,10 +85,11 @@ if (!isset($_SESSION['user_data'])) {
                         </li>
 
 
+                       
                         <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9]   duration-500  w-44 " href="">
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "blogs.php" ? 'active' : ''; ?>" href="blogs.php">
                                 <i class="fa-solid fa-blog text-lg"></i>
-                                <button class="text-lg font-semibold ">Blog</button>
+                                <button class="text-lg font-semibold ">Blogs</button>
                             </a>
                         </li>
 
@@ -107,6 +108,8 @@ if (!isset($_SESSION['user_data'])) {
                                 <button class="text-lg font-semibold ">Users</button>
                             </a>
                         </li>
+
+
 
 
 
@@ -133,22 +136,21 @@ if (!isset($_SESSION['user_data'])) {
                                 <!-- 1 -->
                                 <div class="flex gap-4 items-center relative right-4">
                                     <h3 class="text-lg text-white  font-semibold">
-                                        <?php 
+                                        <?php
                                         if (isset($_SESSION['user_data'])) {
                                             $name_data = ucwords($_SESSION['user_data'][1]);
                                             echo $name_data;
                                         }
-                                        
+
                                         ?>
                                     </h3>
                                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 " type="button">
-                                        <?php 
+                                        <?php
                                         if (isset($_SESSION['user_data'])) {
                                             $image_data = $_SESSION['user_data'][2];
-                                             
                                         }
                                         ?>
-                                        <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data?>" alt="">
+                                        <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data ?>" alt="">
                                     </button>
                                 </div>
 

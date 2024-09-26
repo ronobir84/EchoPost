@@ -149,7 +149,7 @@ if (isset($_POST['add_user'])) {
             </div>
             <div class="mb-4">
                 <select class="w-full py-2.5 bg-gray-200 text-black  px-4 rounded" name="role">
-                    <option value="">Select Categories</option>
+                    <option value="">Select User Role</option>
                     <option value="1">Admin</option>
                     <option value="0">CO-Admin</option>
                    
