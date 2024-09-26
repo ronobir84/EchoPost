@@ -1,3 +1,4 @@
+<?php  ob_start() ?>
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
@@ -10,6 +11,30 @@ if (isset($_POST['add_post'])) {
     $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $allow_type = ['jpg', 'png', 'jpeg'];
     $destination = 'upload/' . $file_name;
+
+    $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
+
+    $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
+    $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
+
+    if (in_array($image_ext , $allow_type)) {
+         if ($size <= 2000000) {
+            move_uploaded_file($tmp_name, $destination);
+            $sql3 = "INSERT INTO posts( post_title,  post_image, category_id,  user_id, post_content ) VALUES ('$post_name','$file_name','$category_name','$user_name','$post_body')";
+            $query3 = mysqli_query($database, $sql3);
+            if ($query3) {
+                $_SESSION['post_succ'] = "Post Published Successful";
+                header("Location : blogs.php");
+            }else{
+                $_SESSION['post_error'] = "Failed Please try again";
+            }
+         }else{
+            $_SESSION['img_error'] = "image size should be 2mb";
+
+         }
+    }else{
+        $_SESSION['img_file'] = "File type is not allow";
+    }
      
      
 }
