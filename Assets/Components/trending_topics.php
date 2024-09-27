@@ -25,7 +25,7 @@
 
 
             ?>
-                    <div class="w-32 border ">
+                    <div class="w-32  ">
 
                         <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color'] ?>] duration-500  rounded-full bg-[<?php echo $row['category_color'] ?>]">
 

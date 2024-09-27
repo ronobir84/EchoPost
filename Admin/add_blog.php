@@ -5,6 +5,7 @@
 <?php
 if (isset($_POST['add_post'])) {
     $post_name = mysqli_real_escape_string($database, $_POST['post_name']);
+    $post_text = mysqli_real_escape_string($database, $_POST['post_text']);
     $file_name = $_FILES['images']['name'];
     $tmp_name = $_FILES['images']['tmp_name'];
     $size = $_FILES['images']['size'];
@@ -20,7 +21,7 @@ if (isset($_POST['add_post'])) {
     if (in_array($image_ext, $allow_type)) {
         if ($size <= 2000000) {
             move_uploaded_file($tmp_name, $destination);
-            $sql3 = "INSERT INTO `posts`( `post_title`, `post_image`, `post_content`, `user_id`, `category_id`) VALUES ('$post_name','$file_name','$post_body','$user_name','$category_name') ";
+            $sql3 = "INSERT INTO `posts`( `post_title`, `post_image`, `post_content`, `user_id`, `category_id`, `post_text`) VALUES ('$post_name','$file_name','$post_body','$user_name','$category_name', '$post_text') ";
             $query3 = mysqli_query($database, $sql3);
             if ($query3) {
                 $_SESSION['post_succ'] = "Post Published Successful";
@@ -66,6 +67,10 @@ if (isset($_POST['add_post'])) {
             <div class=" mb-3">
 
                 <input type="text" name="post_name" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" placeholder="Post Title" />
+            </div>
+            <div class=" mb-3">
+
+                <input type="text" name="post_text" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" placeholder="Post Text" />
             </div>
             <div class=" mb-2">
                 <input name="images" type="file" class="w-full p-[11px]  text-black bg-gray-200 cursor-pointer px-4 rounded focus:ring-1   transition ease-in-out duration-150">
