@@ -53,7 +53,7 @@
                     <!-- second section -->
                     <div class=" pt-12">
                         <div>
-                            <a href="Assets/Components/single_post.php?id=<?php echo $row['user_id']?>">
+                            <a href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
                                 <h1 class="text-2xl font-bold text-black hover:underline duration-300"><?php echo $row['post_title'] ?></h1>
                             </a>
                             <p class="  pt-8"><?php echo $row['post_text'] ?></p>
