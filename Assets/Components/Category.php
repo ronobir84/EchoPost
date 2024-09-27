@@ -1,3 +1,11 @@
+<?php
+include_once('./database.php');
+ 
+$sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id";
+$query = mysqli_query($database, $sql);
+$rows = mysqli_num_rows($query);
+?>
+
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
@@ -15,105 +23,52 @@
                     <!-- sidebar start -->
                     <div class="     py-2 flex flex-col   ">
 
-                        <ul class="basis-1/2">
-                            <!-- first category section -->
-                            <li>
-                                <div class="w-8 h-8 bg-blue-700 rounded relative right-11 top-[32px]">
-                                    <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm ">1</h3>
-                                </div>
-                                <button class="relative  flex gap-2 items-center   font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                    <span class="flex-1 text-2xl text-black font-bold">Fundamentals</span>
-                                    <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i>
-                                </button>
-                                <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4  border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                    <ol class="list-decimal relative left-7 px-4 space-y-2">
-                                        <li class="">Hello Lorem ipsum dolor sit amet, consectetur nnnnnnnnnnnnnnnnnnn hhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhhhhh</li>
-                                        <li>Hello Lorem ipsum dolor sit amet, consectetur nnnnnnnnnnnnnnnnnnn hhhhhhhhhhhhhhhhhh hhhhhhhhhhhhhhhhhhhhhhhh</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                    </ol>
-                                </div>
-                            </li>
+                        <?php
+                        if ($rows) {
+                            while ($row = mysqli_fetch_assoc($query)) {
 
 
-                            <!-- Second category section -->
-                            <li>
-                                <div class="w-8 h-8 bg-orange-400 rounded relative right-11 top-[32px]">
-                                    <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm ">2</h3>
-                                </div>
-                                <button class="relative  flex gap-2 items-center   font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                    <span class="flex-1 text-2xl text-black font-bold">HTML</span>
-                                    <i class="fa-solid fa-turn-down relative   text-xl font-bold text-black"></i>
-                                </button>
-                                <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                    <ol class="list-decimal relative left-8 ">
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                    </ol>
-                                </div>
-                            </li>
+
+                        ?>
+
+                                <ul class="basis-1/2">
+                                    <!-- first category section -->
+                                    <li>
+                                        <div class="w-8 h-8 bg-[<?php echo $row['category_color'] ?>] rounded relative right-11 top-[32px]">
+                                            <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm "><?php echo $row['category_id'] ?></h3>
+                                        </div>
+
+                                        <button class="relative  flex gap-6 items-center   font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
+                                            
+                                            <a class="hover:underline duration-500" href=""><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
+                                            <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i>
+                                        </button>
+                                        <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4  border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
+                                             
+                                             
+                                            <ol class="list-decimal relative left-7 px-4 space-y-2">
+                                                <li class=""><?php echo $row['post_title'] ?></li>
+                                                 
+                                                
+                                            </ol>
+
+                                            
+                                        </div>
+                                    </li>
 
 
-                            <!-- third category section -->
-                            <li>
-                                <div class="w-8 h-8 bg-yellow-400 rounded relative right-11 top-[32px]">
-                                    <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm ">3</h3>
-                                </div>
-                                <button class="relative  flex gap-2 items-center  font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                    <span class="flex-1 text-2xl text-black font-bold">Javascript</span>
-                                    <i class="fa-solid fa-turn-down relative   text-xl font-bold text-black"></i>
-                                </button>
-                                <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                    <ol class="list-decimal relative left-8 ">
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                    </ol>
-                                </div>
-                            </li>
 
 
-                            <!-- Four category section -->
-                            <li>
-                                <div class="w-8 h-8 bg-blue-500 rounded relative right-11 top-[32px]">
-                                    <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm ">3</h3>
-                                </div>
-                                <button class="relative  flex gap-2 items-center  font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                    <span class="flex-1 text-2xl text-black font-bold">Databases</span>
-                                    <i class="fa-solid fa-turn-down relative   text-xl font-bold text-black"></i>
-                                </button>
-                                <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                    <ol class="list-decimal relative left-8 ">
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                    </ol>
-                                </div>
-                            </li>
 
-                            <!-- five category section -->
-                            <li>
-                                <div class="w-8 h-8 bg-black rounded relative right-11 top-[32px]">
-                                    <h3 class="text-lg font-bold text-white pl-3 pt-0.5 shadow-sm ">3</h3>
-                                </div>
-                                <button class="relative  flex gap-2 items-center  font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                    <span class="flex-1 text-2xl text-black font-bold">Deployment</span>
-                                    <i class="fa-solid fa-turn-down relative   text-xl font-bold text-black"></i>
-                                </button>
-                                <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                    <ol class="list-decimal relative left-8 ">
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                        <li>Hello</li>
-                                    </ol>
-                                </div>
-                            </li>
-                        </ul>
+
+
+
+
+
+
+                                </ul>
+                        <?php  }
+                        } ?>
                     </div>
 
                     <script>

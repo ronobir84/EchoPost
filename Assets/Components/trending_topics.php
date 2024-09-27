@@ -1,4 +1,10 @@
 <div class="mt-20">
+    <?php
+    $sql = "SELECT * FROM categories";
+    $query = mysqli_query($database, $sql);
+    
+    
+    ?>
     <div class="flex justify-center  items-center">
         <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
         <img src="" alt="">

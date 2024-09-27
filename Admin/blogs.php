@@ -63,30 +63,48 @@
                     <tbody>
 
 
+                        <?php
+
+                        $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id";
+                        $query = mysqli_query($database, $sql);
+                        $rows = mysqli_num_rows($query);
+
+                        if ($rows) {
+                            while ($row = mysqli_fetch_assoc($query)) {
+
+
+
+                        ?>
 
 
 
 
-                        <tr class="text-center text-lg text-[#282424] font-medium">
 
 
-                            <td>1</td>
-                            <td>What is MySQL? Everything You Need to Know</td>
-                            <td>Javascript</td>
-                            <td>Ronobir</td>
-                            <td>12-03-2024</td>
-                            <td>
-                                <a href="">edit</a>
-                                <a href="">Delete</a>
-                                <a href="">View</a>
-                            </td>
+                                <tr class="text-center text-lg text-[#282424] font-medium">
 
+
+                                    <td><?php echo $row['post_id'] ?></td>
+                                    <td><?php echo $row['post_title']?></td>
+                                    <td><?php echo $row['category_name'] ?></td>
+                                    <td><?php echo $row['user_name']?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($row['publish_date']))?></td>
+                                    <td>
+                                        <a href="">edit</a>
+                                        <a href="">Delete</a>
+                                        <a href="">View</a>
+                                    </td>
+
+                                </tr>
+                        <?php }
+                        }else{ ?>
+
+                        <tr>
+                            <td colspan="6">No Record Found</td>
                         </tr>
 
-
-                        <!-- <tr>
-                            <td colspan="7">No Record Found</td>
-                        </tr> -->
+                        <?php }
+                    ?>
 
 
 
