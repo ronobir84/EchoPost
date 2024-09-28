@@ -25,12 +25,35 @@
         font-size: 22px;
     }
 
-    .Article_box_min{
+    .Article_box_min {
         width: 400px;
         height: 250px;
-        border: 2px solid black;
+        border: 2px solid gray;
+        padding: 30px 0px 0px 50px;
+        background-color: white;
+        box-shadow: 5px 5px 5px darkgray;
+        border-radius: 7px;
+        margin-top: 15px;
+
     }
 
+    .Category_min {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding-bottom: 20px;
+
+    }
+
+    .fa-lg {
+        color: #6A4EE9;
+    }
+
+    .Category_name {
+        font-size: medium;
+        color: #6A4EE9;
+
+    }
 </style>
 
 
@@ -46,6 +69,26 @@
         </div>
         <!-- Article box -->
         <div class="Article_box_min">
+            <div>
+                <div class="Category_min">
+                    <i class="fa-solid fa-tag fa-lg"></i>
+                    <h4 class="Category_name">Category: CSS</h4>
+                </div>
+                <div class="Category_min">
+                    <i class="fa-regular fa-clock fa-lg"></i>
+                    <h4 class="Category_name">Updated: Mar 27, 2024</h4>
+                </div>
+                <div class="Category_min">
+                    <i class="fa-regular fa-user fa-lg"></i>
+
+                    <h4 class="Category_name">Author: Jonathan Doe</h4>
+                </div>
+                <div class="Category_min">
+                    <i class="fa-solid fa-stopwatch fa-lg"></i>
+
+                    <h4 class="Category_name">Reading time: 1 Min</h4>
+                </div>
+            </div>
 
         </div>
 
