@@ -10,7 +10,29 @@
 </head>
 
 <body>
-    <h2 id="hello_h2">Hello</h2>
+    <!-- banner section first -->
+     <section>
+    
+            <div>
+                <div class="banner_1">
+                    <div>
+                         
+
+                    </div>
+                    <div></div>
+
+
+                </div>
+
+
+            </div>
+    
+     </section>
+
+
+
+
+
 
 </body>
 
