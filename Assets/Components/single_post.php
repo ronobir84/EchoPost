@@ -193,6 +193,7 @@
             border-width: 5px;
             border-style: solid;
             border-color: #333 transparent transparent transparent;
+            
         }
     </style>
 
@@ -243,7 +244,8 @@
 
 
 <section>
-    
+    <?php include_once('post_min.php') ?>
+
 </section>
 
 

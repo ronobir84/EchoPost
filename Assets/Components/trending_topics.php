@@ -12,7 +12,7 @@
         <img src="" alt="">
         <h2 class="text-xl text-black font-bold text-center">Trending Topics</h2>
     </div>
-    <div class="w-10/12 bg-white shadow-md mt-10  rounded-full py-3 mx-auto ">
+    <div class="w-10/12  bg-white shadow-md mt-10  rounded-full py-3 mx-auto ">
 
         <div class="flex justify-between px-16">
 

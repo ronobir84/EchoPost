@@ -18,7 +18,7 @@
     ?>
             <!-- first post -->
 
-            <div class="w-[900px]  h-80  relative bg-white shadow-md shrink rounded-sm ">
+            <div class="w-[900px]   h-80  relative bg-white shadow-md shrink rounded-sm ">
                 <div class="flex  gap-5">
                     <!-- fist section -->
                     <div class="w-64 b">

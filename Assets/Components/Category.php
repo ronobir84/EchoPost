@@ -9,7 +9,7 @@ $rows = mysqli_num_rows($query);
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div class="flex justify-between px-16">
+        <div class="flex justify-between px-20">
             <!-- category section -->
             <div>
 
