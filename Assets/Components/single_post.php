@@ -100,15 +100,100 @@
             background-color: white;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 50px;
+            margin-top: 40px;
             box-shadow: 10px 5px 5px darkgray;
             border-radius: 1px;
         }
 
         .nav_title {
             display: flex;
+            gap: 13px;
+            align-items: center;
+            padding-left: 6%;
+            padding-top: 24px;
         }
-        
+
+        .h3_min {
+            font-size: 22px;
+            color: black;
+            font-weight: 600;
+        }
+
+        .a_1 {
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-weight: 700;
+
+        }
+
+        .a_1:hover {
+            color: #6A4EE9;
+            transition-duration: 500ms;
+        }
+
+        /* home page button */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip button {
+            background-color: #1F2937;
+            color: #fff;
+            border: none;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            left: 75px;
+            /* bottom: 2px; */
+            top: 20px;
+            border-radius: 100%;
+
+
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s ease-out;
+        }
+
+        .tooltip button:hover {
+
+            transform: scale(1.05);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltiptext {
+            visibility: hidden;
+            width: 160px;
+            background-color: #1F2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 10px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 78%;
+
+            /* margin-left: -80px; */
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
     </style>
 
 
@@ -130,11 +215,19 @@
 
 
         </div>
+        <div>
+            <div class="tooltip">
+                <a href="../../index.php">
+                    <button><i class="fa-solid fa-house"></i></button>
+                </a>
+                <div class="tooltiptext">BACK TO HOME!</div>
+            </div>
+        </div>
         <div class="nav_item">
             <div class="nav_title">
-                <i class="fa-solid fa-chevron-right icon-min"></i>
+                <i class="fa-solid fa-chevron-right icon-min fa-lg"></i>
                 <h3 class="h3_min">Post Title</h3>
-                <i class="fa-solid fa-chevron-right icon-min"></i>
+                <i class="fa-solid fa-chevron-right icon-min fa-lg"></i>
                 <a class="a_1" href="">
                     <h3 class="h3_title">hello title</h3>
                 </a>
@@ -143,7 +236,15 @@
         </div>
 
     </section>
-    <!-- na -->
+
+
+
+<!-- post section -->
+
+
+<section>
+    
+</section>
 
 
 
