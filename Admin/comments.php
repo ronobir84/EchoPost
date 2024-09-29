@@ -59,7 +59,7 @@
                             <td>3</td>
                             <td>priash</td>
                             <td>ab@gmail.com</td>
-                            <td> <a href="">
+                            <td> <a href="view_comment.php">
                                     <i class="fa-regular fa-comment-dots fa-xl text-green-700"></i>
                                 </a> </td>
                             <td>

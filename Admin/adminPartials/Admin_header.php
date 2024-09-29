@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_data'])) {
     <meta name="author" content="">
     <title>EchoPost Admin</title>
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
-
+     
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
