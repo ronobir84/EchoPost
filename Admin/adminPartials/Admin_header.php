@@ -108,6 +108,12 @@ if (!isset($_SESSION['user_data'])) {
                                 <button class="text-lg font-semibold ">Users</button>
                             </a>
                         </li>
+                        <li>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 " href=" comments.php">
+                                <i class="fa-solid fa-user text-lg"></i>
+                                <button class="text-lg font-semibold ">Comments</button>
+                            </a>
+                        </li>
 
 
 
