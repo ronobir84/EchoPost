@@ -106,7 +106,8 @@
     }
 
     .post_second {
-        padding: 40px 80px 15px 80px;
+        padding: 40px 80px 35px 80px;
+
 
 
     }
@@ -173,6 +174,18 @@
 </style>
 
 
+<?php 
+
+
+
+
+
+
+
+
+?>
+
+
 
 <section class="min_container">
     <div class="flex_min_container">
@@ -189,21 +202,21 @@
                 <div>
                     <div class="Category_min">
                         <i class="fa-solid fa-tag fa-lg"></i>
-                        <h4 class="Category_name">Category: CSS</h4>
+                        <h4 class="Category_name">Category : <?php echo $result['category_name'] ?></h4>
                     </div>
                     <div class="Category_min">
                         <i class="fa-regular fa-clock fa-lg"></i>
-                        <h4 class="Category_name">Updated: Mar 27, 2024</h4>
+                        <h4 class="Category_name">Updated: <?php echo date("F m,  Y", strtotime($result['publish_date'])) ?></h4>
                     </div>
                     <div class="Category_min">
                         <i class="fa-regular fa-user fa-lg"></i>
 
-                        <h4 class="Category_name">Author: Jonathan Doe</h4>
+                        <h4 class="Category_name">Author: <?php echo ucwords($result['user_name']) ?></h4>
                     </div>
                     <div class="Category_min">
                         <i class="fa-solid fa-stopwatch fa-lg"></i>
 
-                        <h4 class="Category_name">Reading time: 1 Min</h4>
+                        <h4 class="Category_name">Reading time: <?php echo date("i", strtotime($result['publish_date'])) ?> Min</h4>
                     </div>
                     <div class="Category_min">
                         <i class="fa-solid fa-award  fa-lg"></i>
@@ -260,7 +273,7 @@
         <div class="">
             <div class="post_container">
                 <div class="post_second">
-                    <h1 class="post_min_h1">Crafting Engaging CSS Animations step by step guide</h1>
+                    <h1 class="post_min_h1"><?php echo $result['post_title'] ?></h1>
                     <div style="justify-content: center; padding-top: 25px;" class="Category_min">
                         <i class="fa-regular fa-calendar fa-lg"></i>
 
@@ -268,7 +281,7 @@
                         <h4 class="Category_name"> Published: Jan 19, 2024</h4>
                     </div>
                     <div>
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti, voluptates similique architecto tempore expedita excepturi fugit blanditiis nulla, nihil natus dicta provident explicabo odio quo dolor eum veritatis ea repellendus quod ipsam harum eveniet. Esse, modi rem? Asperiores porro veniam minima voluptates sapiente nam iusto in iure praesentium ipsam ad cum fugit eum explicabo tenetur omnis quibusdam similique, et fuga ipsa corporis officia. Dolore ad alias dicta ipsum, iste maxime iusto earum porro atque omnis sapiente voluptate dignissimos laudantium doloremque magni odio accusamus delectus perferendis! Debitis corporis porro animi praesentium laboriosam culpa, sit perspiciatis dolorem, omnis distinctio quia facere officia beatae minus. Pariatur tenetur, laborum quae enim incidunt excepturi neque atque rem ex consequuntur illum eligendi autem! Ducimus animi repudiandae nisi, consectetur cupiditate voluptatem accusamus, cum saepe laborum nostrum inventore commodi corrupti dolore dolores. Quasi ad a, reprehenderit distinctio voluptas adipisci quas ipsa cum laudantium et pariatur odit alias. Quasi dicta distinctio dolore accusamus delectus deserunt ipsa error vero officia! Dicta fugit obcaecati aut omnis consectetur nisi nemo. Cum excepturi sed, incidunt fugit vero cupiditate ut harum laboriosam suscipit a eligendi accusamus facilis praesentium laudantium voluptates nemo reprehenderit nesciunt ullam voluptatum ducimus possimus qui. Sint ducimus aliquam voluptate ab.</h3>
+                        <h3><?php echo $result['post_content'] ?></h3>
                     </div>
                 </div>
             </div>

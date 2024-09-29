@@ -1,6 +1,6 @@
 <?php
 ob_start();
-include_once('./database.php');
+include_once('../../database.php');
 
 $id = $_GET['id'];
 
@@ -247,7 +247,7 @@ $result = mysqli_fetch_assoc($query);
                 <h3 class="h3_min">Post Title</h3>
                 <i class="fa-solid fa-chevron-right icon-min fa-lg"></i>
                 <a class="a_1" href="">
-                    <h3 class="h3_title">hello title</h3>
+                    <h3 class="h3_title"><?php echo $result['post_title']?></h3>
                 </a>
             </div>
 
