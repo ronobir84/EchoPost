@@ -112,9 +112,63 @@
     }
 
     .comment_min {
-        width: 500px;
+        width: 100%;
         height: 400px;
-        border: 2px solid black;
+        /* border: 2px solid black; */
+        margin-top: 50px;
+    }
+
+
+
+
+
+
+
+
+    textarea {
+        width: 100%;
+        height: 200px;
+        padding: 12px 30px;
+        box-sizing: border-box;
+        box-shadow: 1px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: white;
+        font-size: 20px;
+        resize: none;
+
+    }
+
+    .input_1 {
+        width: 50%;
+        height: 49px;
+        border: 2px solid #ccc;
+        padding: 0px 15px;
+        font-size: 16px;
+        color: black;
+    }
+
+    .input_div {
+        display: flex;
+        gap: 20px;
+        margin-top: 15px;
+    }
+
+    .banner_button1 {
+        padding: 10px 20px;
+        background-color: #6A4EE9;
+        color: white;
+        font-size: larger;
+        font-weight: 600;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 18px;
+    }
+
+    .banner_button1:hover {
+        background-color: #282424;
+        transition-duration: 500ms;
     }
 </style>
 
@@ -225,11 +279,23 @@
 
 
 
-
             <!-- comment section -->
 
 
             <div class="comment_min">
+                <form method="post" action="">
+                    <div>
+                        <textarea>Comment...</textarea>
+                    </div>
+                    <div class="input_div">
+                        <input class="input_1" type="text" name="connect_name" placeholder="Name">
+                        <input class="input_1" type="text" name="Email" placeholder="Email">
+                    </div>
+                    <div>
+                        <button class="banner_button1">Post Comment</button>
+                    </div>
+
+                </form>
 
             </div>
 
