@@ -91,15 +91,30 @@
     }
 
     .post_container {
-        width: 80%;
-        height: 500px;
-        box-shadow: 4px 4px  darkgray;
+        width: 100%;
+
+        box-shadow: 4px 4px darkgray;
         border-radius: 7px;
         border: 2px solid #b0b9c5;
         margin-top: 40px;
+        background-color: white;
+    }
+
+    .post_min_h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .post_second {
+        padding: 40px 80px 15px 80px;
 
 
+    }
 
+    .comment_min {
+        width: 500px;
+        height: 400px;
+        border: 2px solid black;
     }
 </style>
 
@@ -188,12 +203,37 @@
         <!-- post left side -->
 
 
-        <div class="post_container">
-            <!-- min content -->
+        <div class="">
+            <div class="post_container">
+                <div class="post_second">
+                    <h1 class="post_min_h1">Crafting Engaging CSS Animations step by step guide</h1>
+                    <div style="justify-content: center; padding-top: 25px;" class="Category_min">
+                        <i class="fa-regular fa-calendar fa-lg"></i>
+
+
+                        <h4 class="Category_name"> Published: Jan 19, 2024</h4>
+                    </div>
+                    <div>
+                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur corrupti, voluptates similique architecto tempore expedita excepturi fugit blanditiis nulla, nihil natus dicta provident explicabo odio quo dolor eum veritatis ea repellendus quod ipsam harum eveniet. Esse, modi rem? Asperiores porro veniam minima voluptates sapiente nam iusto in iure praesentium ipsam ad cum fugit eum explicabo tenetur omnis quibusdam similique, et fuga ipsa corporis officia. Dolore ad alias dicta ipsum, iste maxime iusto earum porro atque omnis sapiente voluptate dignissimos laudantium doloremque magni odio accusamus delectus perferendis! Debitis corporis porro animi praesentium laboriosam culpa, sit perspiciatis dolorem, omnis distinctio quia facere officia beatae minus. Pariatur tenetur, laborum quae enim incidunt excepturi neque atque rem ex consequuntur illum eligendi autem! Ducimus animi repudiandae nisi, consectetur cupiditate voluptatem accusamus, cum saepe laborum nostrum inventore commodi corrupti dolore dolores. Quasi ad a, reprehenderit distinctio voluptas adipisci quas ipsa cum laudantium et pariatur odit alias. Quasi dicta distinctio dolore accusamus delectus deserunt ipsa error vero officia! Dicta fugit obcaecati aut omnis consectetur nisi nemo. Cum excepturi sed, incidunt fugit vero cupiditate ut harum laboriosam suscipit a eligendi accusamus facilis praesentium laudantium voluptates nemo reprehenderit nesciunt ullam voluptatum ducimus possimus qui. Sint ducimus aliquam voluptate ab.</h3>
+                    </div>
+                </div>
+            </div>
 
 
 
+
+
+
+
+
+            <!-- comment section -->
+
+
+            <div class="comment_min">
+
+            </div>
 
         </div>
+
     </div>
 </section>
