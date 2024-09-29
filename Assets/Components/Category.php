@@ -9,7 +9,7 @@ $rows = mysqli_num_rows($query);
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div class="flex justify-between px-20">
+        <div class="flex justify-between px-16">
             <!-- category section -->
             <div>
 
@@ -47,7 +47,9 @@ $rows = mysqli_num_rows($query);
                                              
                                              
                                             <ol class="list-decimal relative left-7 px-4 space-y-2">
-                                                <li class=""><?php echo $row['post_title'] ?></li>
+                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
+                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
+                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
                                                  
                                                 
                                             </ol>

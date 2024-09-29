@@ -174,7 +174,7 @@
 </style>
 
 
-<?php 
+<?php
 
 
 
@@ -206,7 +206,7 @@
                     </div>
                     <div class="Category_min">
                         <i class="fa-regular fa-clock fa-lg"></i>
-                        <h4 class="Category_name">Updated: <?php echo date("F m,  Y", strtotime($result['publish_date'])) ?></h4>
+                        <h4 class="Category_name">Updated: <?php echo date("M  j,  Y", strtotime($result['publish_date'])) ?></h4>
                     </div>
                     <div class="Category_min">
                         <i class="fa-regular fa-user fa-lg"></i>
@@ -278,7 +278,7 @@
                         <i class="fa-regular fa-calendar fa-lg"></i>
 
 
-                        <h4 class="Category_name"> Published: Jan 19, 2024</h4>
+                        <h4 class="Category_name"> Published: <?php echo date("M  j,  Y", strtotime($result['publish_date'])) ?></h4>
                     </div>
                     <div>
                         <h3><?php echo $result['post_content'] ?></h3>
