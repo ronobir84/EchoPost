@@ -1,4 +1,17 @@
+<?php
+ob_start();
+include_once('./database.php');
 
+$id = $_GET['id'];
+
+
+$sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id WHERE post_id = '$id'";
+
+$query = mysqli_query($database, $sql);
+$result = mysqli_fetch_assoc($query);
+
+
+?>
 
 
 
