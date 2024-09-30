@@ -1,20 +1,42 @@
  <?php
- include_once('database.php');
+    include_once('database.php');
 
     if (isset($_POST['add_register'])) {
         // user name 
-     $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
-     if (strlen($user_name) < 4 || strlen($user_name) > 100) {
+        $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
+        if (strlen($user_name) < 4 || strlen($user_name) > 100) {
             $error = 'User Name Must be 4 Character please';
-     }
+          
+        }
 
-    //  user email
+        //  user email
 
-     $user_email = mysqli_real_escape_string($database , $_POST['user_email']);
-     $sql = "SELECT * FROM post_users WHERE post_user_email = '$user_email'";
-   
-      
+        $user_email = mysqli_real_escape_string($database, $_POST['user_email']);
+        $sql = "SELECT * FROM post_users WHERE post_user_email = '$user_email'";
+        $query = mysqli_query($database, $sql);
+        $row = mysqli_num_rows($query);
+        if ($row >= 1) {
+            $error = "Email Already Exist";
+          
+        }
 
+
+        // user  password
+
+        $user_password  = mysqli_real_escape_string($database, $_POST['user_password']);
+        $confirm_password = mysqli_real_escape_string($database, $_POST['confirm_password']);
+        if (strlen($user_password) < 4) {
+         $error = "Password Must be 4 Character please";
+         
+        }elseif($user_password != $confirm_password){
+         $error = "Password doesn't Not Match";
+          
+        }
+
+
+        // user image 
+
+        
     }
 
 

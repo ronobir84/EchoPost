@@ -15,7 +15,7 @@ if (isset($_POST['add_user'])) {
     $row = mysqli_num_rows($query);
     if ($row >= 1) {
         $error = "Email Already Exist";
-        echo $error;
+        // echo $error;
     }
     // user Password
     $user_password = mysqli_real_escape_string($database, $_POST['user_password']);
