@@ -1,6 +1,12 @@
 <?php
 
 
+if ($_POST['login']) {
+     $user_name = mysqli_real_escape_string($database , $_POST['username'])
+     
+}
+
+
 
 
 

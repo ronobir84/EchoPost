@@ -52,9 +52,10 @@
                  </a>
              </div>
              <div class=" flex gap-7 ">
-                 <button class="px-5   md:block py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
-                     Subscribe
-                 </button>
+                 <div class="flex items-center gap-4 relative right-10">
+                     <h2 class="text-lg text-black  font-semibold">Ronobir</h2>
+                     <img class="w-12 h-12 rounded-full" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+                 </div>
                  <div class="drawer drawer-end s">
                      <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
                      <div class="drawer-content">

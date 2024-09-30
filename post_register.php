@@ -1,4 +1,5 @@
  <?php
+ ob_start();
     include_once('database.php');
 
     if (isset($_POST['add_register'])) {
@@ -47,14 +48,22 @@
      if (in_array($image_ext, $allow_type)) {
         if ($size <= 2000000) {
              move_uploaded_file($tmp_name, $destination);
-             $sql2 = "INSERT INTO post_users(post_user_name, post_user_email, post_user_password,  images) VALUES ('$user_name','$user_email','$user_password','$file_name')"
+             $sql2 = "INSERT INTO post_users(post_user_name, post_user_email, post_user_password,  images) VALUES ('$user_name','$user_email','$user_password','$file_name')";
+
+             $query2 = mysqli_query($database, $sql2);
+             if ($query2) {
+                 $_SESSION['register_succ'] = "User Register Successful";
+                 header("Location: login.php");
+             }else{
+                 $_SESSION['register_error'] = "Failed Please try Agin";
+             }
             
         }else{
-            // code
+             $error = "Image size should be 2mb";
         }
         
      }else{
-        // code 
+         $error = "file type is not allow";
      }
     }
 
