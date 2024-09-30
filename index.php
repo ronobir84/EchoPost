@@ -1,32 +1,44 @@
-<?php include_once('./Assets/Components/header.php') ?>
+ <?php
 
-<!-- banner  section-->
-<?php include_once('./Assets/Components/banner.php') ?>
+    $base_url = 'http://localhost/EchoPost/';
 
-
-
-
-<!-- Trending Topics section-->
-
-<?php include_once('./Assets/Components/trending_topics.php') ?>
-
-
-<!-- category and and sidebar post -->
-
-<?php include_once('./Assets/Components/Category.php') ?>
+    include_once('./Assets/Components/header.php') ?>
 
 
 
 
+ <?php
+
+
+    ?>
+
+ <!-- banner  section-->
+ <?php include_once('./Assets/Components/banner.php') ?>
 
 
 
 
-<!-- community_banner -->
+ <!-- Trending Topics section-->
 
-<?php include_once('./Assets/Components/community_banner.php')?>
+ <?php include_once('./Assets/Components/trending_topics.php') ?>
 
 
-<!-- #Footer Component Here -->
+ <!-- category and and sidebar post -->
 
-<?php include_once('./Assets/Components/footer.php') ?>
+ <?php include_once('./Assets/Components/Category.php') ?>
+
+
+
+
+
+
+
+
+ <!-- community_banner -->
+
+ <?php include_once('./Assets/Components/community_banner.php') ?>
+
+
+ <!-- #Footer Component Here -->
+
+ <?php include_once('./Assets/Components/footer.php') ?>

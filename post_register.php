@@ -42,7 +42,7 @@
      $size = $_FILES['images']['size'];
      $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
      $allow_type = ['jpg', 'png', 'jpeg'];
-     $destination = "upload/" . $file_name;
+     $destination = "./Admin/upload/" . $file_name;
 
 
      if (in_array($image_ext, $allow_type)) {
@@ -53,7 +53,7 @@
              $query2 = mysqli_query($database, $sql2);
              if ($query2) {
                  $_SESSION['register_succ'] = "User Register Successful";
-                 header("Location: login.php");
+                 header("Location: Echo_post.php");
              }else{
                  $_SESSION['register_error'] = "Failed Please try Agin";
              }
@@ -94,7 +94,7 @@
 
  <body>
      <div class="group absolute ml-[7%] mt-14 inline-block  ">
-         <a href="login.php">
+         <a href="Echo_post.php">
              <button class="focus:outline-none  ">
 
                  <i class="fa-solid fa-arrow-left text-lg  w-12 h-12  p-2  duration-500 hover:bg-[#17082D] border-2 border-[#282424] hover:text-white  text-[#17082D] rounded-full"></i>

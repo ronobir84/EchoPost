@@ -4,7 +4,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
 include_once('../database.php');
 
 if (!isset($_SESSION['user_data'])) {
-    header("Location: http://localhost/EchoPost/login.php");
+    header("Location: http://localhost/EchoPost/admin_login.php");
 }
 
 ?>
@@ -147,6 +147,7 @@ if (!isset($_SESSION['user_data'])) {
                                         if (isset($_SESSION['user_data'])) {
                                             $name_data = ucwords($_SESSION['user_data'][1]);
                                             echo $name_data;
+                                             
                                         }
 
                                         ?>
@@ -155,6 +156,8 @@ if (!isset($_SESSION['user_data'])) {
                                         <?php
                                         if (isset($_SESSION['user_data'])) {
                                             $image_data = $_SESSION['user_data'][2];
+                                            var_dump($image_data);
+                                             
                                         }
                                         ?>
                                         <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data ?>" alt="">

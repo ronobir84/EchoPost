@@ -1,4 +1,15 @@
+ <? ob_start() ?>
  <?php session_start() ?>
+
+ <?php
+    include_once('./database.php');
+    if (!isset($_SESSION['min_user_data'])) {
+        echo "<script>window.location.href='http://localhost/EchoPost/Echo_post.php'</script>";
+    }
+
+
+    ?>
+
 
  <!DOCTYPE html>
  <html lang="en">
@@ -22,19 +33,7 @@
 
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
  </head>
- <?php
 
-
-    // $image2 = '<img class="w-5 h-5" src="./Assets/Images/footer_image/pink-star (1).png" alt="">';
-    // $_SESSION['image2'] = $image2;
-
-
-
-
-
-
-
-    ?>
  <header id="header_component" class="py-5">
      <nav class="current__header  w-10/12  z-50 bg-white rounded-full border border-black-200 text-black duration-150 px-8">
          <div class="navbar justify-between ">
@@ -51,11 +50,44 @@
 
                  </a>
              </div>
-             <div class=" flex gap-7 ">
-                 <div class="flex items-center gap-4 relative right-10">
-                     <h2 class="text-lg text-black  font-semibold">Ronobir</h2>
-                     <img class="w-12 h-12 rounded-full" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+
+             <div class="   ">
+                 <div class="relative right-6 flex gap-4 items-center">
+                     <h2 class="text-[#6A4EE9] font-semibold text-lg">
+                         <?php if (isset($_SESSION['min_user_data'])) {
+                                $user_name = $_SESSION['min_user_data'][1];
+                                echo $user_name;
+                            } ?>
+                     </h2>
+
+                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" duration-500 w-12 object-cover  " type="button">
+                         <?php
+                            if (isset($_SESSION['min_user_data'])) {
+                                $user_image = $_SESSION['min_user_data'][4];
+                            }
+                            ?>
+                         <img class=" rounded-full h-12" src="<?php echo $base_url; ?>Admin/upload/<?php echo $user_image ?> " alt="bb">
+
+
+                     </button>
+                     <!-- Dropdown menu -->
+                     <div id="dropdownAvatar" class="z-10 hidden   border  shadow-md w-44 py-4 bg-white">
+
+                         <ul class="py-3  font-semibold text-lg text-black text-center" aria-labelledby="dropdownUserAvatarButton">
+                             <li>
+                                 <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
+                             </li>
+                             <li>
+                                 <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Settings</a>
+                             </li>
+                             <li>
+                                 <a href="post_logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Logout</a>
+                             </li>
+                         </ul>
+
+                     </div>
                  </div>
+
                  <div class="drawer drawer-end s">
                      <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
                      <div class="drawer-content">
@@ -179,7 +211,7 @@
 
 
                                  <li>
-                                     <a href="./login.php">
+                                     <a href="./admin_login.php">
                                          <button class="px-5  mt-4   md:block py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
                                              Sign In
                                          </button>

@@ -17,11 +17,13 @@ if (isset($_POST['login'])) {
     if ($data) {
         $result = mysqli_fetch_assoc($query);
         $user_data = array($result['user_id'], $result['user_name'], $result['user_image'], $result['user_role']);
+         
+
         $_SESSION['user_data'] = $user_data;
         echo "<script>window.location.href='./Admin/index.php'</script>";
     } else {
         $_SESSION['error'] = "Invalid Email/Password!!";
-        echo "<script>window.location.href='login.php'</script>";
+        echo "<script>window.location.href='admin_login.php'</script>";
     }
 }
 
