@@ -180,6 +180,19 @@
 
 
 
+include_once('../../database.php');
+
+if (isset($_POST['comment_post'])) {
+    $comment_content = mysqli_real_escape_string($database, $_POST['comment_content']);
+    $Author_name = mysqli_real_escape_string($database, $_POST['Author_name']);
+    $Author_email = mysqli_real_escape_string($database, $_POST['Author_email']);
+    $post_id = mysqli_real_escape_string($database, $_GET['id']);
+
+    echo $comment_content . "<br>" . $Author_name . "<br>" . $post_id;
+   
+    
+     
+}
 
 
 
@@ -298,14 +311,14 @@
             <div class="comment_min">
                 <form method="post" action="">
                     <div>
-                        <textarea>Comment...</textarea>
+                        <textarea name="comment_content">Comment...</textarea>
                     </div>
                     <div class="input_div">
-                        <input class="input_1" type="text" name="connect_name" placeholder="Name">
-                        <input class="input_1" type="text" name="Email" placeholder="Email">
+                        <input  class="input_1" type="text" name="Author_name" placeholder="Name">
+                        <input class="input_1" type="email" name="Author_email" placeholder="Email">
                     </div>
                     <div>
-                        <button class="banner_button1">Post Comment</button>
+                        <button name="comment_post" class="banner_button1">Post Comment</button>
                     </div>
 
                 </form>
@@ -316,3 +329,17 @@
 
     </div>
 </section>
+
+
+
+
+
+
+
+<?php
+
+
+
+
+
+?>

@@ -1,4 +1,14 @@
-<?php include_once('./adminPartials/Admin_header.php') ?>
+<?php include_once('./adminPartials/Admin_header.php');
+
+ 
+
+
+if (isset($_SESSION['user_data'])) {
+    $user_id = $_SESSION['user_data'][0];
+    var_dump($user_id);
+}
+
+?>
 
 
 <div class="group absolute ml-[3%] mt-14 inline-block  ">
@@ -34,13 +44,13 @@
                     <div class="rounded   w-8 aspect-square p-1.5">
 
                     </div>
-                    <p class="mx-2 p-4 rounded bg-[#86EFAC] leading-4 text-lg text-[#6A4EE9] font-semibold">Hi there 👋<br>How can I help you today?</p>
+                    <p class="mx-2 p-4 rounded bg-[#86EFAC] leading-4 text-lg text-[#6A4EE9] font-semibold">Hi there 👋 How can I help you today?</p>
                 </div>
 
             </div>
             <div class="flex items-center px-10 gap-5 mt-6">
-                <input class="border-2 border-black w-[90%] h-11 px-4 rounded-sm" placeholder="Replay The Comment" type="text" name="" id="">
-                <button type="submit" class="w-12 rounded-full bg-[#86EFAC] h-12 border">
+                <input class="border-[1px] border-gray-500 w-[90%] h-12 px-4 rounded-sm" placeholder="Replay The Comment" type="text" name="" id="">
+                <button   class="w-12 rounded-full bg-[#86EFAC] h-12 border">
                     <i class="fa-solid fa-arrow-right fa-lg  text-[#6A4EE9] "></i>
 
                 </button>

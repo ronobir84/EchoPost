@@ -1,5 +1,29 @@
 <?php
+session_start();
+ob_start();
+include_once('database.php');
 
+if (isset($_SESSION['user_data'])) {
+    echo "<script>window.location.href='http://localhost/EchoPost/Admin/index.php'</script>";
+}
+
+
+if (isset($_POST['login'])) {
+    $user_email = mysqli_real_escape_string($database, $_POST['username']);
+    $user_password = mysqli_real_escape_string($database, $_POST['password']);
+    $sql = "SELECT * FROM users WHERE user_email = '$user_email' AND user_password = '$user_password'";
+    $query = mysqli_query($database, $sql);
+    $data = mysqli_num_rows($query);
+    if ($data) {
+        $result = mysqli_fetch_assoc($query);
+        $user_data = array($result['user_id'], $result['user_name'], $result['user_image'], $result['user_role']);
+        $_SESSION['user_data'] = $user_data;
+        echo "<script>window.location.href='./Admin/index.php'</script>";
+    } else {
+        $_SESSION['error'] = "Invalid Email/Password!!";
+        echo "<script>window.location.href='login.php'</script>";
+    }
+}
 
 
 
@@ -48,7 +72,17 @@
     <div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
 
         <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
+            <?php
+            if (isset($_SESSION['error'])) {
+                $error = $_SESSION['error'];
 
+
+                echo "<p class='text-xl font-bold text-red-600 absolute mt-14 text-center ml-[18%]'>" . $error . "</p>";
+                // unset($_SESSION['error']);
+                unset($_SESSION['error']);
+            }
+
+            ?>
             <div class="bg-[#6A4EE9] shadow shadow-gray-200 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="#FFF">
                     <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z" />
@@ -77,15 +111,8 @@
 
 
                 </div>
-                <button name="login" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold p-2.5 text-white  text-lg  w-full rounded">Login</button>
-                <div class="flex justify-between items-center">
-                    <a class="text-xl font-bold text-[#6A4EE9] relative top-4 hover:text-blue-400 duration-300" href="post_register.php">
-                        Register
-                    </a>
-                    <a class="text-xl font-bold text-[#6A4EE9] relative top-4 hover:text-blue-400 duration-300" href="admin_login.php">
-                        Admin Login
-                    </a>
-                </div>
+                <button name="login" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold p-2 md:p-4 text-white  text-lg  w-full rounded">Admin Login</button>
+
             </form>
         </div>
     </div>
