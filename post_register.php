@@ -35,8 +35,21 @@
 
 
         // user image 
+ 
+     $file_name = $_FILES['images'] ['name'];
+     $tmp_name = $_FILES['images']['tmp_name'];
+     $size = $_FILES['images']['size'];
+     $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+     $allow_type = ['jpg', 'png', 'jpeg'];
+     $destination = "upload/" . $file_name;
 
+
+     if (in_array($image_ext, $allow_type)) {
+        if ($size <= 2000000) {
+            
+        }
         
+     }
     }
 
 
