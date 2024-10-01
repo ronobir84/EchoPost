@@ -168,7 +168,7 @@
 
 
                  <button name="add_register" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold p-2.5 text-white  w-full rounded">Register</button>
-                 <a class="text-xl font-bold text-[#6A4EE9] relative top-4 hover:text-blue-400 duration-300" href="login.php">
+                 <a class="text-xl font-bold text-[#6A4EE9] relative top-4 hover:text-blue-400 duration-300" href="Echo_post.php">
                      Login
 
                  </a>
