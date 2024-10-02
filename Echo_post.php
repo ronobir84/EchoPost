@@ -14,8 +14,9 @@ if (isset($_POST['post_login'])) {
     $data = mysqli_num_rows($query);
     if ($data) {
         $result = mysqli_fetch_assoc($query);
+         
 
-        $min_user_data = array($result['post_user_id '], $result['post_user_name'], $result['post_user_email'], $result['post_user_password'], $result['images']);
+        $min_user_data = array($result['post_user_id'], $result['post_user_name'], $result['post_user_email'], $result['post_user_password'], $result['images']);
 
 
         $_SESSION['min_user_data'] = $min_user_data;

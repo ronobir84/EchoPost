@@ -8,6 +8,11 @@
 
 
  <?php
+ include_once('database.php');
+ $sql = "SELECT * FROM post_users";
+ $query = mysqli_query($database, $sql);
+ $row = mysqli_fetch_assoc($query);
+ echo $row['post_user_id']
 
 
     ?>

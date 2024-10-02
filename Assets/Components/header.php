@@ -35,7 +35,7 @@
  </head>
 
  <header id="header_component" class="py-5">
-     <nav class="current__header  w-10/12  z-50 bg-white rounded-full border border-black-200 text-black duration-150 px-8">
+     <nav class="current__header  w-10/12  z-50  bg-white rounded-full border border-black-200 text-black duration-150 px-8">
          <div class="navbar justify-between ">
              <div class=" ">
                  <button class="" onclick="searchModal.showModal()">
@@ -56,7 +56,7 @@
                      <h2 class="text-[#6A4EE9] font-semibold text-lg">
                          <?php if (isset($_SESSION['min_user_data'])) {
                                 $user_name = $_SESSION['min_user_data'][1];
-                                echo $user_name;
+                             echo $user_name;
                             } ?>
                      </h2>
 

@@ -1,12 +1,12 @@
 <?php include_once('./adminPartials/Admin_header.php');
 
+
+$id = $_GET['id'];
+$sql = "SELECT * FROM comments WHERE comment_id = '$id'";
+$query = mysqli_query($database, $sql);
+$result = mysqli_fetch_array($query);
+
  
-
-
-if (isset($_SESSION['user_data'])) {
-    $user_id = $_SESSION['user_data'][0];
-    var_dump($user_id);
-}
 
 ?>
 
@@ -38,7 +38,7 @@ if (isset($_SESSION['user_data'])) {
                     <div class="w-8   p-1.5">
 
                     </div>
-                    <p class="mx-2 p-4 rounded bg-[#6A4EE9] leading-4 text-lg font-semibold text-white">Hi there 👋<br>How can I help you today?</p>
+                    <p class="mx-2 p-4 rounded bg-[#6A4EE9] leading-4 text-lg font-semibold text-white"><?php echo $result['comment_content'] ?></p>
                 </div>
                 <div class="flex items-end flex-row-reverse">
                     <div class="rounded   w-8 aspect-square p-1.5">

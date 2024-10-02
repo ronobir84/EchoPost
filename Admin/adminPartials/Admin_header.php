@@ -156,7 +156,7 @@ if (!isset($_SESSION['user_data'])) {
                                         <?php
                                         if (isset($_SESSION['user_data'])) {
                                             $image_data = $_SESSION['user_data'][2];
-                                            var_dump($image_data);
+                                             
                                              
                                         }
                                         ?>

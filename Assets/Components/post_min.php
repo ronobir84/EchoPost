@@ -94,7 +94,7 @@
         width: 100%;
 
         box-shadow: 4px 4px darkgray;
-        border-radius: 7px;
+        /* border-radius: 7px; */
         border: 2px solid #b0b9c5;
         margin-top: 40px;
         background-color: white;
@@ -128,15 +128,15 @@
 
     textarea {
         width: 100%;
-        height: 200px;
+        height: 60px;
         padding: 12px 30px;
         box-sizing: border-box;
         box-shadow: 1px;
         border: 2px solid #ccc;
-        border-radius: 4px;
+        border-radius: px;
         background-color: white;
         font-size: 20px;
-        resize: none;
+        /* resize: none; */
 
     }
 
@@ -171,10 +171,44 @@
         background-color: #282424;
         transition-duration: 500ms;
     }
+
+    .comment_flex {
+        margin-top: 14px;
+    }
+
+    .comment_reply_min {
+        width: 100%;
+        height: 300px;
+        border: 2px solid black;
+
+    }
+
+    .user_reply_img {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        object-fit: cover;
+    }
+
+    .replay_second {
+        font-size: medium;
+    }
+
+    .comment_text {
+        font-weight: 500;
+        font-size: larger;
+    }
+
+    .comment_user_name {
+        font-weight: 700;
+        color: #6A4EE9;
+    }
 </style>
 
 
 <?php
+
+session_start();
 
 
 
@@ -184,14 +218,25 @@ include_once('../../database.php');
 
 if (isset($_POST['comment_post'])) {
     $comment_content = mysqli_real_escape_string($database, $_POST['comment_content']);
-    $Author_name = mysqli_real_escape_string($database, $_POST['Author_name']);
-    $Author_email = mysqli_real_escape_string($database, $_POST['Author_email']);
     $post_id = mysqli_real_escape_string($database, $_GET['id']);
+    if (isset($_SESSION['min_user_data'])) {
+        $user_id = $_SESSION['min_user_data'][0];
+    }
+    if (isset($_SESSION['min_user_data'])) {
+        $user_name = $_SESSION['min_user_data'][1];
+    }
+    if (isset($_SESSION['min_user_data'])) {
+        $user_email = $_SESSION['min_user_data'][2];
+    }
 
-    echo $comment_content . "<br>" . $Author_name . "<br>" . $post_id;
-   
-    
-     
+
+    $sql = "INSERT INTO comments( comment_content, author_name, email, post_id, post_user_id) VALUES ('$comment_content','$user_name','$user_email','$post_id','$user_id')";
+    $query = mysqli_query($database, $sql);
+    if ($query) {
+        $_SESSION['comment_sent'] = "Comment Sent Successful";
+    } else {
+        $_SESSION['comment_sent_error'] = "Failed Please try Agin";
+    }
 }
 
 
@@ -257,13 +302,25 @@ if (isset($_POST['comment_post'])) {
                 <div>
                     <p class="p_title">Prerequisites</p>
                     <div class="border-div">
-                        <ol class="new_ol">
-                            <li> Planning Your Animation</li>
-                            <li> Planning Your Animation</li>
-                            <li> Planning Your Animation</li>
-                            <li> Planning Your Animation</li>
-                            <li> Planning Your Animation</li>
-                        </ol>
+                        <?php
+                        $id = $_GET['id'];
+                        $sql2 = "SELECT * FROM comments  LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE comment_id = '$id'";
+                        $query2 = mysqli_query($database, $sql2);
+                        $rows = mysqli_num_rows($query2);
+                        if ($rows) {
+                            while ($row = mysqli_fetch_assoc($query2)) {
+
+
+
+                        ?>
+                                <ol class="new_ol">
+                                    <li> <?php echo $row['comment_content'] ?></li>
+
+
+                                </ol>
+
+                        <?php }
+                        } ?>
                     </div>
 
                 </div>
@@ -302,7 +359,25 @@ if (isset($_POST['comment_post'])) {
 
 
 
+            <!-- reply comment section -->
 
+            <div>
+                <div class="comment_reply_min">
+                    <div class="reply_1">
+                        <div class="">
+                            <img class="user_reply_img" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+                        </div>
+                        <div>
+                            <h3 class="comment_user_name">Demo - <span class="replay_second"> 40 seconds ago</span></h3>
+                            <h3 class="comment_text">beautiful the css class and helpful</h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
             <!-- comment section -->
@@ -310,13 +385,13 @@ if (isset($_POST['comment_post'])) {
 
             <div class="comment_min">
                 <form method="post" action="">
-                    <div>
-                        <textarea name="comment_content">Comment...</textarea>
+                    <h2 class="text-xl font-semibold text-black">Comments</h2>
+                    <div class="comment_flex">
+                        <textarea placeholder="Comment...." name="comment_content"></textarea>
+
+
                     </div>
-                    <div class="input_div">
-                        <input  class="input_1" type="text" name="Author_name" placeholder="Name">
-                        <input class="input_1" type="email" name="Author_email" placeholder="Email">
-                    </div>
+
                     <div>
                         <button name="comment_post" class="banner_button1">Post Comment</button>
                     </div>
@@ -324,6 +399,9 @@ if (isset($_POST['comment_post'])) {
                 </form>
 
             </div>
+
+
+
 
         </div>
 

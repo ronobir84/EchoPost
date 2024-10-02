@@ -47,7 +47,7 @@ $result = mysqli_fetch_assoc($query);
         }
 
         body {
-            background-color: #F5F5F5;
+            background-color: #F3F4F6;
             width: 100%;
             min-height: 100vh;
             max-height: auto;
@@ -210,7 +210,7 @@ $result = mysqli_fetch_assoc($query);
             border-width: 5px;
             border-style: solid;
             border-color: #333 transparent transparent transparent;
-            
+
         }
     </style>
 
@@ -242,12 +242,12 @@ $result = mysqli_fetch_assoc($query);
             </div>
         </div>
         <div class="nav_item">
-            <div class="nav_title">
+            <div class="nav_title ">
                 <i class="fa-solid fa-chevron-right icon-min fa-lg"></i>
                 <h3 class="h3_min">Post Title</h3>
                 <i class="fa-solid fa-chevron-right icon-min fa-lg"></i>
                 <a class="a_1" href="">
-                    <h3 class="h3_title"><?php echo $result['post_title']?></h3>
+                    <h3 class="h3_title"><?php echo $result['post_title'] ?></h3>
                 </a>
             </div>
 
@@ -257,15 +257,15 @@ $result = mysqli_fetch_assoc($query);
 
 
 
-<!-- post section -->
+    <!-- post section -->
 
 
-<section>
-    <?php include_once('post_min.php') ?>
+    <section>
+        <?php include_once('post_min.php') ?>
 
-</section>
+    </section>
 
- 
+
 
 
 
