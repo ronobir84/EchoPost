@@ -191,7 +191,7 @@
         width: 50px;
         height: 50px;
         border-radius: 100%;
-        object-fit: cover;
+        object-fit: initial;
     }
 
     .replay_second {
@@ -377,39 +377,39 @@ if (isset($_POST['comment_post'])) {
                         <?php
 
 
-                        $sql2 = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE  comment_id = '$id'";
+                        $sql2 = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE posts.post_id= '$id'";
                         $query2 = mysqli_query($database, $sql2);
                         $rows = mysqli_num_rows($query2);
                         if ($rows) {
                             while ($comment = mysqli_fetch_assoc($query2)) {
-                               
-                            
+
+
 
 
                         ?>
-                        <div class="">
-                            <img class="user_reply_img" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
-                        </div>
-                        <div>
-                            <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> 40 seconds ago</span></h3>
-                            <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
+                                <div class="">
+                                    <img class="user_reply_img" src="http://localhost/EchoPost/Admin/upload/<?php echo $comment['images']?>" alt="">
+                                </div>
+                                <div>
+                                    <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> <?php echo date("s", strtotime($comment['comment_time']))  ?> seconds ago</span></h3>
+                                    <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
 
-                        </div>
-                        <?php }
+                                </div>
+                            <?php }
                         } else { ?>
 
-                        <div>
-                         <h2>Data not found</h2>;
+                            <div>
+                                <h2>Data not found</h2>;
 
-                        </div>
-                        <?php }?>
+                            </div>
+                        <?php } ?>
 
                     </div>
                     <!-- admin reply  message-->
                     <div>
-                        <div class="admin_reply_min">
+                        <!-- <div class="admin_reply_min">
                             <div>
-                                <img class="user_reply_img" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+                                <img class="user_reply_img" src="" alt="">
 
                             </div>
                             <div>
@@ -418,7 +418,7 @@ if (isset($_POST['comment_post'])) {
 
 
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
