@@ -180,6 +180,10 @@
         width: 100%;
         height: 300px;
         border: 2px solid black;
+        padding: 40px 80px 35px 80px;
+        background-color: #FFFFFF;
+        margin-top: 20px;
+
 
     }
 
@@ -192,6 +196,7 @@
 
     .replay_second {
         font-size: medium;
+        color: #282424;
     }
 
     .comment_text {
@@ -203,12 +208,28 @@
         font-weight: 700;
         color: #6A4EE9;
     }
+
+    .reply_1_flex {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+    }
+
+    .admin_reply_min {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        margin-top: 23px;
+        margin-left: 7%;
+
+    }
 </style>
 
 
 <?php
 
 session_start();
+
 
 
 
@@ -234,6 +255,7 @@ if (isset($_POST['comment_post'])) {
     $query = mysqli_query($database, $sql);
     if ($query) {
         $_SESSION['comment_sent'] = "Comment Sent Successful";
+        echo "<script>window.location.href='http://localhost/EchoPost/Assets/Components/single_post.php?id=$id'</script>";
     } else {
         $_SESSION['comment_sent_error'] = "Failed Please try Agin";
     }
@@ -302,25 +324,14 @@ if (isset($_POST['comment_post'])) {
                 <div>
                     <p class="p_title">Prerequisites</p>
                     <div class="border-div">
-                        <?php
-                        $id = $_GET['id'];
-                        $sql2 = "SELECT * FROM comments  LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE comment_id = '$id'";
-                        $query2 = mysqli_query($database, $sql2);
-                        $rows = mysqli_num_rows($query2);
-                        if ($rows) {
-                            while ($row = mysqli_fetch_assoc($query2)) {
+
+                        <ol class="new_ol">
+                            <li> </li>
 
 
-
-                        ?>
-                                <ol class="new_ol">
-                                    <li> <?php echo $row['comment_content'] ?></li>
+                        </ol>
 
 
-                                </ol>
-
-                        <?php }
-                        } ?>
                     </div>
 
                 </div>
@@ -359,20 +370,55 @@ if (isset($_POST['comment_post'])) {
 
 
 
-            <!-- reply comment section -->
 
-            <div>
+            <div class="admin_reply_con">
                 <div class="comment_reply_min">
-                    <div class="reply_1">
+                    <div class="reply_1_flex">
+                        <?php
+
+
+                        $sql2 = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE  comment_id = '$id'";
+                        $query2 = mysqli_query($database, $sql2);
+                        $rows = mysqli_num_rows($query2);
+                        if ($rows) {
+                            while ($comment = mysqli_fetch_assoc($query2)) {
+                               
+                            
+
+
+                        ?>
                         <div class="">
                             <img class="user_reply_img" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
                         </div>
                         <div>
-                            <h3 class="comment_user_name">Demo - <span class="replay_second"> 40 seconds ago</span></h3>
-                            <h3 class="comment_text">beautiful the css class and helpful</h3>
+                            <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> 40 seconds ago</span></h3>
+                            <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
 
                         </div>
+                        <?php }
+                        } else { ?>
 
+                        <div>
+                         <h2>Data not found</h2>;
+
+                        </div>
+                        <?php }?>
+
+                    </div>
+                    <!-- admin reply  message-->
+                    <div>
+                        <div class="admin_reply_min">
+                            <div>
+                                <img class="user_reply_img" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+
+                            </div>
+                            <div>
+                                <h3 class="comment_user_name">Admin - <span class="replay_second"> 10 seconds ago</span></h3>
+                                <h3 class="comment_text">thank You For Comment</h3>
+
+
+                            </div>
+                        </div>
                     </div>
 
                 </div>
