@@ -128,7 +128,7 @@ if (!isset($_SESSION['user_data'])) {
                 </ul>
             </div>
 
-            <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content-wrapper" class="d-flex flex-column overflow-hidden">
                 <!-- Main Content -->
                 <div id="content">
                     <!-- Topbar -->

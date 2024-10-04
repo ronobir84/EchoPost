@@ -92,6 +92,7 @@
 
     .post_container {
         width: 100%;
+         
 
         box-shadow: 4px 4px darkgray;
         /* border-radius: 7px; */
