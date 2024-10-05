@@ -157,7 +157,7 @@ $result = mysqli_fetch_assoc($query);
         }
 
         .tooltip button {
-            background-color: #1F2937;
+            background-color: #6A4EE9;
             color: #fff;
             border: none;
             position: relative;
@@ -187,7 +187,7 @@ $result = mysqli_fetch_assoc($query);
         .tooltiptext {
             visibility: hidden;
             width: 160px;
-            background-color: #1F2937;
+            background-color: #6A4EE9;
             color: #fff;
             text-align: center;
             border-radius: 10px;

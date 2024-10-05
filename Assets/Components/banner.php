@@ -9,7 +9,7 @@
              <p class="py-6 text-gray-800 font-medium text-lg">
                  For over New we’ve been the Q&A platform of choice that millions of people visit every month to ask questions, learn, and share technical knowledge.
              </p>
-             <a href="./login.php">
+             <a href="">
                  <button class="  w-36 h-12  md:block  rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
                      Get started
                  </button>

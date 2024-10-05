@@ -10,7 +10,7 @@ $rows = mysqli_num_rows($query);
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div class="flex justify-center gap-8 px-16 mx-auto">
+        <div class="flex justify-start gap-8 px-20 mx-auto overflow-hidden">
             <!-- category section -->
             <div>
 
@@ -46,28 +46,28 @@ $rows = mysqli_num_rows($query);
                                         </button>
                                         <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4  border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
 
-                                        <?php
-                                        $cat_id = $row['category_id'];
-                                         
-                                        $title_sql = "SELECT  * FROM posts  WHERE category_id = '$cat_id'";
-                                        $title_query = mysqli_query($database, $title_sql);
-                                        
-                                        $titles = mysqli_num_rows($title_query);
-                                        if ($titles) {
-                                           while ($title = mysqli_fetch_assoc($title_query)) {
-                                            
-                                          
-                                        
-                                        ?>
+                                            <?php
+                                            $cat_id = $row['category_id'];
+
+                                            $title_sql = "SELECT  * FROM posts  WHERE category_id = '$cat_id'";
+                                            $title_query = mysqli_query($database, $title_sql);
+
+                                            $titles = mysqli_num_rows($title_query);
+                                            if ($titles) {
+                                                while ($title = mysqli_fetch_assoc($title_query)) {
 
 
 
-                                            <ol class="list-decimal relative left-7 px-4 space-y-2">
-                                                <li class=""><?php echo $title['post_title']?> </li>
-                                            </ol>
+                                            ?>
+
+
+
+                                                    <ol class="list-decimal relative  px-6 space-y-2">
+                                                        <li class=""><?php echo $title['post_title'] ?> </li>
+                                                    </ol>
 
                                             <?php  }
-                                        }?>
+                                            } ?>
 
 
                                         </div>

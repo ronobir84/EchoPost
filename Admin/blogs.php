@@ -85,26 +85,44 @@
 
 
                                     <td><?php echo $row['post_id'] ?></td>
-                                    <td><?php echo $row['post_title']?></td>
+                                    <td><?php echo $row['post_title'] ?></td>
                                     <td><?php echo $row['category_name'] ?></td>
-                                    <td><?php echo $row['user_name']?></td>
-                                    <td><?php echo date("d-m-Y", strtotime($row['publish_date']))?></td>
+                                    <td><?php echo $row['user_name'] ?></td>
+                                    <td><?php echo date("d-m-Y", strtotime($row['publish_date'])) ?></td>
                                     <td>
-                                        <a href="">edit</a>
-                                        <a href="">Delete</a>
-                                        <a href="">View</a>
+                                        <form action="">
+                                            <div class="group relative inline-block ">
+
+
+                                                <a href=" ">
+                                                    <button class="" type="button">
+
+                                                        <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
+
+
+                                                    </button>
+                                                </a>
+
+
+                                                <span
+                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
+
+                                            </div>
+                                            <a href="">Delete</a>
+                                            <a href="">View</a>
+                                        </form>
                                     </td>
 
                                 </tr>
-                        <?php }
-                        }else{ ?>
+                            <?php }
+                        } else { ?>
 
-                        <tr>
-                            <td colspan="6">No Record Found</td>
-                        </tr>
+                            <tr>
+                                <td colspan="6">No Record Found</td>
+                            </tr>
 
                         <?php }
-                    ?>
+                        ?>
 
 
 
