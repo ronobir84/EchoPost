@@ -1,7 +1,8 @@
 <?php
 include_once('./database.php');
- 
-$sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id";
+
+
+$sql = "SELECT * FROM categories ";
 $query = mysqli_query($database, $sql);
 $rows = mysqli_num_rows($query);
 ?>
@@ -9,7 +10,7 @@ $rows = mysqli_num_rows($query);
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div class="flex justify-between px-16">
+        <div class="flex justify-center gap-8 px-16 mx-auto">
             <!-- category section -->
             <div>
 
@@ -39,22 +40,36 @@ $rows = mysqli_num_rows($query);
                                         </div>
 
                                         <button class="relative  flex gap-6 items-center   font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
-                                            
+
                                             <a class="hover:underline duration-500" href=""><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
                                             <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i>
                                         </button>
                                         <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4  border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
-                                             
-                                             
+
+                                        <?php
+                                        $cat_id = $row['category_id'];
+                                         
+                                        $title_sql = "SELECT  * FROM posts  WHERE category_id = '$cat_id'";
+                                        $title_query = mysqli_query($database, $title_sql);
+                                        
+                                        $titles = mysqli_num_rows($title_query);
+                                        if ($titles) {
+                                           while ($title = mysqli_fetch_assoc($title_query)) {
+                                            
+                                          
+                                        
+                                        ?>
+
+
+
                                             <ol class="list-decimal relative left-7 px-4 space-y-2">
-                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
-                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
-                                                <li class="">Lorem ipsum dolor sit amet consectetur,</li>
-                                                 
-                                                
+                                                <li class=""><?php echo $title['post_title']?> </li>
                                             </ol>
 
-                                            
+                                            <?php  }
+                                        }?>
+
+
                                         </div>
                                     </li>
 
