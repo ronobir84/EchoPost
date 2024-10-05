@@ -69,6 +69,12 @@ if (isset($_POST['edit_post'])) {
 }
 
 
+if (isset($error)) {
+    foreach($error as $all_error){
+        $_SESSION['type_error'] = $all_error;
+
+    }
+}
 
 
 
