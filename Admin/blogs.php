@@ -89,27 +89,47 @@
                                     <td><?php echo $row['category_name'] ?></td>
                                     <td><?php echo $row['user_name'] ?></td>
                                     <td><?php echo date("d-m-Y", strtotime($row['publish_date'])) ?></td>
-                                    <td>
-                                        <form action="">
+                                    <td class="">
+                                        <form class="" action="">
+                                            <!-- blog edit icon -->
+                                            <div class="group relative inline-block ">
+
+                                                <a class="pr-3" href=" ">
+                                                    <button class="" type="button">
+                                                        <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
+                                                    </button>
+                                                </a>
+                                                <span
+                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
+                                            </div>
+                                            <!-- blog delete icon -->
                                             <div class="group relative inline-block ">
 
 
-                                                <a href=" ">
+                                                <a class="pr-3" href=" ">
                                                     <button class="" type="button">
 
-                                                        <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
-
-
+                                                        <i class="fa-solid fa-trash text-xl font-bold  text-red-700   duration-500 "></i>
                                                     </button>
                                                 </a>
-
-
                                                 <span
-                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
+                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-red-700 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Delete</span>
 
                                             </div>
-                                            <a href="">Delete</a>
-                                            <a href="">View</a>
+                                            <!-- blog view icon -->
+                                            <div class="group relative inline-block ">
+
+
+                                                <a class="pr-3" href=" ">
+                                                    <button class="" type="button">
+
+                                                        <i class="fa-solid fa-eye text-xl font-bold  text-[#6A4EE9]   duration-500 "></i>
+                                                    </button>
+                                                </a>
+                                                <span
+                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#6A4EE9] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">View</span>
+
+                                            </div>
                                         </form>
                                     </td>
 
