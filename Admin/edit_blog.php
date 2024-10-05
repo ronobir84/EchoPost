@@ -10,10 +10,29 @@ if (isset($_POST['edit_post'])) {
 
     // image edit section
     $folder = "upload/";
-
     $image_file = $_FILES['images']['name'];
     $file = $_FILES['images']['tmp_name'];
     $path = $folder . $image_file;
+    $target_file = $folder . basename($image_file);
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    if ($file != '') {
+        if ($_FILES['images']['size'] > 5000000) {
+            $error[] = "Sorry, your image is too large. Upload less than 500 KB in size.";
+        }
+        //  //Allow only JPG, JPEG, PNG & GIF 
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
+            $error[] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed';
+        }
+    }
+
+    $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
+    $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
+    $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
+
+
 }
 
 
@@ -61,8 +80,10 @@ if (isset($_POST['edit_post'])) {
             <div class=" mb-3">
                 <input type="text" name="post_text" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" placeholder="Post Text" />
             </div>
-            <div class=" mb-2">
-                <input name="images" type="file" class="w-full p-[11px]  text-black bg-gray-200 cursor-pointer px-4 rounded focus:ring-1   transition ease-in-out duration-150">
+
+            <div class="flex justify-between mb-2">
+                <input name="images" type="file" class="w-full bg-gray-200 p-[11px] border-2 border-gray-200 cursor-pointer px-4 rounded-md focus:outline-none  transition ease-in-out duration-150">
+                <img class="w-[54px] h-[54px] rounded-md absolute  right-[14%] p-2" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
             </div>
             <div class="mb-3">
 
