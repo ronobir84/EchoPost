@@ -94,7 +94,7 @@
                                             <!-- blog edit icon -->
                                             <div class="group relative inline-block ">
 
-                                                <a class="pr-3" href=" ">
+                                                <a class="pr-3" href="edit_blog.php?id=<?php echo $row['post_id'] ?>">
                                                     <button class="" type="button">
                                                         <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
                                                     </button>
