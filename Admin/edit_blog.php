@@ -1,6 +1,11 @@
-<?php include_once('./adminPartials/Admin_header.php') ?>
+
+<?php ob_start(); include_once('./adminPartials/Admin_header.php') ?>
 
 <?php
+$post_id = $_GET['id'];
+if (empty($post_id)) {
+     header("Location: blogs.php");
+}
 
 if (isset($_POST['edit_post'])) {
 
@@ -31,6 +36,34 @@ if (isset($_POST['edit_post'])) {
     $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
     $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
     $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
+
+    if (!isset($error)) {
+
+        if ($file != '') {
+            $post_sql = "SELECT * FROM posts  WHERE post_id = '$post_id'";
+            $res = mysqli_query($database, $post_sql);
+            if ($row = mysqli_fetch_array($res)) {
+                $delete_image = $row['post_image'];
+            }
+            unlink($folder . $delete_image);
+            move_uploaded_file($file, $target_file);
+
+            $update_sql = "UPDATE posts SET  post_title='$post_name', post_image='$image_file', post_content='$post_body',user_id='$user_name', category_id='$category_name',  post_text='$post_text' WHERE posts_id = '$post_id'";
+            $result = mysqli_query($database, $update_sql);
+        }else{
+            $update_sql = "UPDATE posts SET  post_title='$post_name',  post_content='$post_body',user_id='$user_name', category_id='$category_name',  post_text='$post_text' WHERE posts_id = '$post_id'";
+            $result = mysqli_query($database, $update_sql);
+
+        }
+        if ($result) {
+            $_SESSION['post_edit_succ'] = "Post Data Update Successful";
+            header("Location: blogs.php");
+        }
+        else{
+            $_SESSION['post_edit_error'] = "Something went wrong";
+            
+        }
+    }
 
 
 }
