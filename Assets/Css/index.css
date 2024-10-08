@@ -5,7 +5,7 @@
 	box-sizing: border-box;
 	font-family: "DM Sans", sans-serif;
     scroll-behavior: smooth;
-	overflow-x: hidden;
+	 
 	 
 }
 
@@ -14,7 +14,7 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	max-height: auto;
-	overflow-x: hidden;
+	 
 }
 /* Header Component */
 .is__sticky {
@@ -24,12 +24,12 @@ body {
 	box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
 	background-color: white;
 	animation: slideDown 0.35s ease-out;
-	overflow-x: hidden;
+	 
 }
 .current__header {
 	width: 1200px;
 	margin: 0 auto;
-	overflow-x: hidden;
+	 
 }
 @keyframes slideDown {
 	from {

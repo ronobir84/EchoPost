@@ -18,8 +18,8 @@
     ?>
             <!-- first post -->
 
-            <div class="w-[900px]   h-80  relative bg-white shadow-md shrink rounded-sm ">
-                <div class="flex  gap-5">
+            <div class="w-[950px]   h-80  relative bg-white shadow-md shrink rounded-sm ">
+                <div class="flex ">
                     <!-- fist section -->
                     <div class="w-64 b">
                         <div>
@@ -51,7 +51,7 @@
 
                     </div>
                     <!-- second section -->
-                    <div class=" pt-12 ">
+                    <div class=" relative top-11">
                         <div>
                             <a href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
                                 <h1 class="text-2xl font-bold text-black hover:underline duration-300"><?php echo $row['post_title'] ?></h1>

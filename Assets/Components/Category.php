@@ -10,14 +10,15 @@ $rows = mysqli_num_rows($query);
 <section>
     <div class="px-16 mt-20">
         <!-- flex div -->
-        <div class="flex justify-start gap-8 px-20 mx-auto overflow-hidden">
+        <div class="flex justify-start gap-8 px-20 mx-auto ">
             <!-- category section -->
             <div>
 
                 <!-- Topics Index -->
                 <div class="flex items-center gap-2 relative right-8">
+
                     <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
-                    <h2 class="text-2xl font-bold text-black ">Topics Index </h2>
+                    <h2 class="text-2xl font-bold text-black ">Topics Index</h2>
                 </div>
 
                 <div class="">
@@ -27,6 +28,7 @@ $rows = mysqli_num_rows($query);
                         <?php
                         if ($rows) {
                             while ($row = mysqli_fetch_assoc($query)) {
+
 
 
 

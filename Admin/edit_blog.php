@@ -1,10 +1,10 @@
-
-<?php ob_start(); include_once('./adminPartials/Admin_header.php') ?>
+<?php ob_start();
+include_once('./adminPartials/Admin_header.php') ?>
 
 <?php
 $post_id = $_GET['id'];
 if (empty($post_id)) {
-     header("Location: blogs.php");
+    header("Location: blogs.php");
 }
 
 if (isset($_POST['edit_post'])) {
@@ -34,6 +34,7 @@ if (isset($_POST['edit_post'])) {
     }
 
     $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
+    
     $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
     $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
 
@@ -48,36 +49,46 @@ if (isset($_POST['edit_post'])) {
             unlink($folder . $delete_image);
             move_uploaded_file($file, $target_file);
 
-            $update_sql = "UPDATE posts SET  post_title='$post_name', post_image='$image_file', post_content='$post_body',user_id='$user_name', category_id='$category_name',  post_text='$post_text' WHERE posts_id = '$post_id'";
+            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name', `post_image`='$image_file',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
+            
+                        
             $result = mysqli_query($database, $update_sql);
-        }else{
-            $update_sql = "UPDATE posts SET  post_title='$post_name',  post_content='$post_body',user_id='$user_name', category_id='$category_name',  post_text='$post_text' WHERE posts_id = '$post_id'";
+            
+        } else {
+            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
             $result = mysqli_query($database, $update_sql);
-
+             
         }
+        
         if ($result) {
             $_SESSION['post_edit_succ'] = "Post Data Update Successful";
             header("Location: blogs.php");
-        }
-        else{
+        } else {
             $_SESSION['post_edit_error'] = "Something went wrong";
-            
         }
     }
-
-
 }
 
 
 if (isset($error)) {
-    foreach($error as $all_error){
+    foreach ($error as $all_error) {
         $_SESSION['type_error'] = $all_error;
-
     }
 }
 
 
-
+$post_sql = "SELECT * FROM posts LEFT JOIN users ON posts.user_id = users.user_id LEFT JOIN  categories ON posts.category_id = categories.category_id WHERE post_id = '$post_id'";
+$post_query = mysqli_query($database, $post_sql);
+if ($data = mysqli_fetch_array(result: $post_query)) {
+    $post_title = $data['post_title'];
+    $post_text = $data['post_text'];
+     
+    
+    $post_image = $data['post_image'];
+    $post_body = $data['post_content'];
+    // 01723365849
+    // 01718168777
+}
 
 
 ?>
@@ -114,33 +125,75 @@ if (isset($error)) {
         </div>
         <form method="post" class=" p-12 " action="" enctype="multipart/form-data">
             <div class=" mb-3">
-                <input type="text" name="post_name" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" placeholder="Post Title" />
+                <input type="text" name="post_name" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" value="<?php echo $post_title ?>" />
             </div>
             <div class=" mb-3">
-                <input type="text" name="post_text" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" placeholder="Post Text" />
+                <input type="text" name="post_text" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" value="<?php echo $post_text ?>" />
             </div>
 
             <div class="flex justify-between mb-2">
                 <input name="images" type="file" class="w-full bg-gray-200 p-[11px] border-2 border-gray-200 cursor-pointer px-4 rounded-md focus:outline-none  transition ease-in-out duration-150">
-                <img class="w-[54px] h-[54px] rounded-md absolute  right-[14%] p-2" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
+                <img class="w-[54px] h-[54px] rounded-md absolute  right-[14%] p-2" src="upload/<?php echo $post_image ?>" alt="">
             </div>
+
             <div class="mb-3">
 
-            </div>
-            <div class="mb-3">
 
                 <select class="w-full py-[11px] cursor-pointer bg-gray-200 text-black  px-4 rounded" name="category_name">
-                    <option value="">Select Categories</option>
+                    <?php
+                    $cat_sql = "SELECT * FROM categories";
+                    $cat_query = mysqli_query($database, $cat_sql);
+                    while ($cat_result = mysqli_fetch_array($cat_query)) {
+
+
+
+                    ?>
+                        <option value="<?php $cat_result['category_id'] ?>" 
+                        <?php 
+                        if ($data['category_id'] == $cat_result['category_id']) {
+                            echo "Selected";
+                        }else{
+                         echo  "";
+                        }
+                        
+                        ?>
+                        
+                        ><?php echo $cat_result['category_name'] ?></option>
+                    <?php } ?>
                 </select>
+
+
             </div>
             <div class="mb-3">
                 <select class="w-full py-[11px] bg-gray-200 cursor-pointer text-black  px-4 rounded" name="user_name">
-                    <option value="">Select User Name</option>
-                    <option value=""></option>
+                    <?php
+                    $user_sql = "SELECT * FROM users";
+                    $user_query = mysqli_query($database, $user_sql);
+                    while ($user_result = mysqli_fetch_array($user_query)) {
+                         
+                   
+
+                    
+                    
+                    ?>
+                    <option value="<?php echo $user_result['user_id'] ?>" 
+                    
+                    <?php 
+                    if ($data['user_id'] == $user_result['user_id']) {
+                        echo "selected";
+                    }else{
+                       echo  "";
+                    }
+                    
+                    ?>
+                    
+                    ><?php echo $user_result['user_name'] ?> </option>
+                    <?php }?>
+                     
                 </select>
             </div>
             <div class="mb-3">
-                <textarea required name="post_body" id="blog" placeholder="Describe yourself " class="bg-gray-200 rounded text-black duration-200 px-4  py-2.5 focus:outline-none w-full" rows="3"></textarea>
+                <textarea required name="post_body" id="blog" placeholder="Describe yourself " class="bg-gray-200 rounded text-black duration-200 px-4  py-2.5 focus:outline-none w-full" rows="3"><?php echo $post_body ?></textarea>
             </div>
             <button name="edit_post" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Post</button>
         </form>

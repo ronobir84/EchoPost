@@ -108,6 +108,7 @@
 
     .post_second {
         padding: 40px 80px 35px 80px;
+        
 
 
 

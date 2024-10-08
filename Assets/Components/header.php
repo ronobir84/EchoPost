@@ -34,8 +34,8 @@
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
  </head>
 
- <header id="header_component" class="py-5 overflow-hidden">
-     <nav class="current__header  w-10/12  z-50  bg-white overflow-x-hidden rounded-full border border-black-200 text-black duration-150 px-8">
+ <header id="header_component" class="py-5">
+     <nav class="current__header  w-10/12  z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8">
          <div class="navbar justify-between ">
              <div class=" ">
                  <button class="" onclick="searchModal.showModal()">
@@ -51,42 +51,49 @@
                  </a>
              </div>
 
-             <div class="   ">
-                 <div class="relative right-6 flex gap-4 items-center">
-                     <h2 class="text-[#6A4EE9] font-semibold text-lg">
-                         <?php if (isset($_SESSION['min_user_data'])) {
-                                $user_name = $_SESSION['min_user_data'][1];
-                                echo $user_name;
-                            } ?>
-                     </h2>
 
-                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" duration-500 w-12 object-cover  " type="button">
+
+
+
+             <div class="   ">
+                 <div class="flex gap-4 items-center relative right-10">
+                     <h3 class="text-lg text-[#6A4EE9]  font-bold">
+                         <?php
+                            if (isset($_SESSION['min_user_data'])) {
+                                $name_data = ucwords($_SESSION['min_user_data'][1]);
+                                echo $name_data;
+                            }
+
+                            ?>
+                     </h3>
+                     <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class=" w-14 h-14 " type="button">
                          <?php
                             if (isset($_SESSION['min_user_data'])) {
                                 $user_image = $_SESSION['min_user_data'][4];
                             }
                             ?>
-                         <img class=" rounded-full h-12" src="<?php echo $base_url; ?>Admin/upload/<?php echo $user_image ?> " alt="bb">
-
-
+                         <img class="rounded-full object-cover" src="<?php echo $base_url; ?>Admin/upload/<?php echo $user_image ?> " alt="">
                      </button>
-                     <!-- Dropdown menu -->
-                     <div id="dropdownAvatar" class="z-10 hidden   border  shadow-md w-44 py-4 bg-white">
-
-                         <ul class="py-3  font-semibold text-lg text-black text-center" aria-labelledby="dropdownUserAvatarButton">
-                             <li>
-                                 <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
-                             </li>
-                             <li>
-                                 <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Settings</a>
-                             </li>
-                             <li>
-                                 <a href="post_logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Logout</a>
-                             </li>
-                         </ul>
-
-                     </div>
                  </div>
+
+                 <!-- Dropdown menu -->
+                 <div id="dropdownAvatar" class="z-10 hidden bg-[#282424]  absolute    divide-gray-100  shadow-md w-44 h-40">
+
+
+                     <ul class="py-3  font-semibold text-lg text-white text-center">
+                         <li>
+                             <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
+                         </li>
+                         <li>
+                             <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
+                         </li>
+                         <li>
+                             <a href="logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
+                         </li>
+                     </ul>
+
+                 </div>
+
 
                  <div class="drawer drawer-end s">
                      <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
@@ -129,14 +136,8 @@
                                              Home
                                          </h4>
                                      </a>
-
-
-
                                  </li>
                                  <li>
-
-
-
                                      <a href="" class="flex gap-1">
                                          <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
@@ -144,14 +145,8 @@
                                              Product
                                          </h4>
                                      </a>
-
-
-
                                  </li>
                                  <li>
-
-
-
                                      <a href="" class="flex gap-1">
                                          <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
@@ -159,14 +154,8 @@
                                              Shop
                                          </h4>
                                      </a>
-
-
-
                                  </li>
                                  <li>
-
-
-
                                      <a href="" class="flex gap-1">
                                          <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png">
 
@@ -174,14 +163,8 @@
                                              Category
                                          </h4>
                                      </a>
-
-
-
                                  </li>
                                  <li>
-
-
-
                                      <a href="" class="flex gap-1">
                                          <img class="w-5 h-5" src="http://localhost/EchoPost/Assets/Images/footer_image/pink-star (1).png" alt="">
 
@@ -204,12 +187,7 @@
                                              Explore Categories 🚀
                                          </h4>
                                      </a>
-
-
-
                                  </li>
-
-
                                  <li>
                                      <a href="./admin_login.php">
                                          <button class="px-5  mt-4   md:block py-2.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
@@ -217,15 +195,7 @@
                                          </button>
                                      </a>
                                  </li>
-
-
-
-
-
-
                              </div>
-
-
                          </ul>
                      </div>
                  </div>
