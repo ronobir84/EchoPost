@@ -19,21 +19,21 @@
             <!-- first post -->
 
             <div class="w-[950px]   h-80  relative bg-white shadow-md shrink rounded-sm ">
-                <div class="flex ">
+                <div class="flex  justify-between ">
                     <!-- fist section -->
-                    <div class="w-64 b">
+                    <div class="w-[27%] ">
                         <div>
                             <button class="px-5 py-2 hover:px-7 duration-500 bg-[<?php echo $row['category_color'] ?>] text-lg  text-white font-semibold rounded-r-full mt-8"><?php echo $row['category_name'] ?></button>
                         </div>
                         <div class="space-y-3 pt-6 pl-5">
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-calendar-days text-lg text-[#6A4EE9]"></i>
-                                <h2 class="text-lg text-[#6A4EE9] font-medium"> Jan 19, 2024</h2>
+                                <h2 class="text-lg text-[#6A4EE9] font-medium"><?php echo date("M  j,  Y", strtotime($row['publish_date'])) ?></h2>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-stopwatch text-lg text-[#6A4EE9]"></i>
 
-                                <h2 class="text-lg text-[#6A4EE9] font-medium"> 1 Min Read</h2>
+                                <h2 class="text-lg text-[#6A4EE9] font-medium"> <?php echo date("i", strtotime($row['publish_date'])) ?> Min Read</h2>
                             </div>
                             <div class="flex items-center gap-3">
                                 <i class="fa-solid fa-award text-lg text-[#6A4EE9]"></i>
@@ -51,12 +51,12 @@
 
                     </div>
                     <!-- second section -->
-                    <div class=" relative top-11">
+                    <div class=" relative top-11 pr-4 w-[95%] ">
                         <div>
                             <a href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
                                 <h1 class="text-2xl font-bold text-black hover:underline duration-300"><?php echo $row['post_title'] ?></h1>
                             </a>
-                            <p class="  pt-8"><?php echo $row['post_text'] ?></p>
+                            <p class="text-gray-800 font-medium  text-base  pt-8"><?php echo $row['post_text'] ?></p>
                         </div>
                         <div class="flex justify-between pt-16">
                             <div>

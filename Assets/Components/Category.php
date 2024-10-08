@@ -2,7 +2,7 @@
 include_once('./database.php');
 
 
-$sql = "SELECT * FROM categories ";
+$sql = "SELECT * FROM categories LIMIT 4";
 $query = mysqli_query($database, $sql);
 $rows = mysqli_num_rows($query);
 ?>
