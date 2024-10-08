@@ -1,5 +1,5 @@
 <!-- #Footer Component Here -->
-<footer>
+<footer class="bg-[#F3F4F6]">
     <div class="grid grid-cols-3 gap-8 container mx-auto py-20 ">
         <!-- col 1 -->
         <div class="mr-8">
@@ -95,7 +95,7 @@
 </footer>
 
 <!-- #All JS File Here -->
- 
+
 <script defer src="https://unpkg.com/alpinejs@3.2.3/dist/cdn.min.js"></script>
 
 <script src="https:cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>

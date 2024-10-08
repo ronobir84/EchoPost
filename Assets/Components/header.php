@@ -2,7 +2,7 @@
  <?php session_start() ?>
 
  <?php
-    include_once('./database.php');
+    // include_once('./database.php');
     if (!isset($_SESSION['min_user_data'])) {
         echo "<script>window.location.href='http://localhost/EchoPost/Echo_post.php'</script>";
     }
@@ -34,8 +34,8 @@
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
  </head>
 
- <header id="header_component" class="py-5">
-     <nav class="current__header  w-10/12  z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8">
+ <header id="header_component" class="py-5 bg-[#F3F4F6]">
+     <nav class="current__header  w-10/12  z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8 mx-auto">
          <div class="navbar justify-between ">
              <div class=" ">
                  <button class="" onclick="searchModal.showModal()">
@@ -72,7 +72,7 @@
                                 $user_image = $_SESSION['min_user_data'][4];
                             }
                             ?>
-                         <img class="rounded-full object-cover" src="<?php echo $base_url; ?>Admin/upload/<?php echo $user_image ?> " alt="">
+                         <img class="rounded-full object-cover" src="http://localhost/EchoPost/Admin/upload/<?php echo $user_image ?> " alt="">
                      </button>
                  </div>
 

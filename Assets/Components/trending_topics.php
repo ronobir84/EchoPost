@@ -1,7 +1,7 @@
 <div class="mt-20">
     <?php
     include_once('./database.php');
-    $sql = "SELECT * FROM categories";
+    $sql = "SELECT * FROM categories LIMIT 4";
     $query = mysqli_query($database, $sql);
     $rows = mysqli_num_rows($query);
 
@@ -31,7 +31,7 @@
 
 
                         </div>
-                        <h2 class="text-xl font-bold text-black text-center  pt-1"><?php echo $row['category_name']?></h2>
+                        <h2 class="text-xl font-bold text-black text-center  pt-1"><?php echo $row['category_name'] ?></h2>
 
                     </div>
 
@@ -42,9 +42,11 @@
 
             <div class="flex gap-9 items-center">
                 <h3 class="text-xl font-semibold text-black">or....</h3>
-                <button class="  w-36 h-12  md:block  rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
-                    Explore All
-                </button>
+                <a href="./Assets/Components/all_category.php">
+                    <button class="  w-36 h-12  md:block  rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">
+                        Explore All
+                    </button>
+                </a>
 
             </div>
 
