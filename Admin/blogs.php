@@ -90,64 +90,66 @@
                                     <td><?php echo $row['user_name'] ?></td>
                                     <td><?php echo date("d-m-Y", strtotime($row['publish_date'])) ?></td>
                                     <td class="">
-                                        <form method="post" onsubmit="return confirm('Are You Sure You want to delete?')" action="<?php $_SERVER['PHP_SELF'] ?>">
-                                            <!-- blog edit icon -->
-                                            <div class="group relative inline-block ">
-                                                <a class="pr-3" href="edit_blog.php?id=<?php echo $row['post_id'] ?>">
-                                                    <button class="" type="button">
-                                                        <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
-                                                    </button>
-                                                </a>
-                                                <span
-                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
-                                            </div>
-                                            <!-- blog delete icon -->
-                                            <div class="group relative inline-block pr-3">
-                                                <?php
-                                                if (isset($_POST['delete_blog'])) {
-                                                    $blog_id = $_POST['blog_id'];
-                                                    $delete_sql = "DELETE FROM posts WHERE post_id = '$blog_id'";
-                                                    $delete_query = mysqli_query($database, $delete_sql);
-                                                    if ($delete_query) {
-                                                        $_SESSION['delete_blog_succ'] = "Post Has Been Deleted Successful";
-                                                    } else {
-                                                        $_SESSION['delete_blog_error'] = "Failed Please Try Again";
-                                                    }
+
+                                        <!-- blog edit icon -->
+                                        <div class="group relative inline-block ">
+                                            <a class="pr-3" href="edit_blog.php?id=<?php echo $row['post_id'] ?>">
+                                                <button class="" type="button">
+                                                    <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
+                                                </button>
+                                            </a>
+                                            <span
+                                                class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
+                                        </div>
+                                        <!-- blog delete icon -->
+                                        <div class="group relative inline-block pr-3">
+                                            <?php
+                                            if (isset($_POST['delete_blog'])) {
+                                                $blog_id = $_POST['blog_id'];
+                                                $delete_sql = "DELETE FROM posts WHERE post_id = '$blog_id'";
+                                                $delete_query = mysqli_query($database, $delete_sql);
+                                                if ($delete_query) {
+                                                    $_SESSION['delete_blog_succ'] = "Post Has Been Deleted Successful";
+                                                } else {
+                                                    $_SESSION['delete_blog_error'] = "Failed Please Try Again";
                                                 }
+                                            }
 
 
-                                                ?>
-
-
-
-                                                <input type="hidden" name="blog_id" value="<?php echo $row['post_id'] ?>">
+                                            ?>
 
 
 
+                                            <input type="hidden" name="blog_id" value="<?php echo $row['post_id'] ?>">
+
+
+
+                                            <form method="post" action="" onsubmit="return confirm('Are You Sure You want to delete?')">
                                                 <button value="delete" name="delete_blog" type="button">
 
                                                     <i class="fa-solid fa-trash text-xl font-bold  text-red-700   duration-500 "></i>
                                                 </button>
+                                            </form>
 
-                                                <span
-                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-red-700 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Delete</span>
+                                            <span
+                                                class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-red-700 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Delete</span>
 
-                                            </div>
-                                            <!-- blog view icon -->
-                                            <div class="group relative inline-block ">
+                                        </div>
+                                        <!-- blog view icon -->
+                                        <div class="group relative inline-block ">
 
 
-                                                <a class="pr-3" href=" ">
-                                                    <button class="" type="button">
+                                            <a class="pr-3" href=" ">
+                                                <button class="" type="button">
 
-                                                        <i class="fa-solid fa-eye text-xl font-bold  text-[#6A4EE9]   duration-500 "></i>
-                                                    </button>
-                                                </a>
-                                                <span
-                                                    class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#6A4EE9] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">View</span>
+                                                    <i class="fa-solid fa-eye text-xl font-bold  text-[#6A4EE9]   duration-500 "></i>
+                                                </button>
+                                            </a>
+                                            <span
+                                                class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#6A4EE9] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">View</span>
 
-                                            </div>
-                                        </form>
+                                        </div>
+
                                     </td>
 
                                 </tr>
