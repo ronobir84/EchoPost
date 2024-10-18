@@ -21,6 +21,16 @@
             </div>
             <!-- div card section all details -->
             <div class="flex gap-4 pt-4">
+                <?php
+                include_once('../database.php');
+
+                $post_sql = "SELECT  CONCAT(post_id) FROM posts";
+                $post_query = mysqli_query($database, $post_sql);
+                
+                
+                
+                
+                ?>
 
                 <!-- all Blogs -->
                 <div class="w-80 h-32 bg-white shadow-md rounded-sm">
@@ -31,7 +41,15 @@
                         </div>
                         <div class="border-l-4 border-[#A9F0E8] pl-11">
                             <h2 class="text-xl font-bold text-black">Posts</h2>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center">10</h1>
+                            <?php 
+                             
+                                 while ($all_post = mysqli_fetch_array($post_query)) {
+                                     
+                                 
+                            ?>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php     ?></h1>
+                            <?php }
+                            ?>
                         </div>
 
                     </div>
@@ -150,7 +168,7 @@
                         </div>
                         <div class="bg-gray-100 px-4 py-2">
                             <div class="flex items-center">
-                                <input class="w-full border rounded-full py-2 px-4 mr-2" type="text" placeholder="Type your message...">
+                                <input class="w-full border rounded-full py-2 px-4 mr-2 text-black" type="text" placeholder="Type your message...">
                                 <button class="bg-blue-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-full">
                                     Send
                                 </button>

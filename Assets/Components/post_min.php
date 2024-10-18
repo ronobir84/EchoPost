@@ -92,7 +92,7 @@
 
     .post_container {
         width: 100%;
-         
+
 
         box-shadow: 4px 4px darkgray;
         /* border-radius: 7px; */
@@ -108,7 +108,7 @@
 
     .post_second {
         padding: 40px 80px 35px 80px;
-        
+
 
 
 
@@ -116,7 +116,7 @@
 
     .comment_min {
         width: 100%;
-        height: 400px;
+        padding-bottom: 30px;
         /* border: 2px solid black; */
         margin-top: 50px;
     }
@@ -180,8 +180,8 @@
 
     .comment_reply_min {
         width: 100%;
-        height: 300px;
-        border: 2px solid black;
+
+        border: 2px solid #ccc;
         padding: 40px 80px 35px 80px;
         background-color: #FFFFFF;
         margin-top: 20px;
@@ -215,7 +215,11 @@
         display: flex;
         gap: 14px;
         align-items: center;
+        margin-bottom: 30px;
+
+
     }
+
 
     .admin_reply_min {
         display: flex;
@@ -225,6 +229,7 @@
         margin-left: 7%;
 
     }
+ 
 </style>
 
 
@@ -374,8 +379,11 @@ if (isset($_POST['comment_post'])) {
 
 
             <div class="admin_reply_con">
+                 
                 <div class="comment_reply_min">
-                    <div class="reply_1_flex">
+
+
+                    <div class="">
                         <?php
 
 
@@ -389,13 +397,15 @@ if (isset($_POST['comment_post'])) {
 
 
                         ?>
-                                <div class="">
-                                    <img class="user_reply_img" src="http://localhost/EchoPost/Admin/upload/<?php echo $comment['images']?>" alt="">
-                                </div>
-                                <div>
-                                    <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> <?php echo date("s", strtotime($comment['comment_time']))  ?> seconds ago</span></h3>
-                                    <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
+                                <div class="reply_1_flex">
+                                    <div class="">
+                                        <img class="user_reply_img" src="http://localhost/EchoPost/Admin/upload/<?php echo $comment['images'] ?>" alt="">
+                                    </div>
+                                    <div>
+                                        <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> <?php echo date("s", strtotime($comment['comment_time']))  ?> seconds ago</span></h3>
+                                        <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
 
+                                    </div>
                                 </div>
                             <?php }
                         } else { ?>
@@ -407,6 +417,7 @@ if (isset($_POST['comment_post'])) {
                         <?php } ?>
 
                     </div>
+
                     <!-- admin reply  message-->
                     <div>
                         <!-- <div class="admin_reply_min">
@@ -433,7 +444,7 @@ if (isset($_POST['comment_post'])) {
 
             <div class="comment_min">
                 <form method="post" action="">
-                    <h2 class="text-xl font-semibold text-black">Comments</h2>
+                    <h2 class="text-xl font-semibold text-black">Comment</h2>
                     <div class="comment_flex">
                         <textarea placeholder="Comment...." name="comment_content"></textarea>
 
