@@ -229,7 +229,20 @@
         margin-left: 7%;
 
     }
- 
+
+    .edit_delete_flex {
+        display: flex;
+        gap: 13px;
+        margin-top: 5px;
+    }
+
+    .fa-pen-to-square {
+        color: #6A4EE9;
+    }
+
+    .fa-trash-can{
+        color: red;
+    }
 </style>
 
 
@@ -379,7 +392,7 @@ if (isset($_POST['comment_post'])) {
 
 
             <div class="admin_reply_con">
-                 
+
                 <div class="comment_reply_min">
 
 
@@ -404,7 +417,12 @@ if (isset($_POST['comment_post'])) {
                                     <div>
                                         <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> <?php echo date("s", strtotime($comment['comment_time']))  ?> seconds ago</span></h3>
                                         <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
+                                        <div class="edit_delete_flex">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                            <i class="fa-regular fa-trash-can"></i>
 
+
+                                        </div>
                                     </div>
                                 </div>
                             <?php }

@@ -22,7 +22,7 @@ $rows = mysqli_num_rows($query);
 
 
 ?>
- <div class="bg-[#F3F4F6] min-h-screen">
+ <div class="bg-[#F3F4F6]  ">
      <div class="text-center relative top-12">
          <h2 class="text-5xl font-black text-black">Explore our Categories ✨</h2>
          <p class="text-lg font-medium text-gray-800 w-[45%] mx-auto mt-6">Whether you’re a photography aficionado or simply intrigued by the art of visual storytelling, our blog is your gateway to exploring the mesmerizing world of renowned photographers and the captivating narratives.</p>
@@ -31,7 +31,7 @@ $rows = mysqli_num_rows($query);
 
      <div class="mx-36 mt-24 py-14 bg-white border-[1px] border-gray-300 shadow-md rounded-sm">
          
-                 <div class="grid grid-cols-5 gap-20  px-14 pl-[20%] ">
+                 <div class="grid grid-cols-5 px-28">
                     <?php 
                     if ($rows) {
                         while ($row = mysqli_fetch_array($query)) {

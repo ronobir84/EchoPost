@@ -46,7 +46,7 @@ $rows = mysqli_num_rows($query);
                                             <a class="hover:underline duration-500" href=""><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
                                             <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i>
                                         </button>
-                                        <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4  border-gray-300 max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
+                                        <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 pl-3  border-[<?php echo $row['category_color'] ?>] max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">
 
                                             <?php
                                             $cat_id = $row['category_id'];
@@ -64,9 +64,9 @@ $rows = mysqli_num_rows($query);
 
 
 
-                                                    <ol class="list-decimal relative  px-6 space-y-2">
-                                                        <li class=""><?php echo $title['post_title'] ?> </li>
-                                                    </ol>
+                                                    <ul class="list-disc relative  px-6 space-y-2">
+                                                        <li class="text-lg text-black font-semibold"><?php echo $title['post_title'] ?> </li>
+                                                    </ul>
 
                                             <?php  }
                                             } ?>

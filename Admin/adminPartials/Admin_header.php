@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_data'])) {
     <meta name="author" content="">
     <title>EchoPost Admin</title>
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
-
+     
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,6 @@ if (!isset($_SESSION['user_data'])) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         .active {
@@ -54,135 +53,135 @@ if (!isset($_SESSION['user_data'])) {
 
 </head>
 
+<body>
 
 
+    <body id="page-top">
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div class="bg-[#282424] w-[350px]  relative shadow-md  min-h-screen  py-14">
+                <div>
+                    <div class="  py-2 px-3 absolute  top-0">
+                        <a href="index.php">
+                            <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
+                        </a>
 
-<body id="page-top">
 
-
-    
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div class="bg-[#282424] w-[350px]  relative shadow-md  min-h-screen  py-14">
-            <div>
-                <div class="  py-2 px-3 absolute  top-0">
-                    <a href="index.php">
-                        <img class="w-52 h-20 object-cover" src="http://localhost/EchoPost/Assets/Images/echopost-logo.png" alt="">
-                    </a>
-
+                    </div>
 
                 </div>
-
-            </div>
-            <ul class=" " id="">
-                <!-- Sidebar - Brand -->
+                <ul class=" " id="">
+                    <!-- Sidebar - Brand -->
 
 
-                <div class="relative top-10 space-y-10 px-4">
+                    <div class="relative top-10 space-y-10 px-4">
 
-                    <li>
-                        <a class="   flex hover:bg-[#6A4EE9]   gap-3 px-2 items-center  py-1.5  text-white rounded-sm  duration-500  0    w-40  mt-4  <?= $page == "index.php" ? 'active' : '' ?>" href="index.php">
-                            <i class="fa-solid fa-house text-lg"></i>
-                            <button class="text-lg font-semibold ">Dashboard </button>
-                        </a>
-                    </li>
+                        <li>
+                            <a class="   flex hover:bg-[#6A4EE9]   gap-3 px-2 items-center  py-1.5  text-white rounded-sm  duration-500  0    w-40  mt-4  <?= $page == "index.php" ? 'active' : '' ?>" href="index.php">
+                                <i class="fa-solid fa-house text-lg"></i>
+                                <button class="text-lg font-semibold ">Dashboard </button>
+                            </a>
+                        </li>
 
-
-
-                    <li>
-                        <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "blogs.php" ? 'active' : ''; ?>" href="blogs.php">
-                            <i class="fa-solid fa-blog text-lg"></i>
-                            <button class="text-lg font-semibold ">Blogs</button>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">
-                            <i class="fa-solid fa-list text-lg"></i>
-                            <button class="text-lg font-semibold ">Categories</button>
-                        </a>
-                    </li>
-
-
-                    <li>
-                        <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
-                            <i class="fa-solid fa-user text-lg"></i>
-                            <button class="text-lg font-semibold ">Users</button>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href=" comments.php">
-                            <i class="fa-solid fa-comment text-lg"></i>
-
-                            <button class="text-lg font-semibold ">Comments</button>
-                        </a>
-                    </li>
-
-
-
-
-
-
-
-
-
-                </div>
-            </ul>
-        </div>
-
-        <div id="content-wrapper" class="d-flex flex-column overflow-hidden">
-            <!-- Main Content -->
-            <div id="content">
-                <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-[#282424] topbar  static-top shadow-md ">
-
-
-                    <!-- Topbar Navbar -->
-                    <ul class="navbar-nav ml-auto">
 
 
                         <li>
-                            <!-- 1 -->
-                            <div class="flex gap-4 items-center relative right-4">
-                                <h3 class="text-lg text-white  font-semibold">
-                                    <?php
-                                    if (isset($_SESSION['user_data'])) {
-                                        $name_data = ucwords($_SESSION['user_data'][1]);
-                                        echo $name_data;
-                                    }
-
-                                    ?>
-                                </h3>
-                                <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 " type="button">
-                                    <?php
-                                    if (isset($_SESSION['user_data'])) {
-                                        $image_data = $_SESSION['user_data'][2];
-                                    }
-                                    ?>
-                                    <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data ?>" alt="">
-                                </button>
-                            </div>
-
-                            <!-- Dropdown menu -->
-                            <div id="dropdownAvatar" class="z-10 hidden bg-[#282424]  absolute    divide-gray-100  shadow-md w-44 h-40">
-
-
-                                <ul class="py-3  font-semibold text-lg text-white text-center">
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
-                                    </li>
-                                </ul>
-
-                            </div>
-
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "blogs.php" ? 'active' : ''; ?>" href="blogs.php">
+                                <i class="fa-solid fa-blog text-lg"></i>
+                                <button class="text-lg font-semibold ">Blogs</button>
+                            </a>
                         </li>
-                    </ul>
-                </nav>
+
+
+                        <li>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">
+                                <i class="fa-solid fa-list text-lg"></i>
+                                <button class="text-lg font-semibold ">Categories</button>
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
+                                <i class="fa-solid fa-user text-lg"></i>
+                                <button class="text-lg font-semibold ">Users</button>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href=" comments.php">
+                                <i class="fa-solid fa-comment text-lg"></i>
+
+                                <button class="text-lg font-semibold ">Comments</button>
+                            </a>
+                        </li>
+
+
+
+
+
+
+
+
+
+                    </div>
+                </ul>
+            </div>
+
+            <div id="content-wrapper" class="d-flex flex-column overflow-hidden">
+                <!-- Main Content -->
+                <div id="content">
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-[#282424] topbar  static-top shadow-md ">
+
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+
+
+                            <li>
+                                <!-- 1 -->
+                                <div class="flex gap-4 items-center relative right-4">
+                                    <h3 class="text-lg text-white  font-semibold">
+                                        <?php
+                                        if (isset($_SESSION['user_data'])) {
+                                            $name_data = ucwords($_SESSION['user_data'][1]);
+                                            echo $name_data;
+                                             
+                                        }
+
+                                        ?>
+                                    </h3>
+                                    <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex text-sm bg-gray-800 rounded-full md:me-0 " type="button">
+                                        <?php
+                                        if (isset($_SESSION['user_data'])) {
+                                            $image_data = $_SESSION['user_data'][2];
+                                             
+                                             
+                                        }
+                                        ?>
+                                        <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data ?>" alt="">
+                                    </button>
+                                </div>
+
+                                <!-- Dropdown menu -->
+                                <div id="dropdownAvatar" class="z-10 hidden bg-[#282424]  absolute    divide-gray-100  shadow-md w-44 h-40">
+
+
+                                    <ul class="py-3  font-semibold text-lg text-white text-center">
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500">Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+
+                            </li>
+                        </ul>
+                    </nav>
