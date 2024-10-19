@@ -1,9 +1,14 @@
+<?php ob_start() ?>
+
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
-<?php 
+<?php
 
-
+$category_id = $_GET['id'];
+if (empty($category_id)) {
+    header("Location:categories.php");
+}
 
 
 ?>
@@ -12,7 +17,7 @@
 
 
 <div class="group absolute ml-[3%] mt-14 inline-block  ">
-    <a href="blogs.php">
+    <a href="categories.php">
         <button class="focus:outline-none  ">
 
             <i class="fa-solid fa-arrow-left text-lg  w-12 h-12  p-2  duration-500 hover:bg-[#17082D] border-2 border-[#282424] hover:text-white  text-[#17082D] rounded-full"></i>
