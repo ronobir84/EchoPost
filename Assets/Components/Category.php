@@ -43,7 +43,7 @@ $rows = mysqli_num_rows($query);
 
                                         <button class="relative  flex gap-6 items-center   font-semibold text-left  md:text-lg  " aria-expanded="false" onclick="toggleFAQ(this)">
 
-                                            <a class="hover:underline duration-500" href=""><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
+                                            <a class="hover:underline duration-500" href="Assets/Components/category_single.php?id=<?php echo $row['category_id'] ?>"><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
                                             <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i>
                                         </button>
                                         <div class="transition-all duration-500 ease-in-out border-l-[3px] mt-4 pl-3  border-[<?php echo $row['category_color'] ?>] max-h-0 overflow-hidden" style="transition: max-height 0.3s ease-in-out 0s;">

@@ -4,10 +4,35 @@
 
 
 <?php
+include('../database.php');
 
-$category_id = $_GET['id'];
-if (empty($category_id)) {
+$id = $_GET['id'];
+ 
+if (empty($id)) {
     header("Location:categories.php");
+}
+
+$cat_sql = "SELECT * FROM categories WHERE category_id = '$id'";
+
+$cat_query = mysqli_query($database, $cat_sql);
+$result = mysqli_fetch_assoc($cat_query);
+ 
+?>
+
+
+<?php
+if (isset($_POST['edit_category'])) {
+    $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
+    $category_color = mysqli_real_escape_string($database, $_POST['category_color']);
+
+    $category_update = "UPDATE `categories` SET `category_name`='$category_name',`category_color`='$category_color' WHERE category_id='$id'";
+    $category_query = mysqli_query($database, $category_update);
+    if ($category_query) {
+        $_SESSION['category_success'] = "Category Has been Edited Successful";
+        echo "<script>window.location.href='categories.php'</script>";
+    }else{
+        $_SESSION['category_error'] = "Failed Please Try Agin";
+    }
 }
 
 
@@ -40,10 +65,10 @@ if (empty($category_id)) {
         </div>
         <form method="post" class=" p-12 " action="" enctype="multipart/form-data">
             <div class=" mb-3">
-                <input type="text" name="category_name" class="bg-gray-200 rounded text-black duration-200 px-4  py-[11px] focus:outline-none w-full" />
+                <input value="<?php echo $result['category_name']?>" type="text" name="category_name" class="bg-gray-200 rounded  duration-200 px-4 text-lg font-bold text-black  py-[11px] focus:outline-none w-full" />
             </div>
             <div class=" mb-3">
-                <input type="color" name="category_color" class=" rounded hover:cursor-pointer duration-200 h-12 w-full" />
+                <input value="<?php echo $result['category_color'] ?>" type="color" name="category_color" class=" rounded hover:cursor-pointer duration-200 h-12 w-full" />
             </div>
             <button name="edit_category" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Post</button>
         </form>

@@ -1,6 +1,12 @@
 <div class="mt-20">
     <?php
-    include_once('./database.php');
+            $host = "localhost";
+            $user_name = 'root';
+
+            $user_password = '';
+
+            $database_name = 'echo_post';
+            $database = new mysqli($host, $user_name, $user_password, $database_name);
     $sql = "SELECT * FROM categories LIMIT 4";
     $query = mysqli_query($database, $sql);
     $rows = mysqli_num_rows($query);
