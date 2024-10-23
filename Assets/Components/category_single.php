@@ -7,8 +7,8 @@
 
 
 <div class="bg-[#F3F4F6]">
-    <div class="flex justify-center gap-10">
-        <div class="flex  items-center w-96 border">
+    <div class="flex justify-center gap-16">
+        <div class="flex  items-center w-96  ">
             <div class="w-24 h-24 mx-auto shadow-xl  duration-500  rounded-full bg-orange-400">
 
 
@@ -19,9 +19,9 @@
 
             </div>
         </div>
-        <div class="border-l-2 border-black">
+        <div class="border-l-2 border-gray-400 pl-16">
             <div class="w-[500px]  ">
-                <p class="text-xl f">Before delving into the intricacies of HTML and CSS, it’s essential to pause and ponder a fundamental question: Where should i start?</p>
+                <p class="text-xl font-semibold text-gray-600">Before delving into the intricacies of HTML and CSS, it’s essential to pause and ponder a fundamental question: Where should i start?</p>
             </div>
         </div>
     </div>
