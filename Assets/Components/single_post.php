@@ -3,6 +3,9 @@ ob_start();
 include_once('../../database.php');
 
 $id = $_GET['id'];
+if (empty($id)) {
+    header("Location: http://localhost/EchoPost/index.php");
+}
 
 
 $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id WHERE post_id = '$id'";

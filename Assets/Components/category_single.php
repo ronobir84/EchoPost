@@ -1,4 +1,4 @@
-<?php ob_start();?>
+<?php ob_start(); ?>
 <?php include('./header.php') ?>
 
 <?php
@@ -15,9 +15,14 @@ if (empty($category_id)) {
     header("Location: http://localhost/EchoPost/index.php");
 }
 
-$category_query = mysqli_query($database, "SELECT * FROM categories WHERE category_id = '$category_id'");
+$category_query = mysqli_query($database, "SELECT * FROM categories LEFT JOIN posts ON posts.category_id=categories.category_id  WHERE  posts.category_id = '$category_id'");
 
 $cat_res = mysqli_fetch_assoc($category_query);
+
+
+
+
+
 
 
 ?>
@@ -25,11 +30,11 @@ $cat_res = mysqli_fetch_assoc($category_query);
 
 
 <?php
-$post_sql =  "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id WHERE posts.category_id = '$category_id'";
+$post_sql =  "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id WHERE posts.category_id = '$category_id' ORDER BY posts.publish_date DESC";
 
 $post_query = mysqli_query($database, $post_sql);
 
-$rows = mysqli_num_rows($post_query)
+$rows = mysqli_num_rows($post_query);
 
 
 
@@ -52,7 +57,7 @@ $rows = mysqli_num_rows($post_query)
         </div>
         <div class="border-l-2 border-gray-400 pl-16">
             <div class="w-[500px]  text-center">
-                <p class="text-xl font-semibold text-gray-600">Before delving into the intricacies of HTML and CSS, it’s essential to pause and ponder a fundamental question: Where should i start?</p>
+                <p class="text-xl font-semibold text-gray-600"><?php echo $cat_res['post_text'] ?></p>
             </div>
         </div>
     </div>
@@ -84,22 +89,22 @@ $rows = mysqli_num_rows($post_query)
                             </div>
                         </div>
                         <div class="w-72 text-center mx-auto pt-6">
-                            <a href="">
+                            <a href="single_post.php?id=<?php echo $row['post_id']?>">
                                 <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700"><?php echo $row['post_title'] ?></h1>
                             </a>
                         </div>
                         <div class="w-96 text-center mx-auto pt-7">
-                            <p class="text-lg font-medium text-gray-500"><?php echo $row['post_text']?></p>
+                            <p class="text-lg font-medium text-gray-500"><?php echo $row['post_text'] ?></p>
                         </div>
                         <div class="flex w-72 mx-auto gap-6 items-center   mt-5">
                             <div class="flex gap-3 items-center">
-                                <img class="w-8 h-8 rounded-full" src="https://ronobirdev.surge.sh/assets/ronobir-cbde17b2.png" alt="">
-                                <h2 class="text-lg font-semibold text-black">Ronobir</h2>
+                                <img class="w-8 h-8 rounded-full" src="../../Admin/upload/<?php echo $row['user_image'] ?>" alt="">
+                                <h2 class="text-lg font-semibold text-black"><?php echo $row['user_name'] ?></h2>
                             </div>
                             <div class="flex gap-2 ">
                                 <i class="fa-solid fa-stopwatch text-lg text-[#6A4EE9]"></i>
 
-                                <h2 class="text-lg text-[#6A4EE9] font-medium"> 2 Min Read</h2>
+                                <h2 class="text-lg text-[#6A4EE9] font-medium"> <?php echo date("i", strtotime($row['publish_date'])) ?> Min Read</h2>
                             </div>
                         </div>
 
