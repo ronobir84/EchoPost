@@ -1,6 +1,8 @@
+<?php ob_start();?>
 <?php include('./header.php') ?>
 
 <?php
+
 $host = "localhost";
 $user_name = 'root';
 
@@ -9,6 +11,9 @@ $user_password = '';
 $database_name = 'echo_post';
 $database = new mysqli($host, $user_name, $user_password, $database_name);
 $category_id = $_GET['id'];
+if (empty($category_id)) {
+    header("Location: http://localhost/EchoPost/index.php");
+}
 
 $category_query = mysqli_query($database, "SELECT * FROM categories WHERE category_id = '$category_id'");
 
@@ -64,10 +69,10 @@ $rows = mysqli_num_rows($post_query)
 
             ?>
                     <!-- first card -->
-                    <div class="w-[420px] pb-6 border-2 border-gray-300 bg-[#FFFFFF] rounded shadow">
+                    <div class="w-[420px]  pb-6 border-2 border-gray-300 bg-[#FFFFFF] rounded shadow">
                         <div class="mt-5 flex justify-between">
                             <div>
-                                <button class="px-5 py-2.5 bg-orange-400 text-sm font-bold text-white hover:px-7 duration-500 rounded-r-full">HTML</button>
+                                <button class="px-5 py-2.5 bg-[<?php echo $row['category_color'] ?>] text-sm font-bold text-white hover:px-7 duration-500 rounded-r-full"><?php echo $row['category_name'] ?></button>
                             </div>
                             <div class="flex items-center  gap-2 pr-5">
                                 <i class="fa-solid fa-award  text-blue-700 fa-lg"></i>
@@ -80,11 +85,11 @@ $rows = mysqli_num_rows($post_query)
                         </div>
                         <div class="w-72 text-center mx-auto pt-6">
                             <a href="">
-                                <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700">Crafting Engaging CSS Animations step by step guide</h1>
+                                <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700"><?php echo $row['post_title'] ?></h1>
                             </a>
                         </div>
                         <div class="w-96 text-center mx-auto pt-7">
-                            <p class="text-lg font-medium text-gray-500">We’ve seen the basics of selectors.CSS selectors offer versatile ways to target specific HTML elements for styling….</p>
+                            <p class="text-lg font-medium text-gray-500"><?php echo $row['post_text']?></p>
                         </div>
                         <div class="flex w-72 mx-auto gap-6 items-center   mt-5">
                             <div class="flex gap-3 items-center">
