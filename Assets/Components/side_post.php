@@ -1,11 +1,10 @@
 <div class="space-y-4">
 
     <?php
-    // $text = "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, natus consectetur libero nulla nam in neque. Id placeat omnis facilis officia deleniti veniam eaque voluptatem quae, nulla autem ad harum?";
-    // echo substr("$text", 0, 200);
+   
 
 
-    $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id";
+    $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id ORDER BY posts.publish_date DESC";
 
     $query = mysqli_query($database, $sql);
     $rows = mysqli_num_rows($query);
