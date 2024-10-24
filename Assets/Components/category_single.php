@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="border-l-2 border-gray-400 pl-16">
-            <div class="w-[500px]  ">
+            <div class="w-[500px]  text-center">
                 <p class="text-xl font-semibold text-gray-600">Before delving into the intricacies of HTML and CSS, it’s essential to pause and ponder a fundamental question: Where should i start?</p>
             </div>
         </div>
@@ -43,6 +43,15 @@
                         </h4>
                     </div>
                 </div>
+                <div class="w-72 text-center mx-auto pt-6">
+                    <a href="">
+                        <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700">Crafting Engaging CSS Animations step by step guide</h1>
+                    </a>
+                </div>
+                <div class="w-96 text-center mx-auto pt-7">
+                    <p class="text-lg font-medium text-gray-500">We’ve seen the basics of selectors.CSS selectors offer versatile ways to target specific HTML elements for styling….</p>
+                </div>
+                
             </div>
         </div>
 

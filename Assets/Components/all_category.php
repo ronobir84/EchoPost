@@ -1,7 +1,7 @@
  
 
  <div class="">
-     <?php include_once('header.php') ?>
+     <?php include_once('./header.php') ?>
  </div>
 
 
@@ -29,9 +29,9 @@ $rows = mysqli_num_rows($query);
      </div>
 
 
-     <div class="mx-36 mt-24 py-14 bg-white border-[1px] border-gray-300 shadow-md rounded-sm">
+     <div class="w-[70%] mx-auto py-10 mt-20 bg-white border-[1px] border-gray-300 shadow-xl rounded">
          
-                 <div class="grid grid-cols-5 px-28">
+                 <div class="grid grid-cols-4 gap-4">
                     <?php 
                     if ($rows) {
                         while ($row = mysqli_fetch_array($query)) {
@@ -40,7 +40,7 @@ $rows = mysqli_num_rows($query);
                     
                     ?>
                      <!--  -->
-                     <div class="w-32  ">
+                     <div class="">
 
                          <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color']?>] duration-500  rounded-full bg-[<?php echo $row['category_color']?>]">
 
@@ -67,4 +67,4 @@ $rows = mysqli_num_rows($query);
 
 
 
- <?php include_once('footer.php') ?>
+ <?php include_once('./footer.php') ?>
