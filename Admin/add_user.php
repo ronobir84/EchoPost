@@ -23,13 +23,12 @@ if (isset($_POST['add_user'])) {
     if (strlen($user_password) < 4) {
         $error = "Password Must be 4 Character please";
         echo $error;
-    }elseif($user_password != $confirm_password){
+    } elseif ($user_password != $confirm_password) {
         $error = "Password doesn't Not Match";
-         
     }
     // user image 
-    $file_name = $_FILES['images'] ['name'];
-    $tmp_name = $_FILES['images'] ['tmp_name'];
+    $file_name = $_FILES['images']['name'];
+    $tmp_name = $_FILES['images']['tmp_name'];
     $size = $_FILES['images']['size'];
     $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $allow_type = ['jpg', 'png', 'jpeg'];
@@ -37,26 +36,23 @@ if (isset($_POST['add_user'])) {
 
     $role = mysqli_real_escape_string($database, $_POST['role']);
 
-    if (in_array($image_ext , $allow_type)) {
-         if ($size <= 2000000) {
+    if (in_array($image_ext, $allow_type)) {
+        if ($size <= 2000000) {
             move_uploaded_file($tmp_name, $destination);
             $sql2 = "INSERT INTO users( user_name, user_email, user_password, user_image, user_role) VALUES ('$user_name','$user_email','$user_password','$file_name','$role')";
             $query2 = mysqli_query($database, $sql2);
             if ($query2) {
                 $_SESSION['useradd_mes'] = "User Added Successful";
                 header("location: users.php");
-            }else{
+            } else {
                 $_SESSION['user_error'] = "Failed Please try Agin";
             }
-         }else{
+        } else {
             $error = "Image size should be 2mb";
-         }
-    }else{
+        }
+    } else {
         $error = "file type is not allow";
-
     }
-
-
 }
 
 
@@ -90,7 +86,7 @@ if (isset($_POST['add_user'])) {
 
 </div>
 
-<div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
+<div class=" bg-[#E5ECFF] h-screen overflow-hidden flex items-center justify-center">
 
     <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded">
         <div>
@@ -152,7 +148,7 @@ if (isset($_POST['add_user'])) {
                     <option value="">Select User Role</option>
                     <option value="1">Admin</option>
                     <option value="0">CO-Admin</option>
-                   
+
                 </select>
 
             </div>

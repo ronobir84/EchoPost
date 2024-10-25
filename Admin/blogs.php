@@ -1,7 +1,7 @@
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
-<div class="container-fluid">
+<div class="container-fluid bg-[#E5ECFF] min-h-screen">
 
     <!-- Page Heading -->
 

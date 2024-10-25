@@ -1,5 +1,5 @@
  <?php
- ob_start();
+    ob_start();
     include_once('database.php');
 
     if (isset($_POST['add_register'])) {
@@ -7,7 +7,6 @@
         $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
         if (strlen($user_name) < 4 || strlen($user_name) > 100) {
             $error = 'User Name Must be 4 Character please';
-          
         }
 
         //  user email
@@ -18,7 +17,6 @@
         $row = mysqli_num_rows($query);
         if ($row >= 1) {
             $error = "Email Already Exist";
-          
         }
 
 
@@ -27,44 +25,40 @@
         $user_password  = mysqli_real_escape_string($database, $_POST['user_password']);
         $confirm_password = mysqli_real_escape_string($database, $_POST['confirm_password']);
         if (strlen($user_password) < 4) {
-         $error = "Password Must be 4 Character please";
-         
-        }elseif($user_password != $confirm_password){
-         $error = "Password doesn't Not Match";
-          
+            $error = "Password Must be 4 Character please";
+        } elseif ($user_password != $confirm_password) {
+            $error = "Password doesn't Not Match";
         }
 
 
         // user image 
- 
-     $file_name = $_FILES['images'] ['name'];
-     $tmp_name = $_FILES['images']['tmp_name'];
-     $size = $_FILES['images']['size'];
-     $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
-     $allow_type = ['jpg', 'png', 'jpeg'];
-     $destination = "./Admin/upload/" . $file_name;
+
+        $file_name = $_FILES['images']['name'];
+        $tmp_name = $_FILES['images']['tmp_name'];
+        $size = $_FILES['images']['size'];
+        $image_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+        $allow_type = ['jpg', 'png', 'jpeg'];
+        $destination = "./Admin/upload/" . $file_name;
 
 
-     if (in_array($image_ext, $allow_type)) {
-        if ($size <= 2000000) {
-             move_uploaded_file($tmp_name, $destination);
-             $sql2 = "INSERT INTO post_users(post_user_name, post_user_email, post_user_password,  images) VALUES ('$user_name','$user_email','$user_password','$file_name')";
+        if (in_array($image_ext, $allow_type)) {
+            if ($size <= 2000000) {
+                move_uploaded_file($tmp_name, $destination);
+                $sql2 = "INSERT INTO post_users(post_user_name, post_user_email, post_user_password,  images) VALUES ('$user_name','$user_email','$user_password','$file_name')";
 
-             $query2 = mysqli_query($database, $sql2);
-             if ($query2) {
-                 $_SESSION['register_succ'] = "User Register Successful";
-                 header("Location: Echo_post.php");
-             }else{
-                 $_SESSION['register_error'] = "Failed Please try Agin";
-             }
-            
-        }else{
-             $error = "Image size should be 2mb";
+                $query2 = mysqli_query($database, $sql2);
+                if ($query2) {
+                    $_SESSION['register_succ'] = "User Register Successful";
+                    header("Location: Echo_post.php");
+                } else {
+                    $_SESSION['register_error'] = "Failed Please try Agin";
+                }
+            } else {
+                $error = "Image size should be 2mb";
+            }
+        } else {
+            $error = "file type is not allow";
         }
-        
-     }else{
-         $error = "file type is not allow";
-     }
     }
 
 
@@ -108,7 +102,7 @@
 
      </div>
 
-     <div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
+     <div class=" bg-[#E5ECFF] h-screen overflow-hidden flex items-center justify-center">
 
          <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded">
              <div>

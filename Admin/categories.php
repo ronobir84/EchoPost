@@ -3,7 +3,7 @@
 
 
 
-<div class="container-fluid   ">
+<div class="container-fluid   bg-[#E5ECFF] min-h-screen">
 
     <!-- Page Heading -->
 
@@ -134,12 +134,12 @@
     </div>
 </div>
 
- 
 
 
 
 
- 
+
+
 
 
 <?php include_once('./adminPartials/Admin_footer.php') ?>

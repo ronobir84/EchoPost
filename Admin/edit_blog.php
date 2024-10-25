@@ -34,7 +34,7 @@ if (isset($_POST['edit_post'])) {
     }
 
     $category_name = mysqli_real_escape_string($database, $_POST['category_name']);
-    
+
     $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
     $post_body = mysqli_real_escape_string($database, $_POST['post_body']);
 
@@ -50,16 +50,14 @@ if (isset($_POST['edit_post'])) {
             move_uploaded_file($file, $target_file);
 
             $update_sql = "UPDATE `posts` SET  `post_title`='$post_name', `post_image`='$image_file',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
-            
-                        
+
+
             $result = mysqli_query($database, $update_sql);
-            
         } else {
             $update_sql = "UPDATE `posts` SET  `post_title`='$post_name',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
             $result = mysqli_query($database, $update_sql);
-             
         }
-        
+
         if ($result) {
             $_SESSION['post_edit_succ'] = "Post Data Update Successful";
             header("Location: blogs.php");
@@ -82,8 +80,8 @@ $post_query = mysqli_query($database, $post_sql);
 if ($data = mysqli_fetch_array(result: $post_query)) {
     $post_title = $data['post_title'];
     $post_text = $data['post_text'];
-     
-    
+
+
     $post_image = $data['post_image'];
     $post_body = $data['post_content'];
     // 01723365849
@@ -116,7 +114,7 @@ if ($data = mysqli_fetch_array(result: $post_query)) {
 
 </div>
 
-<div class=" bg-[#6A4EE9] py-20  overflow-hidden flex items-center justify-center  ">
+<div class=" bg-[#E5ECFF] py-20  overflow-hidden flex items-center justify-center  ">
 
     <div class="bg-white w-[75%]  shadow-3xl rounded  ">
         <div>
@@ -148,17 +146,15 @@ if ($data = mysqli_fetch_array(result: $post_query)) {
 
 
                     ?>
-                        <option value="<?php $cat_result['category_id'] ?>" 
-                        <?php 
-                        if ($data['category_id'] == $cat_result['category_id']) {
-                            echo "Selected";
-                        }else{
-                         echo  "";
-                        }
-                        
-                        ?>
-                        
-                        ><?php echo $cat_result['category_name'] ?></option>
+                        <option value="<?php $cat_result['category_id'] ?>"
+                            <?php
+                            if ($data['category_id'] == $cat_result['category_id']) {
+                                echo "Selected";
+                            } else {
+                                echo  "";
+                            }
+
+                            ?>><?php echo $cat_result['category_name'] ?></option>
                     <?php } ?>
                 </select>
 
@@ -170,26 +166,24 @@ if ($data = mysqli_fetch_array(result: $post_query)) {
                     $user_sql = "SELECT * FROM users";
                     $user_query = mysqli_query($database, $user_sql);
                     while ($user_result = mysqli_fetch_array($user_query)) {
-                         
-                   
 
-                    
-                    
+
+
+
+
                     ?>
-                    <option value="<?php echo $user_result['user_id'] ?>" 
-                    
-                    <?php 
-                    if ($data['user_id'] == $user_result['user_id']) {
-                        echo "selected";
-                    }else{
-                       echo  "";
-                    }
-                    
-                    ?>
-                    
-                    ><?php echo $user_result['user_name'] ?> </option>
-                    <?php }?>
-                     
+                        <option value="<?php echo $user_result['user_id'] ?>"
+
+                            <?php
+                            if ($data['user_id'] == $user_result['user_id']) {
+                                echo "selected";
+                            } else {
+                                echo  "";
+                            }
+
+                            ?>><?php echo $user_result['user_name'] ?> </option>
+                    <?php } ?>
+
                 </select>
             </div>
             <div class="mb-3">

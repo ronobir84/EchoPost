@@ -17,7 +17,7 @@ if (isset($_POST['login'])) {
     if ($data) {
         $result = mysqli_fetch_assoc($query);
         $user_data = array($result['user_id'], $result['user_name'], $result['user_image'], $result['user_role']);
-         
+
 
         $_SESSION['user_data'] = $user_data;
         echo "<script>window.location.href='./Admin/index.php'</script>";
@@ -71,7 +71,7 @@ if (isset($_POST['login'])) {
 
 
 
-    <div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
+    <div class=" bg-[#E5ECFF] h-screen overflow-hidden flex items-center justify-center">
 
         <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
             <?php

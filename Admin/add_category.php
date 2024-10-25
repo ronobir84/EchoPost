@@ -20,7 +20,7 @@ if (isset($_POST['add_category'])) {
         $query2 = mysqli_query($database, $sql2);
         if ($query2) {
             $_SESSION['cat_succ'] = "Category Added Has Been Successful";
-           echo "<script>window.location.href='categories.php'</script>";
+            echo "<script>window.location.href='categories.php'</script>";
         } else {
             $_SESSION['not_error'] = "Failed Please Try Agin";
         }
@@ -47,7 +47,7 @@ if (isset($_POST['add_category'])) {
 
 </div>
 
-<div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
+<div class=" bg-[#E5ECFF] h-screen overflow-hidden flex items-center justify-center">
 
     <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded">
         <div>

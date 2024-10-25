@@ -15,14 +15,13 @@ if (empty($category_id)) {
     header("Location: http://localhost/EchoPost/index.php");
 }
 
-$category_query = mysqli_query($database, "SELECT * FROM categories LEFT JOIN posts ON posts.category_id=categories.category_id  WHERE  posts.category_id = '$category_id'");
+$category_query = mysqli_query($database, "SELECT * FROM categories LEFT JOIN posts ON posts.category_id=categories.category_id  WHERE  posts.category_id = '$category_id'" );
 
 $cat_res = mysqli_fetch_assoc($category_query);
 
 
 
-
-
+ 
 
 
 ?>
@@ -89,7 +88,7 @@ $rows = mysqli_num_rows($post_query);
                             </div>
                         </div>
                         <div class="w-72 text-center mx-auto pt-6">
-                            <a href="single_post.php?id=<?php echo $row['post_id']?>">
+                            <a href="">
                                 <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700"><?php echo $row['post_title'] ?></h1>
                             </a>
                         </div>

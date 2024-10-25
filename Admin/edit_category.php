@@ -7,7 +7,7 @@
 include('../database.php');
 
 $id = $_GET['id'];
- 
+
 if (empty($id)) {
     header("Location:categories.php");
 }
@@ -16,7 +16,7 @@ $cat_sql = "SELECT * FROM categories WHERE category_id = '$id'";
 
 $cat_query = mysqli_query($database, $cat_sql);
 $result = mysqli_fetch_assoc($cat_query);
- 
+
 ?>
 
 
@@ -30,7 +30,7 @@ if (isset($_POST['edit_category'])) {
     if ($category_query) {
         $_SESSION['category_success'] = "Category Has been Edited Successful";
         echo "<script>window.location.href='categories.php'</script>";
-    }else{
+    } else {
         $_SESSION['category_error'] = "Failed Please Try Agin";
     }
 }
@@ -56,7 +56,7 @@ if (isset($_POST['edit_category'])) {
 
 
 
-<div class=" bg-[#6A4EE9]   min-h-screen overflow-hidden flex items-center justify-center  ">
+<div class=" bg-[#E5ECFF]   min-h-screen overflow-hidden flex items-center justify-center  ">
 
     <div class="bg-white w-[60%]  shadow-3xl rounded  ">
         <div>
@@ -65,7 +65,7 @@ if (isset($_POST['edit_category'])) {
         </div>
         <form method="post" class=" p-12 " action="" enctype="multipart/form-data">
             <div class=" mb-3">
-                <input value="<?php echo $result['category_name']?>" type="text" name="category_name" class="bg-gray-200 rounded  duration-200 px-4 text-lg font-bold text-black  py-[11px] focus:outline-none w-full" />
+                <input value="<?php echo $result['category_name'] ?>" type="text" name="category_name" class="bg-gray-200 rounded  duration-200 px-4 text-lg font-bold text-black  py-[11px] focus:outline-none w-full" />
             </div>
             <div class=" mb-3">
                 <input value="<?php echo $result['category_color'] ?>" type="color" name="category_color" class=" rounded hover:cursor-pointer duration-200 h-12 w-full" />

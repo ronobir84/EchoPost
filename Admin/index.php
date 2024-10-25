@@ -24,7 +24,7 @@
                 <?php
                 include_once('../database.php');
 
-                $post_sql = "SELECT  CONCAT(post_id) FROM posts";
+                $post_sql = "SELECT   * FROM posts  ";
                 $post_query = mysqli_query($database, $post_sql);
                 
                 
@@ -41,14 +41,24 @@
                         </div>
                         <div class="border-l-4 border-[#A9F0E8] pl-11">
                             <h2 class="text-xl font-bold text-black">Posts</h2>
-                            <?php 
+                            <?php
+                            $countData = "SELECT  COUNT(post_id) FROM posts ";
+                            $countResult = $database->query($countData);
+
                              
-                                 while ($all_post = mysqli_fetch_array($post_query)) {
-                                     
+                                 
+
+                                if ($countResult) {
+                                    while ($result = $countResult->fetch_assoc()) {
+
+                                    
+                                        
+                                   
                                  
                             ?>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php     ?></h1>
-                            <?php }
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo implode($result)        ?></h1>
+                            <?php  }
+                                }
                             ?>
                         </div>
 

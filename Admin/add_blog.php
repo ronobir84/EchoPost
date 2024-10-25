@@ -55,7 +55,7 @@ if (isset($_POST['add_post'])) {
 
 </div>
 
-<div class=" bg-[#6A4EE9] py-20  overflow-hidden flex items-center justify-center  ">
+<div class=" bg-[#E5ECFF] py-20  overflow-hidden flex items-center justify-center  ">
 
     <div class="bg-white w-[75%]  shadow-3xl rounded  ">
         <div>

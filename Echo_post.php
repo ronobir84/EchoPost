@@ -14,7 +14,7 @@ if (isset($_POST['post_login'])) {
     $data = mysqli_num_rows($query);
     if ($data) {
         $result = mysqli_fetch_assoc($query);
-         
+
 
         $min_user_data = array($result['post_user_id'], $result['post_user_name'], $result['post_user_email'], $result['post_user_password'], $result['images']);
 
@@ -60,7 +60,7 @@ if (isset($_POST['post_login'])) {
 
 
 
-    <div class=" bg-[#6A4EE9] h-screen overflow-hidden flex items-center justify-center">
+    <div class=" bg-[#E5ECFF] h-screen overflow-hidden flex items-center justify-center">
 
         <div class="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
 
