@@ -42,7 +42,7 @@
                         <div class="border-l-4 border-[#A9F0E8] pl-11">
                             <h2 class="text-xl font-bold text-black">Posts</h2>
                             <?php
-                            $countData = "SELECT  COUNT(post_id) FROM posts ";
+                            $countData = "SELECT  COUNT(post_id) as total FROM posts ";
                             $countResult = $database->query($countData);
 
                              
@@ -50,13 +50,14 @@
 
                                 if ($countResult) {
                                     while ($result = $countResult->fetch_assoc()) {
+                                     
 
                                     
                                         
                                    
                                  
                             ?>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo implode($result)        ?></h1>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $result['total']        ?></h1>
                             <?php  }
                                 }
                             ?>
@@ -76,7 +77,21 @@
                         </div>
                         <div class="border-l-4 border-[#FCA6D4] pl-11">
                             <h2 class="text-xl font-bold text-black">Categories</h2>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center">12</h1>
+                            
+                            <?php
+
+                            $categoryData = "SELECT COUNT(category_id) as category FROM categories";
+                            $categoryResult = $database->query($categoryData);
+                            if ($categoryResult) {
+                                while ($count_cat = $categoryResult->fetch_assoc()) {
+                                    
+                                
+                            
+                            ?>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $count_cat['category']?></h1>
+
+                            <?php }
+                            }?>
                         </div>
 
                     </div>
@@ -94,6 +109,7 @@
                         </div>
                         <div class="border-l-4 border-[#FDECA9] pl-11">
                             <h2 class="text-xl font-bold text-black">Users</h2>
+                            
                             <h1 class="text-3xl font-black text-[#6A4EE9] text-center">9</h1>
                         </div>
 
