@@ -43,7 +43,30 @@ $rows = mysqli_num_rows($post_query);
             </div>
             <div>
                 <h1 class="text-4xl text-black font-bold "><?php echo $cat_res['category_name'] ?></h1>
-                <h3 class="text-xl font-medium text-gray-600 mt-2">A collection of <span class="font-bold text-black">4 posts</span></h3>
+
+                <?php
+
+                $CountPost = "SELECT COUNT(post_id) as post_data  FROM posts  LEFT JOIN categories ON posts.category_id = categories.category_id WHERE posts.category_id = '$category_id'";
+
+
+                $countResult = $database->query($CountPost);
+
+
+                if ($countResult) {
+                     while ($result = $countResult->fetch_assoc()) {
+                        
+                   
+                ?>
+                <h3 class="text-xl font-medium text-gray-600 mt-2">A collection of <span class="font-bold text-black"><?php echo $result['post_data']?> posts</span></h3>
+
+                <?php
+                    }
+                }else{
+                    echo "Not Data";
+                }
+                
+                
+                ?>
 
             </div>
         </div>
