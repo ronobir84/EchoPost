@@ -80,7 +80,7 @@
                             
                             <?php
 
-                            $categoryData = "SELECT COUNT(category_id) as category FROM categories";
+                            $categoryData = "SELECT COUNT(category_id) as category_data FROM categories";
                             $categoryResult = $database->query($categoryData);
                             if ($categoryResult) {
                                 while ($count_cat = $categoryResult->fetch_assoc()) {
@@ -88,7 +88,7 @@
                                 
                             
                             ?>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $count_cat['category']?></h1>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $count_cat['category_data']?></h1>
 
                             <?php }
                             }?>
@@ -109,8 +109,22 @@
                         </div>
                         <div class="border-l-4 border-[#FDECA9] pl-11">
                             <h2 class="text-xl font-bold text-black">Users</h2>
+                            <?php
+                            $user_data = "SELECT COUNT(post_user_id) as user_data FROM post_users";
+                            $user_result = $database->query($user_data);
+
+                            if ($user_result) {
+                                while ($count_user = $user_result->fetch_assoc()) {
+                                     
+                               
                             
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center">9</h1>
+                            
+                            ?>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $count_user['user_data'] ?></h1>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
 
                     </div>
@@ -129,7 +143,19 @@
                         </div>
                         <div class="border-l-4 border-[#C0F7C1] pl-11">
                             <h2 class="text-xl font-bold text-black">Comments</h2>
-                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center">14</h1>
+                            <?php
+                            $commentData = "SELECT COUNT(comment_id) AS comment_data FROM comments";
+                            $commentResult = $database->query($commentData);
+
+                            if ($commentResult) {
+                               while ($count_comment = $commentResult->fetch_assoc()) {
+                               
+                             
+                            
+                            ?>
+                            <h1 class="text-3xl font-black text-[#6A4EE9] text-center"><?php echo $count_comment['comment_data'] ?></h1>
+                            <?php   }
+                            }  ?>
                         </div>
 
                     </div>

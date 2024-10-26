@@ -15,15 +15,8 @@ if (empty($category_id)) {
     header("Location: http://localhost/EchoPost/index.php");
 }
 
-$category_query = mysqli_query($database, "SELECT * FROM categories LEFT JOIN posts ON posts.category_id=categories.category_id  WHERE  posts.category_id = '$category_id'" );
-
-$cat_res = mysqli_fetch_assoc($category_query);
-
-
-
- 
-
-
+$category_query = mysqli_query($database, "SELECT * FROM categories LEFT JOIN posts ON  posts.category_id =  categories.category_id  WHERE categories.category_id = '$category_id'" );
+$cat_res = mysqli_fetch_array($category_query);
 ?>
 
 
