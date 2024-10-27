@@ -104,7 +104,7 @@ $rows = mysqli_num_rows($post_query);
                             </div>
                         </div>
                         <div class="w-72 text-center mx-auto pt-6">
-                            <a href="">
+                            <a href="../../Assets/Components/single_post.php?id=<?php echo $row['post_id'] ?>">
                                 <h1 class="text-2xl font-bold text-[#282424] hover:underline duration-700"><?php echo $row['post_title'] ?></h1>
                             </a>
                         </div>

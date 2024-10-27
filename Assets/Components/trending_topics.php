@@ -1,12 +1,12 @@
 <div class="mt-20">
     <?php
-            $host = "localhost";
-            $user_name = 'root';
+    $host = "localhost";
+    $user_name = 'root';
 
-            $user_password = '';
+    $user_password = '';
 
-            $database_name = 'echo_post';
-            $database = new mysqli($host, $user_name, $user_password, $database_name);
+    $database_name = 'echo_post';
+    $database = new mysqli($host, $user_name, $user_password, $database_name);
     $sql = "SELECT * FROM categories LIMIT 4";
     $query = mysqli_query($database, $sql);
     $rows = mysqli_num_rows($query);
@@ -33,16 +33,18 @@
             ?>
                     <div class="w-32  ">
 
-                        <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color'] ?>] duration-500  rounded-full bg-[<?php echo $row['category_color'] ?>]">
+                        <a href="Assets/Components/category_single.php?id=<?php echo $row['category_id'] ?>">"
+                            <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color'] ?>] duration-500  rounded-full bg-[<?php echo $row['category_color'] ?>]">
 
 
-                        </div>
+                            </div>
+                        </a>
                         <h2 class="text-xl font-bold text-black text-center  pt-1"><?php echo $row['category_name'] ?></h2>
 
                     </div>
 
 
-            <?php  }
+            <?php }
             } ?>
 
 

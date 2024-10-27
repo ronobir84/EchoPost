@@ -52,8 +52,8 @@
                     <!-- second section -->
                     <div class=" relative top-11 pr-4 w-[95%] ">
                         <div>
-                            <a href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
-                                <h1 class="text-2xl font-bold text-black hover:underline duration-300"><?php echo $row['post_title'] ?></h1>
+                            <a class=""  href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
+                                <h1 class="text-2xl font-bold text-black hover:underline duration-300 "><?php echo $row['post_title'] ?></h1>
                             </a>
                             <p class="text-gray-800 font-medium  text-base  pt-8"><?php echo $row['post_text'] ?></p>
                         </div>
