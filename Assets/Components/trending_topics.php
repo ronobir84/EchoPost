@@ -38,9 +38,21 @@
 
                             <?php
                             $id = $row['category_id'];
+                             
+
+                            $countCategory = "SELECT COUNT(post_id) AS category FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id WHERE posts.category_id = '$id'";
+
+                            $categoryResult = $database->query($countCategory);
+                            if ($categoryResult) {
+                                 while ($all_category = $categoryResult->fetch_assoc()) {
+                                    
+                                 
                             
                             ?>
-                                <button class="w-7 h-7 bg-[#FF2AAC] text-white font-bold text-lg rounded-full ml-16  ">2</button>
+                                <button class="w-7 h-7 bg-[#FF2AAC] text-white font-bold text-lg rounded-full ml-16  "><?php echo $all_category['category'];?></button>
+
+                                <?php }
+                            } ?>
 
 
                             </div>
