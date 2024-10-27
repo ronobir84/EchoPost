@@ -36,6 +36,12 @@
                         <a href="Assets/Components/category_single.php?id=<?php echo $row['category_id'] ?>">"
                             <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color'] ?>] duration-500  rounded-full bg-[<?php echo $row['category_color'] ?>]">
 
+                            <?php
+                            $id = $row['category_id'];
+                            
+                            ?>
+                                <button class="w-7 h-7 bg-[#FF2AAC] text-white font-bold text-lg rounded-full ml-16  ">2</button>
+
 
                             </div>
                         </a>
