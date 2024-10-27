@@ -1,5 +1,3 @@
- 
-
  <div class="">
      <?php include_once('./header.php') ?>
  </div>
@@ -7,21 +5,21 @@
 
 
 
-<?php
+ <?php
     $host = "localhost";
     $user_name = 'root';
 
     $user_password = '';
 
     $database_name = 'echo_post';
-$database = new mysqli($host, $user_name, $user_password, $database_name);
+    $database = new mysqli($host, $user_name, $user_password, $database_name);
 
-$sql = "SELECT * FROM categories";
-$query = mysqli_query( $database, query: $sql);
-$rows = mysqli_num_rows($query);
+    $sql = "SELECT * FROM categories";
+    $query = mysqli_query($database, query: $sql);
+    $rows = mysqli_num_rows($query);
 
 
-?>
+    ?>
  <div class="bg-[#F3F4F6]  ">
      <div class="text-center relative top-12">
          <h2 class="text-5xl font-black text-black">Explore our Categories ✨</h2>
@@ -30,34 +28,59 @@ $rows = mysqli_num_rows($query);
 
 
      <div class="w-[70%] mx-auto py-10 mt-20 bg-white border-[1px] border-gray-300 shadow-xl rounded">
-         
-                 <div class="grid grid-cols-4 gap-4">
-                    <?php 
-                    if ($rows) {
-                        while ($row = mysqli_fetch_array($query)) {
-                             
-                        
-                    
-                    ?>
+
+         <div class="grid grid-cols-4 gap-4 px-14">
+             <?php
+                if ($rows) {
+                    while ($row = mysqli_fetch_array($query)) {
+
+
+
+                ?>
                      <!--  -->
                      <div class="">
 
-                         <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color']?>] duration-500  rounded-full bg-[<?php echo $row['category_color']?>]">
+                         <div class=" grid grid-cols-2 items-center text-center w-56">
+                             <a href="category_single.php?id=<?php echo $row['category_id'] ?>">
+                                 <div class="w-24 h-24 mx-auto shadow-xl hover:shadow-[<?php echo $row['category_color'] ?>] duration-500  rounded-full bg-[<?php echo $row['category_color'] ?>]">
 
 
+                                 </div>
+                             </a>
+                             <div>
+                                 <h2 class="text-xl font-bold text-black text-center  pt-1"><?php echo $row['category_name'] ?></h2>
+                                 <?php
+                                    $id = $row['category_id'];
+                                    $countData = "SELECT COUNT(post_id) AS count_data FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id WHERE posts.category_id = '$id'";
+                                    $countResult = $database->query($countData);
+
+                                    if ($countResult) {
+                                        while ($data = $countResult->fetch_assoc()) {
+
+
+
+                                    ?>
+                                         <h2 class="text-base mt-1 text-gray-700 font-semibold"> <span class="text-black font-bold mr-1"><?php echo $data['count_data']; ?> </span> Articles</h2>
+
+                                 <?php
+                                        }
+                                    }
+                                    ?>
+
+                             </div>
                          </div>
-                         <h2 class="text-xl font-bold text-black text-center  pt-1"><?php echo $row['category_name'] ?></h2>
+
 
                      </div>
-                     <?php
-                        }
+             <?php
                     }
-                     ?>
-                      
-                     
-                 </div>
+                }
+                ?>
 
-         
+
+         </div>
+
+
 
      </div>
 
