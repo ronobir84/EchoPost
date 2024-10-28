@@ -27,7 +27,7 @@
 
     .Article_box_min {
         width: 400px;
-        height: 250px;
+        /* height: 250px; */
         border: 2px solid #b0b9c5;
         padding: 30px 0px 0px 50px;
         background-color: white;
@@ -209,11 +209,14 @@
     .comment_user_name {
         font-weight: 700;
         color: #6A4EE9;
+        font-size: medium;
+        position: relative;
+        top: 9px;
     }
 
     .reply_1_flex {
         display: flex;
-        gap: 14px;
+        gap: 20px;
         align-items: center;
         margin-bottom: 30px;
 
@@ -232,16 +235,59 @@
 
     .edit_delete_flex {
         display: flex;
-        gap: 13px;
-        margin-top: 5px;
+        align-items: center;
+        gap: 6x;
+        position: relative;
+        bottom: 2px;
+        right: 10px;
     }
 
     .fa-pen-to-square {
         color: #6A4EE9;
+
     }
 
-    .fa-trash-can{
+    .fa-trash-can {
         color: red;
+        margin-top: 1px;
+    }
+
+    .input_1 {
+        width: 100%;
+        height: 45px;
+        margin-top: 10px;
+        border: 2px solid #282424;
+        font-size: 20px;
+        font-weight: 600;
+        color: #282424;
+
+    }
+
+    .edit_comment_title {
+        font-weight: 700;
+        font-family: "Cormorant", serif;
+        color: #6A4EE9;
+        text-align: center;
+
+    }
+
+    .comment_up_button {
+        width: 100%;
+        height: 40px;
+        background-color: #6A4EE9;
+        color: #FFFFFF;
+        font-size: larger;
+        font-weight: 600;
+        border-radius: 2px;
+        border: none;
+        margin-top: 40px;
+    }
+
+    .comment_up_button:hover {
+        background-color: #282424;
+        transition-duration: 300ms;
+        cursor: pointer;
+
     }
 </style>
 
@@ -360,17 +406,7 @@ if (isset($_POST['comment_post'])) {
 
 
         </div>
-
-
-
-
-
-
-
-
         <!-- post left side -->
-
-
         <div class="">
             <div class="post_container">
                 <div class="post_second">
@@ -386,20 +422,10 @@ if (isset($_POST['comment_post'])) {
                     </div>
                 </div>
             </div>
-
-
-
-
-
             <div class="admin_reply_con">
-
                 <div class="comment_reply_min">
-
-
                     <div class="">
                         <?php
-
-
                         $sql2 = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id WHERE posts.post_id= '$id'";
                         $query2 = mysqli_query($database, $sql2);
                         $rows = mysqli_num_rows($query2);
@@ -418,7 +444,35 @@ if (isset($_POST['comment_post'])) {
                                         <h3 class="comment_user_name"><?php echo $comment['post_user_name'] ?> - <span class="replay_second"> <?php echo date("s", strtotime($comment['comment_time']))  ?> seconds ago</span></h3>
                                         <h3 class="comment_text"><?php echo $comment['comment_content'] ?></h3>
                                         <div class="edit_delete_flex">
-                                            <i class="fa-regular fa-pen-to-square"></i>
+
+                                            <?php
+                                            $comment_id = $comment['comment_id'];
+                                            // print_r($comment_id);
+                                            ?>
+                                            <div class="w3-container">
+
+                                                <i onclick="document.getElementById('id01').style.display='block'" class="fa-regular fa-pen-to-square"></i>
+
+                                                <div style="overflow: hidden;" id="id01" class="w3-modal">
+                                                    <div style="width: 600px; height:250px;" class="w3-modal-content">
+                                                        <header class="w3-container w3-teal">
+                                                            <span onclick="document.getElementById('id01').style.display='none'"
+                                                                class="w3-button w3-display-topright">&times;</span>
+
+                                                        </header>
+                                                        <div class="w3-container">
+                                                            <h2 class="edit_comment_title">Edit Comment</h2>
+                                                            <form action="">
+                                                                <input class="input_1" type="text">
+                                                                <button class="comment_up_button">Update</button>
+                                                            </form>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <i class="fa-regular fa-trash-can"></i>
 
 
@@ -487,7 +541,10 @@ if (isset($_POST['comment_post'])) {
 
 
 
+<style>
 
+
+</style>
 
 
 

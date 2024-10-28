@@ -114,6 +114,7 @@
                                                     $_SESSION['delete_blog_error'] = "Failed Please Try Again";
                                                 }
                                             }
+                                            
 
 
                                             ?>

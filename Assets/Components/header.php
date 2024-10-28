@@ -32,6 +32,7 @@
 
 
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+     
  </head>
 
  <header id="header_component" class="py-5 bg-[#F3F4F6]">

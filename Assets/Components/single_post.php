@@ -34,7 +34,7 @@ $result = mysqli_fetch_assoc($query);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
-
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 
 
@@ -63,6 +63,8 @@ $result = mysqli_fetch_assoc($query);
             height: 350px;
             background-color: black;
             text-align: center;
+            position: relative;
+            bottom: 30px;
 
         }
 
