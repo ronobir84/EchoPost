@@ -6,7 +6,7 @@ $sql = "SELECT * FROM comments WHERE comment_id = '$id'";
 $query = mysqli_query($database, $sql);
 $result = mysqli_fetch_array($query);
 
- 
+
 
 ?>
 
@@ -29,7 +29,7 @@ $result = mysqli_fetch_array($query);
 
 
 <div class="flex items-center justify-center w-full">
-    <div class=" w-full  min-h-screen bg-[#6A4EE9]  py-16">
+    <div class=" w-full  min-h-screen bg-[#E5ECFF]  py-16">
 
 
         <div class="w-2/3 bg-white mx-auto py-12  rounded-sm shadow">
@@ -50,7 +50,7 @@ $result = mysqli_fetch_array($query);
             </div>
             <div class="flex items-center px-10 gap-5 mt-6">
                 <input class="border-[1px] border-gray-500 w-[90%] h-12 px-4 rounded-sm" placeholder="Replay The Comment" type="text" name="" id="">
-                <button   class="w-12 rounded-full bg-[#86EFAC] h-12 border">
+                <button class="w-12 rounded-full bg-[#86EFAC] h-12 border">
                     <i class="fa-solid fa-arrow-right fa-lg  text-[#6A4EE9] "></i>
 
                 </button>

@@ -447,23 +447,29 @@ if (isset($_POST['comment_post'])) {
 
                                             <?php
                                             $comment_id = $comment['comment_id'];
-                                            // print_r($comment_id);
+                                             
+
+                                            $show_sql = "SELECT * FROM comments WHERE comment_id = '$comment_id'";
+                                            $show_query = mysqli_query($database, $show_sql);
+                                            $show_data = mysqli_fetch_assoc($show_query);
+                                             
+
                                             ?>
                                             <div class="w3-container">
 
-                                                <i onclick="document.getElementById('id01').style.display='block'" class="fa-regular fa-pen-to-square"></i>
+                                                <i onclick="document.getElementById('<?php echo $comment_id ?>').style.display='block'" class="fa-regular fa-pen-to-square"></i>
 
-                                                <div style="overflow: hidden;" id="id01" class="w3-modal">
+                                                <div style="overflow: hidden;" id="<?php echo $comment_id; ?>" class="w3-modal">
                                                     <div style="width: 600px; height:250px;" class="w3-modal-content">
                                                         <header class="w3-container w3-teal">
-                                                            <span onclick="document.getElementById('id01').style.display='none'"
+                                                            <span style="" onclick="document.getElementById('<?php echo $comment_id?>').style.display='none'"
                                                                 class="w3-button w3-display-topright">&times;</span>
 
                                                         </header>
                                                         <div class="w3-container">
                                                             <h2 class="edit_comment_title">Edit Comment</h2>
                                                             <form action="">
-                                                                <input class="input_1" type="text">
+                                                                <input value="<?php echo $show_data['comment_content'] ?>" class="input_1" type="text">
                                                                 <button class="comment_up_button">Update</button>
                                                             </form>
 
@@ -472,70 +478,44 @@ if (isset($_POST['comment_post'])) {
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <i class="fa-regular fa-trash-can"></i>
-
-
                                         </div>
                                     </div>
                                 </div>
                             <?php }
                         } else { ?>
-
                             <div>
                                 <h2>Data not found</h2>;
-
                             </div>
                         <?php } ?>
-
                     </div>
-
                     <!-- admin reply  message-->
                     <div>
                         <!-- <div class="admin_reply_min">
                             <div>
                                 <img class="user_reply_img" src="" alt="">
-
                             </div>
                             <div>
                                 <h3 class="comment_user_name">Admin - <span class="replay_second"> 10 seconds ago</span></h3>
                                 <h3 class="comment_text">thank You For Comment</h3>
-
-
                             </div>
                         </div> -->
                     </div>
-
                 </div>
-
             </div>
-
-
             <!-- comment section -->
-
-
             <div class="comment_min">
                 <form method="post" action="">
                     <h2 class="text-xl font-semibold text-black">Comment</h2>
                     <div class="comment_flex">
                         <textarea placeholder="Comment...." name="comment_content"></textarea>
-
-
                     </div>
-
                     <div>
                         <button name="comment_post" class="banner_button1">Post Comment</button>
                     </div>
-
                 </form>
-
             </div>
-
-
-
-
         </div>
-
     </div>
 </section>
 
@@ -549,6 +529,7 @@ if (isset($_POST['comment_post'])) {
 
 
 <?php
+
 
 
 

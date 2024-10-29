@@ -32,7 +32,7 @@
 
 
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-     
+
  </head>
 
  <header id="header_component" class="py-5 bg-[#F3F4F6]">
@@ -89,7 +89,7 @@
                              <a href="#" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Settings</a>
                          </li>
                          <li>
-                             <a href="logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
+                             <a href="http://localhost/EchoPost/post_logout.php" class="block px-4 py-2 hover:bg-[#6A4EE9]  duration-500  ">Logout</a>
                          </li>
                      </ul>
 

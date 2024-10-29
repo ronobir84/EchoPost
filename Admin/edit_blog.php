@@ -49,12 +49,12 @@ if (isset($_POST['edit_post'])) {
             unlink($folder . $delete_image);
             move_uploaded_file($file, $target_file);
 
-            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name', `post_image`='$image_file',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
+            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name', `post_image`='$image_file',  `post_content`='$post_body',  `category_id` ='$category_name',  `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
 
 
             $result = mysqli_query($database, $update_sql);
         } else {
-            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name',  `post_content`='$post_body',   `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
+            $update_sql = "UPDATE `posts` SET  `post_title`='$post_name',  `post_content`='$post_body',  `category_id` ='$category_name',  `user_id`='$user_name',    `post_text`='$post_text' WHERE `post_id` = '$post_id'";
             $result = mysqli_query($database, $update_sql);
         }
 
@@ -77,15 +77,14 @@ if (isset($error)) {
 
 $post_sql = "SELECT * FROM posts LEFT JOIN users ON posts.user_id = users.user_id LEFT JOIN  categories ON posts.category_id = categories.category_id WHERE post_id = '$post_id'";
 $post_query = mysqli_query($database, $post_sql);
-if ($data = mysqli_fetch_array(result: $post_query)) {
+if ($data = mysqli_fetch_assoc(result: $post_query)) {
     $post_title = $data['post_title'];
     $post_text = $data['post_text'];
 
 
     $post_image = $data['post_image'];
     $post_body = $data['post_content'];
-    // 01723365849
-    // 01718168777
+    
 }
 
 
@@ -141,12 +140,13 @@ if ($data = mysqli_fetch_array(result: $post_query)) {
                     <?php
                     $cat_sql = "SELECT * FROM categories";
                     $cat_query = mysqli_query($database, $cat_sql);
-                    while ($cat_result = mysqli_fetch_array($cat_query)) {
+                    while ($cat_result = mysqli_fetch_assoc($cat_query)) {
+                         
 
 
 
                     ?>
-                        <option value="<?php $cat_result['category_id'] ?>"
+                        <option value="<?php echo $cat_result['category_id'] ?>"
                             <?php
                             if ($data['category_id'] == $cat_result['category_id']) {
                                 echo "Selected";
