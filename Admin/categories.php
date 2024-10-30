@@ -3,7 +3,7 @@
 
 
 
-<div class="container-fluid   bg-[#E5ECFF] min-h-screen">
+<div class="container-fluid   bg-[#E5ECFF] min-">
 
     <!-- Page Heading -->
 

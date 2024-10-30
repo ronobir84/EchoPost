@@ -96,7 +96,7 @@ if (!isset($_SESSION['user_data'])) {
                         <?php 
 
                         if (isset($_SESSION['user_data'])) {
-                            $admin = $_SESSION['user_data'][3];
+                            // $admin = $_SESSION['user_data'][3];
                             // print_r($admin);
                         }
                         

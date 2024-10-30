@@ -189,7 +189,7 @@ if ($data = mysqli_fetch_assoc(result: $post_query)) {
             <div class="mb-3">
                 <textarea required name="post_body" id="blog" placeholder="Describe yourself " class="bg-gray-200 rounded text-black duration-200 px-4  py-2.5 focus:outline-none w-full" rows="3"><?php echo $post_body ?></textarea>
             </div>
-            <button name="edit_post" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Post</button>
+            <button name="edit_post" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Update Post</button>
         </form>
     </div>
 </div>

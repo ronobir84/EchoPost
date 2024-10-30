@@ -91,7 +91,19 @@
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="">edit</a>
+                                        <div class="group relative inline-block ">
+
+
+                                            <a class="mr-3" href="edit_user.php?id=<?php echo $row['user_id'] ?>">
+                                                <button type="button">
+                                                    <i class="fa-solid fa-pen-to-square text-xl font-bold  text-[#309267]   duration-500 "></i>
+                                                </button>
+                                            </a>
+
+
+                                            <span
+                                                class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
+                                        </div>
                                         <a href="">Delete</a>
                                         <a href="">view</a>
 

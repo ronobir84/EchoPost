@@ -70,7 +70,7 @@ if (isset($_POST['edit_category'])) {
             <div class=" mb-3">
                 <input value="<?php echo $result['category_color'] ?>" type="color" name="category_color" class=" rounded hover:cursor-pointer duration-200 h-12 w-full" />
             </div>
-            <button name="edit_category" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Add Post</button>
+            <button name="edit_category" class="bg-[#6A4EE9] hover:bg-[#282424] duration-300 font-bold py-2 md:p-4 text-white  w-full rounded">Update Category</button>
         </form>
     </div>
 </div>
