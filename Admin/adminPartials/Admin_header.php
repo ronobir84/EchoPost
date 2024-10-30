@@ -93,6 +93,18 @@ if (!isset($_SESSION['user_data'])) {
                             </a>
                         </li>
 
+                        <?php 
+
+                        if (isset($_SESSION['user_data'])) {
+                            $admin = $_SESSION['user_data'][3];
+                            // print_r($admin);
+                        }
+                        
+                        
+                        
+                        
+                        ?>
+
 
                         <li>
                             <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">

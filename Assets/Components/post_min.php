@@ -1,3 +1,5 @@
+<?php ob_start() ?>
+
 <style>
     .min_container {
         width: 90%;
@@ -447,30 +449,33 @@ if (isset($_POST['comment_post'])) {
 
                                             <?php
                                             $comment_id = $comment['comment_id'];
-                                             
-
                                             $show_sql = "SELECT * FROM comments WHERE comment_id = '$comment_id'";
                                             $show_query = mysqli_query($database, $show_sql);
                                             $show_data = mysqli_fetch_assoc($show_query);
-                                             
+
+
+
+
 
                                             ?>
                                             <div class="w3-container">
+
+                                               
 
                                                 <i onclick="document.getElementById('<?php echo $comment_id ?>').style.display='block'" class="fa-regular fa-pen-to-square"></i>
 
                                                 <div style="overflow: hidden;" id="<?php echo $comment_id; ?>" class="w3-modal">
                                                     <div style="width: 600px; height:250px;" class="w3-modal-content">
                                                         <header class="w3-container w3-teal">
-                                                            <span style="" onclick="document.getElementById('<?php echo $comment_id?>').style.display='none'"
+                                                            <span style="" onclick="document.getElementById('<?php echo $comment_id ?>').style.display='none'"
                                                                 class="w3-button w3-display-topright">&times;</span>
 
                                                         </header>
                                                         <div class="w3-container">
                                                             <h2 class="edit_comment_title">Edit Comment</h2>
-                                                            <form action="">
-                                                                <input value="<?php echo $show_data['comment_content'] ?>" class="input_1" type="text">
-                                                                <button class="comment_up_button">Update</button>
+                                                            <form method="post" action="">
+                                                                <input name="comment" value="<?php echo $show_data['comment_content'] ?>" class="input_1" type="text">
+                                                                <button name="comment_edit" class="comment_up_button">Update</button>
                                                             </form>
 
                                                         </div>
@@ -504,7 +509,7 @@ if (isset($_POST['comment_post'])) {
                 </div>
             </div>
             <!-- comment section -->
-            <div class="comment_min">
+            <div  class="comment_min">
                 <form method="post" action="">
                     <h2 class="text-xl font-semibold text-black">Comment</h2>
                     <div class="comment_flex">
