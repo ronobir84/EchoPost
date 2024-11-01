@@ -82,7 +82,7 @@
                                     <td>
                                         <?php
                                         if ($row['user_role'] == 1) {
-                                            echo "Admin";
+                                            echo "<p class='text-green-500'>Admin</p>";
                                         } elseif ($row['user_role'] == 0) {
                                             echo "CO-Admin";
                                         } else {

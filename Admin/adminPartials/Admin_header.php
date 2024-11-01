@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_data'])) {
     <meta name="author" content="">
     <title>EchoPost Admin</title>
     <link href="vendor/css/sb-admin-2.css" rel="stylesheet">
-     
+
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,45 +93,50 @@ if (!isset($_SESSION['user_data'])) {
                             </a>
                         </li>
 
-                        <?php 
+                        <?php
 
                         if (isset($_SESSION['user_data'])) {
-                            // $admin = $_SESSION['user_data'][3];
+                            $admin = $_SESSION['user_data'][3];
                             // print_r($admin);
+
+
                         }
-                        
-                        
-                        
-                        
+                        if ($admin == 1) {
+
+
+
+
+
+
                         ?>
 
 
-                        <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">
-                                <i class="fa-solid fa-list text-lg"></i>
-                                <button class="text-lg font-semibold ">Categories</button>
-                            </a>
-                        </li>
+                            <li>
+                                <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500    w-36 <?= $page == "categories.php" ? 'active' : ''; ?>" href="categories.php">
+                                    <i class="fa-solid fa-list text-lg"></i>
+                                    <button class="text-lg font-semibold ">Categories</button>
+                                </a>
+                            </li>
 
 
-                        <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
-                                <i class="fa-solid fa-user text-lg"></i>
-                                <button class="text-lg font-semibold ">Users</button>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href=" comments.php">
-                                <i class="fa-solid fa-comment text-lg"></i>
+                            <li>
+                                <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-36 <?= $page == "users.php" ? 'active' : ''; ?>" href="users.php">
+                                    <i class="fa-solid fa-user text-lg"></i>
+                                    <button class="text-lg font-semibold ">Users</button>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href=" comments.php">
+                                    <i class="fa-solid fa-comment text-lg"></i>
 
-                                <button class="text-lg font-semibold ">Comments</button>
-                            </a>
-                        </li>
-
-
+                                    <button class="text-lg font-semibold ">Comments</button>
+                                </a>
+                            </li>
 
 
 
+
+                        <?php  } ?>
 
 
 
@@ -159,7 +164,6 @@ if (!isset($_SESSION['user_data'])) {
                                         if (isset($_SESSION['user_data'])) {
                                             $name_data = ucwords($_SESSION['user_data'][1]);
                                             echo $name_data;
-                                             
                                         }
 
                                         ?>
@@ -168,8 +172,6 @@ if (!isset($_SESSION['user_data'])) {
                                         <?php
                                         if (isset($_SESSION['user_data'])) {
                                             $image_data = $_SESSION['user_data'][2];
-                                             
-                                             
                                         }
                                         ?>
                                         <img class="w-12 h-12 rounded-full " src="./upload/<?php echo $image_data ?>" alt="">

@@ -22,7 +22,7 @@ if (isset($_POST['edit_post'])) {
     $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
     if ($file != '') {
         if ($_FILES['images']['size'] > 5000000) {
-            $error[] = "Sorry, your image is too large. Upload less than 500 KB in size.";
+            $error[] = "orry, your image is too large. Upload less than 500 KB in size.Sorry, your image is too large. Upload less than 500 KB in size.";
         }
         //  //Allow only JPG, JPEG, PNG & GIF 
         if (

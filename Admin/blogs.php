@@ -1,6 +1,17 @@
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
 
+<?php 
+if (isset($_SESSION['user_data'])) {
+    $user_id = $_SESSION['user_data'][0];
+    // echo $user_id;
+}
+
+
+
+?>
+
+
 <div class="container-fluid bg-[#E5ECFF] min-h-screen">
 
     <!-- Page Heading -->
