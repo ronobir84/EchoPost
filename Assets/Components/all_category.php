@@ -1,3 +1,17 @@
+ <div class="fixed top-0 left-0 w-full z-30 h-2 bg-gray-300">
+     <div class="h-full bg-green-400" id="readingProgress" style="width: 0;"></div>
+ </div>
+
+ <script>
+     window.addEventListener("scroll", function() {
+         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+         var winHeight = window.innerHeight || document.documentElement.clientHeight;
+         var docHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+         var scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+         document.querySelector("#readingProgress").style.width = scrollPercent + "%";
+     });
+ </script>
+
  <div class="">
      <?php include_once('./header.php') ?>
  </div>

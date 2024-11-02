@@ -1,3 +1,38 @@
+<style>
+    .div_1 {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 0.5rem;
+         
+
+    }
+
+    .div_2 {
+        height: 100%;
+        background-color: #4ade80;
+        transition-duration: 500ms;
+
+
+    }
+</style>
+
+<div class=" div_1">
+    <div class="  div_2" id="readingProgress" style="width: 0;"></div>
+</div>
+
+<script>
+    window.addEventListener("scroll", function() {
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        var winHeight = window.innerHeight || document.documentElement.clientHeight;
+        var docHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+        var scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+        document.querySelector("#readingProgress").style.width = scrollPercent + "%";
+    });
+</script>
+
+
 <?php
 ob_start();
 include_once('../../database.php');
