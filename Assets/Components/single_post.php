@@ -5,7 +5,7 @@
         left: 0px;
         width: 100%;
         height: 0.5rem;
-         
+
 
     }
 
@@ -298,7 +298,7 @@ $result = mysqli_fetch_assoc($query);
 
 
     <!-- post section -->
-
+    
 
     <section>
         <?php include_once('post_min.php') ?>

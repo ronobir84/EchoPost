@@ -1,5 +1,3 @@
-
-
 <!-- #Footer Component Here -->
 <footer class="bg-[#F3F4F6]">
     <div class="grid grid-cols-3 gap-8 container mx-auto py-20 ">
@@ -89,6 +87,10 @@
             <input placeholder="Type to start your search" class="w-full h-14 duration-200 rounded  px-4 bg-white text-black focus:outline-none " type="text">
             <button class="px-5 py-2 absolute right-0 mr-20    mt-1.5 rounded hover:bg-[#282424] duration-500 text-lg font-semibold text-white bg-[#6A4EE9]">Get Started</button>
             </form>
+            <div>
+                <?php include_once('goTop_button.php') ?>
+               
+            </div>
         </div>
     </div>
 
@@ -105,3 +107,4 @@
 </body>
 
 </html>
+

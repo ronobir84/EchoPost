@@ -460,7 +460,7 @@ if (isset($_POST['comment_post'])) {
                                             ?>
                                             <div class="w3-container">
 
-                                               
+
 
                                                 <i onclick="document.getElementById('<?php echo $comment_id ?>').style.display='block'" class="fa-regular fa-pen-to-square"></i>
 
@@ -509,7 +509,7 @@ if (isset($_POST['comment_post'])) {
                 </div>
             </div>
             <!-- comment section -->
-            <div  class="comment_min">
+            <div class="comment_min">
                 <form method="post" action="">
                     <h2 class="text-xl font-semibold text-black">Comment</h2>
                     <div class="comment_flex">
@@ -519,6 +519,7 @@ if (isset($_POST['comment_post'])) {
                         <button name="comment_post" class="banner_button1">Post Comment</button>
                     </div>
                 </form>
+                 
             </div>
         </div>
     </div>
