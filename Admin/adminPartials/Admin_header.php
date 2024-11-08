@@ -53,7 +53,7 @@ if (!isset($_SESSION['user_data'])) {
 
 </head>
 
-<body>
+
 
 
     <body id="page-top">

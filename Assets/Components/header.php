@@ -37,7 +37,20 @@
 
  <header id="header_component" class="py-5 bg-[#F3F4F6]">
      <nav class="current__header  w-10/12  z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8 mx-auto">
+
          <div class="navbar justify-between ">
+              <div class="fixed top-0 left-0 w-full z-30 h-2">
+                 <div class="h-full bg-green-400" id="readingProgress" style="width: 0;"></div>
+             </div> 
+             <script>
+                 window.addEventListener("scroll", function() {
+                     var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                     var winHeight = window.innerHeight || document.documentElement.clientHeight;
+                     var docHeight = document.body.scrollHeight || document.documentElement.scrollHeight;
+                     var scrollPercent = (scrollY / (docHeight - winHeight)) * 100;
+                     document.querySelector("#readingProgress").style.width = scrollPercent + "%";
+                 });
+             </script>
              <div class=" ">
                  <button class="" onclick="searchModal.showModal()">
                      <i class="fa-solid fa-magnifying-glass text-[#6A4EE9]"></i>
