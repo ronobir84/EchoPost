@@ -1,10 +1,17 @@
 <div class="space-y-4">
 
     <?php
-   
+    $limit = 2;
+
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = 1;
+    }
+    $offset = ($page - 1) * $limit;
 
 
-    $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id ORDER BY posts.publish_date DESC";
+    $sql = "SELECT * FROM posts LEFT JOIN categories ON posts.category_id = categories.category_id LEFT JOIN users ON posts.user_id = users.user_id  ORDER BY posts.publish_date DESC LIMIT $offset, $limit";
 
     $query = mysqli_query($database, $sql);
     $rows = mysqli_num_rows($query);
@@ -52,7 +59,7 @@
                     <!-- second section -->
                     <div class=" relative top-11 pr-4 w-[95%] ">
                         <div>
-                            <a class=""  href="Assets/Components/single_post.php?id=<?php echo $row['post_id']?>">
+                            <a class="" href="Assets/Components/single_post.php?id=<?php echo $row['post_id'] ?>">
                                 <h1 class="text-2xl font-bold text-black hover:underline duration-300 "><?php echo $row['post_title'] ?></h1>
                             </a>
                             <p class="text-gray-800 font-medium  text-base  pt-8"><?php echo $row['post_text'] ?></p>
@@ -90,5 +97,84 @@
 
     <?php  }
     } ?>
+
+    <!-- pagination -->
+
+    <?php
+
+    $pagination = "SELECT * FROM posts";
+    $page_result = mysqli_query($database, $pagination);
+
+    if (mysqli_num_rows($page_result) > 0) {
+
+        $total_records = mysqli_num_rows($page_result);
+        $total_page = ceil($total_records / $limit)
+
+
+    ?>
+
+
+        <!-- -------------------- -->
+
+
+        <div>
+            <nav class="" aria-label="Pagination">
+
+
+                <ul class="mb-4 flex justify-center space-x-4">
+                    <li>
+                        <?php
+                        if ($page > 1) {
+
+
+                        ?>
+                            <a class="rounded-full border text-lg font-bold  border-[#9333EA]  px-3.5 py-2.5 text-black" href="index.php?page=<?php echo $page - 1 ?>"><i class="fa-solid fa-angle-left fa-lg"></i></a>
+                        <?php } ?>
+                    </li>
+
+                    <?php
+                    for ($i = 1; $i <= $total_page; $i++) {
+
+
+
+
+                    ?>
+                        <li>
+                            <?php
+
+                            if ($i == $page) {
+                            ?>
+                                <a class="rounded-full border   text-lg font-bold bg-[#9333EA] border-[#9333EA]  px-[18px] py-[10px] text-white" href="index.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+                            <?php
+
+                            } else {
+                            ?>
+                                <a class="rounded-full border text-lg hover:bg-[#9333EA] duration-500 font-bold  border-[#9333EA]  px-[18px] py-[10px] text-black" href="index.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+
+
+                            <?php
+
+                            }
+                            ?>
+                        </li>
+                    <?php } ?>
+
+
+                    <li>
+                        <?php
+                        if ($page < $total_page) {
+
+
+                        ?>
+                            <a class="rounded-full border text-lg font-bold  border-[#9333EA]  px-3.5 py-2.5 text-black" href="index.php?page=<?php echo $page + 1 ?>"><i class="fa-solid fa-angle-right fa-lg"></i></a>
+                        <?php } ?>
+                    </li>
+                </ul>
+
+
+            </nav>
+        </div>
+
+    <?php } ?>
 
 </div>

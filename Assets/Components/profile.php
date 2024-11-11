@@ -14,6 +14,69 @@ $result = mysqli_fetch_assoc($profile_query);
 ?>
 
 
+<?php
+if (isset($_POST['update_profile'])) {
+    $user_name = mysqli_real_escape_string($database, $_POST['user_name']);
+    $user_email = mysqli_real_escape_string($database, $_POST['user_email']);
+    $user_password = mysqli_real_escape_string($database, $_POST['user_password']);
+    // image edit section
+    $folder = "../../Admin/upload/";
+    $image_file = $_FILES['profile_image']['name'];
+    $file = $_FILES['profile_image']['tmp_name'];
+    $path = $folder . $image_file;
+    $target_file = $folder . basename($image_file);
+    $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+    if ($file != '') {
+        if ($_FILES['profile_image']['size'] > 5000000) {
+            $error[] = "Sorry, your image is too large. Upload less than 500 KB in size.";
+        }
+        //  //Allow only JPG, JPEG, PNG & GIF 
+        if (
+            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+            && $imageFileType != "gif"
+        ) {
+            $error[] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed';
+        }
+    }
+
+
+
+
+    if (!isset($error)) {
+
+        if ($file != '') {
+            $post_sql = "SELECT * FROM  post_users  WHERE post_user_id = '$id'";
+            $res = mysqli_query($database, $post_sql);
+            if ($row = mysqli_fetch_array($res)) {
+                $delete_image = $row['images'];
+            }
+            unlink($folder . $delete_image);
+            move_uploaded_file($file, $target_file);
+
+
+            $update_sql = "UPDATE `post_users` SET  `post_user_name`='$user_name',`post_user_email`='$user_email',`post_user_password`='$user_password',`images`='$image_file' WHERE post_user_id = '$id'";
+
+
+            $result = mysqli_query($database, $update_sql);
+        } else {
+
+            $update_sql = "UPDATE `post_users` SET  `post_user_name`='$user_name',`post_user_email`='$user_email',`post_user_password`='$user_password'  WHERE post_user_id = '$id'";
+            $result_query = mysqli_query($database, $update_sql);
+        }
+
+        if (isset($result_query)) {
+            $_SESSION['post_edit_succ'] = "Post Data Update Successful";
+            header("Location:http://localhost/EchoPost/Assets/Components/profile.php?id=$id");
+        } else {
+            $_SESSION['post_edit_error'] = "Something went wrong";
+        }
+    }
+}
+
+
+?>
+
+
 <section class="w-full bg-[#F3F4F6]">
     <!-- container -->
     <div class="w-[80%] mx-auto    border-2 border-black bg-[#F3F4F6] ">
@@ -38,32 +101,32 @@ $result = mysqli_fetch_assoc($profile_query);
 
                                     <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
                                     <dialog id="<?php echo $id ?>" class="modal">
-                                        <div class="bg-white w-[500px] h-[420px]">
+                                        <div class="bg-white w-[500px] h-[420px] relative left-[109px]">
 
-                                            <div class="modal-action  absolute ml-[26%]">
+                                            <div class="modal-action  absolute left-[90%]">
                                                 <form method="dialog">
                                                     <!-- if there is a button in form, it will close the modal -->
                                                     <button class="w-8 h-8 hover:bg-black duration-500 bg-red-600 rounded-full relative bottom-2"><i class="fa-solid fa-xmark fs-2xl text-white"></i></button>
                                                 </form>
                                             </div>
-                                            <form action="">
+                                            <form enctype="multipart/form-data" method="post" action="">
 
                                                 <div class="px-9 mt-16">
                                                     <div class="flex justify-between mt-5">
-                                                        <input name="images" type="file" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
-                                                        <img class="w-[60px] h-[60px] rounded-full absolute  right-[38%] p-2" src="http://localhost/EchoPost/Admin/upload/20240419_171936_lmc_8.4.NIGHT-01.jpeg.jpg" alt="">
+                                                        <input name="profile_image" type="file" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
+                                                        <img class="w-[60px] h-[60px] rounded-full absolute  right-[10%] p-2" src="http://localhost/EchoPost/Admin/upload/<?php echo $result['images'] ?>" alt="">
                                                     </div>
                                                     <div class="mt-5">
-                                                        <input placeholder="name" name="user_name" type="text" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
+                                                        <input placeholder="" value="<?php echo $result['post_user_name'] ?>" name="user_name" type="text" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
                                                     </div>
                                                     <div class="mt-5">
-                                                        <input placeholder="email" name="user_email" type="email" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
+                                                        <input placeholder="" value="<?php echo $result['post_user_email'] ?>" name="user_email" type="email" class="rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
                                                     </div>
                                                     <div class="mt-5">
                                                         <div class="" x-data="{ show: true }">
 
                                                             <div class="relative">
-                                                                <input value="<?php echo $user_password ?>" name="new_password" placeholder="confirm Password" :type="show ? 'password' : 'text'" class=" rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
+                                                                <input value="<?php echo $result['post_user_password'] ?>" name="user_password" placeholder="confirm Password" :type="show ? 'password' : 'text'" class=" rounded bg-gray-200 px-4  text-black  py-2.5 w-full  focus:outline-none   transition ease-in-out duration-150">
                                                                 <div class="absolute inset-y-0 right-0 pr-4 flex items-center text-sm leading-5">
                                                                     <svg class="h-6 text-gray-700 cursor-pointer" fill="none" @click="show = !show"
                                                                         :class="{'block': !show, 'hidden':show }" xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +154,7 @@ $result = mysqli_fetch_assoc($profile_query);
 
                                                     </div>
                                                     <div class="mt-5">
-                                                        <button class="w-full h-10 bg-[#6A4EE9] text-white font-semibold text-lg hover:bg-black duration-300">Update</button>
+                                                        <button name="update_profile" class="w-full h-10 bg-[#6A4EE9] text-white font-semibold text-lg hover:bg-black duration-300">Update</button>
 
                                                     </div>
                                                 </div>

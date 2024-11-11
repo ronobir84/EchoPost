@@ -44,7 +44,7 @@ $page = substr($_SERVER['SCRIPT_NAME'], strrpos($_SERVER['SCRIPT_NAME'], "/") + 
             </li>
 
             <li>
-                <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href=" comments.php">
+                <a class="flex  gap-3 px-2 items-center  py-1.5  text-white rounded-sm hover:bg-[#6A4EE9] duration-500   w-40 <?= $page == "comments.php" ? 'active' : ''; ?> " href="http://localhost/EchoPost/post_logout.php">
                     <i class="fa-solid fa-right-from-bracket text-lg"></i>
 
                     <button class="text-lg font-semibold ">Logout</button>
