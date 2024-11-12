@@ -1,6 +1,16 @@
 <?php include_once('./adminPartials/Admin_header.php') ?>
 
+<?php
+$limit = 5;
 
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+} else {
+    $page = 1;
+}
+$offset = ($page - 1) * $limit;
+
+?>
 
 
 <div class="container-fluid bg-[#E5ECFF] min-h-screen">
@@ -50,7 +60,7 @@
 
 
                         <?php
-                        $sql = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id";
+                        $sql = "SELECT * FROM comments LEFT JOIN posts ON comments.post_id = posts.post_id LEFT JOIN post_users ON comments.post_user_id = post_users.post_user_id LIMIT $offset, $limit";
                         $query = mysqli_query($database, $sql);
                         $rows = mysqli_num_rows($query);
                         if ($rows) {
@@ -110,6 +120,85 @@
 
 
     </div>
+    <!-- pagination -->
+
+    <?php
+
+    $pagination = "SELECT * FROM  comments";
+    $page_result = mysqli_query($database, $pagination);
+
+    if (mysqli_num_rows($page_result) > 0) {
+
+        $total_records = mysqli_num_rows($page_result);
+        $total_page = ceil($total_records / $limit)
+
+
+    ?>
+
+
+        <!-- -------------------- -->
+
+
+        <div>
+            <nav class="mt-20" aria-label="Pagination">
+
+
+                <ul class="mb-4 flex justify-center space-x-4">
+                    <li>
+                        <?php
+                        if ($page > 1) {
+
+
+                        ?>
+                            <a class="rounded-full hover:text-white hover:bg-[#9333EA] duration-500 border-2 text-lg font-bold  border-[#9333EA]  px-3.5 py-2.5 text-black" href="comments.php?page=<?php echo $page - 1 ?>"><i class="fa-solid fa-angle-left fa-lg"></i></a>
+                        <?php } ?>
+                    </li>
+
+                    <?php
+                    for ($i = 1; $i <= $total_page; $i++) {
+
+
+
+
+                    ?>
+                        <li>
+                            <?php
+
+                            if ($i == $page) {
+                            ?>
+                                <a class="rounded-full  border-2 shadow-md shadow-[#9333EA]  text-lg font-bold bg-[#9333EA] border-[#9333EA]  px-[18px] py-[10px] text-white" href="comments.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+                            <?php
+
+                            } else {
+                            ?>
+                                <a class="rounded-full border-2 text-lg hover:text-white hover:bg-[#9333EA] duration-500 font-bold  border-[#9333EA]  px-[17px] py-[10px] text-black" href="comments.php?page=<?php echo $i ?>"><?php echo $i ?></a>
+
+
+                            <?php
+
+                            }
+                            ?>
+                        </li>
+                    <?php } ?>
+
+
+                    <li>
+                        <?php
+                        if ($page < $total_page) {
+
+
+                        ?>
+                            <a class="rounded-full hover:text-white hover:bg-[#9333EA] duration-500 border-2 text-lg font-bold  border-[#9333EA]  px-3.5 py-2.5 text-black" href="comments.php?page=<?php echo $page + 1 ?>"><i class="fa-solid fa-angle-right fa-lg"></i></a>
+                        <?php } ?>
+                    </li>
+                </ul>
+
+
+            </nav>
+        </div>
+
+    <?php } ?>
+
 </div>
 
 
