@@ -33,12 +33,15 @@
 
      <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
+
  </head>
 
+
  <body>
-      
-     <header id="header_component" class="py-5 bg-[#F3F4F6]">
-         <nav class="current__header  w-10/12  z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8 mx-auto">
+
+
+     <header id="header_component" class="py-5 bg-[#F3F4F6] ">
+         <nav style="width: 85%;" class="current__header      z-50  bg-white  rounded-full border border-black-200 text-black duration-150 px-8 mx-auto">
 
              <div class="navbar justify-between ">
                  <div class="fixed top-0 left-0 w-full z-30 h-2">

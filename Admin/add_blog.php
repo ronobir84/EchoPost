@@ -21,7 +21,7 @@ if (isset($_POST['add_post'])) {
     if (in_array($image_ext, $allow_type)) {
         if ($size <= 2000000) {
             move_uploaded_file($tmp_name, $destination);
-            $sql3 = "INSERT INTO `posts`( `post_title`, `post_image`, `category_id`, `post_content`, `user_id`, `post_text`) VALUES ('$post_name','$file_name','$post_body','$user_name','$category_name', '$post_text') ";
+            $sql3 = "INSERT INTO `posts`( `post_title`, `post_image`,  `post_content`, `user_id`, `category_id`, `post_text`) VALUES ('$post_name','$file_name','$post_body','$user_name','$category_name', '$post_text') ";
             $query3 = mysqli_query($database, $sql3);
             if ($query3) {
                 $_SESSION['post_succ'] = "Post Published Successful";
@@ -96,7 +96,9 @@ if (isset($_POST['add_post'])) {
 
 
                     ?>
-                            <option value="<?php echo $cat['category_id'] ?>"><?php echo $cat['category_name'] ?></option>
+                            <option value="<?php echo $cat['category_id']?>">
+                                <?php echo $cat['category_name'] ?>
+                            </option>
 
                     <?php  }
                     } ?>
