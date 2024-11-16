@@ -113,8 +113,22 @@ $offset = ($page - 1) * $limit;
                                             <span
                                                 class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-[#309267] rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Edit</span>
                                         </div>
-                                        <a href="">Delete</a>
-                                        <a href="">view</a>
+                                        <div class="group relative inline-block ">
+
+
+
+                                            <a href=" ">
+                                                <button class="mr-3" type="button">
+                                                    <i class="fa-solid fa-trash text-xl font-bold  text-red-700   duration-500 "></i>
+                                                </button>
+                                            </a>
+
+
+
+                                            <span
+                                                class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20 px-4 py-2 text-base font-bold text-white bg-red-700 rounded-lg shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Delete</span>
+                                        </div>
+
 
                                     </td>
 
@@ -222,8 +236,7 @@ $offset = ($page - 1) * $limit;
             </nav>
         </div>
 
-    <?php }
-    else{
+    <?php } else {
         echo "not Data";
     } ?>
 </div>

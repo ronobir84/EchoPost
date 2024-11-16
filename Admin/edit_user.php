@@ -99,7 +99,18 @@ if ($data = mysqli_fetch_assoc($user_query)) {
 ?>
 
 
+<div class="group absolute ml-[3%] mt-14 inline-block  ">
+    <a href="users.php">
+        <button class="focus:outline-none  ">
 
+            <i class="fa-solid fa-arrow-left text-lg  w-12 h-12  p-2  duration-500 hover:bg-[#17082D] border-2 border-[#282424] hover:text-white  text-[#17082D] rounded-full"></i>
+        </button>
+    </a>
+    <button
+        class="absolute -top-11 left-1/2 transform -translate-x-1/2 z-20  w-24 h-10 text-base font-bold text-white bg-[#17082D] rounded shadow-lg transition-transform duration-300 ease-in-out scale-0 group-hover:scale-100">Go Back</button>
+
+
+</div>
 
 
 <div class=" bg-[#E5ECFF]   min-h-screen overflow-hidden flex items-center justify-center  ">
@@ -174,12 +185,12 @@ if ($data = mysqli_fetch_assoc($user_query)) {
 
 
                             ?>><?php
-                        if ($role_result['user_role'] == 1) {
-                            echo "Admin";
-                        } elseif ($role_result['user_role'] == 0) {
-                            echo "CO-Admin";
-                        }
-                        ?></option>
+                                if ($role_result['user_role'] == 1) {
+                                    echo "Admin";
+                                } elseif ($role_result['user_role'] == 0) {
+                                    echo "CO-Admin";
+                                }
+                                ?></option>
 
                     <?php  } ?>
 

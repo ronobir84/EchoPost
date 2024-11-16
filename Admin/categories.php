@@ -1,4 +1,4 @@
-<?php include_once('./adminPartials/Admin_header.php') ?>
+<?php  include_once('./adminPartials/Admin_header.php') ?>
 
 
 
@@ -24,7 +24,16 @@
             </a>
 
 
+            <div>
+                <?php
+                if (isset($_SESSION['category_success'])) {
+                    $category_success = $_SESSION['category_success'];
+                    echo $category_success;
+                }
 
+                ?>
+
+            </div>
 
 
 
