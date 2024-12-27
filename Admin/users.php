@@ -117,7 +117,7 @@ $offset = ($page - 1) * $limit;
 
 
 
-                                            <a href=" ">
+                                            <a href="delete_user.php?user_id=<?php echo $row['user_id'] ?>">
                                                 <button class="mr-3" type="button">
                                                     <i class="fa-solid fa-trash text-xl font-bold  text-red-700   duration-500 "></i>
                                                 </button>

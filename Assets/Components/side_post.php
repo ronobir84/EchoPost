@@ -59,9 +59,35 @@
                     <!-- second section -->
                     <div class=" relative top-11 pr-4 w-[95%] ">
                         <div>
-                            <a class="" href="Assets/Components/single_post.php?id=<?php echo $row['post_id'] ?>">
-                                <h1 class="text-2xl font-bold text-black hover:underline duration-300 "><?php echo $row['post_title'] ?></h1>
-                            </a>
+
+                            <?php
+
+                            if (isset($_SESSION['min_user_data'])) {
+                                $all_data = $_SESSION['min_user_data'];
+                                // print_r($all_data);
+                            }
+                            ?>
+                            <?php
+                            if (isset($_SESSION['min_user_data'])) {
+                            ?>
+                                <a class="" href="Assets/Components/single_post.php?id=<?php echo $row['post_id'] ?>">
+                                    <h1 class="text-2xl font-bold text-black hover:underline duration-300 "><?php echo $row['post_title'] ?></h1>
+                                </a>
+
+                            <?php
+                            } else {
+
+                            ?>
+
+                                <a href="http://localhost/EchoPost/Echo_post.php">
+                                    <h1 class="text-2xl font-bold text-black hover:underline duration-300 "><?php echo $row['post_title'] ?></h1>
+                                </a>
+
+
+                            <?php
+                            }
+
+                            ?>
                             <p class="text-gray-800 font-medium  text-base  pt-8"><?php echo $row['post_text'] ?></p>
                         </div>
                         <div class="flex justify-between pt-16">
@@ -178,3 +204,10 @@
     <?php } ?>
 
 </div>
+
+
+
+
+
+
+ 

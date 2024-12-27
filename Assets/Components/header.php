@@ -3,9 +3,9 @@
 
  <?php
     // include_once('./database.php');
-    if (!isset($_SESSION['min_user_data'])) {
-        echo "<script>window.location.href='http://localhost/EchoPost/Echo_post.php'</script>";
-    }
+    // if (!isset($_SESSION['min_user_data'])) {
+    //     echo "<script>window.location.href='http://localhost/EchoPost/Echo_post.php'</script>";
+    // }
 
 
     ?>
@@ -75,34 +75,37 @@
 
 
                  <div class="   ">
-                     <div class="flex gap-4 items-center relative right-10">
-                         <h3 class="text-lg text-[#6A4EE9]  font-bold">
+                    
+                         <div class="flex gap-6 items-center relative right-5 ">
+                             <h3 class="text-lg text-[#6A4EE9]  font-bold ">
+                                 <?php
+                                    if (isset($_SESSION['min_user_data'])) {
+                                        $name_data = ucwords($_SESSION['min_user_data'][1]);
+                                        echo $name_data;
+                                        
+                                    }
+
+                                    ?>
+                             </h3>
                              <?php
                                 if (isset($_SESSION['min_user_data'])) {
-                                    $name_data = ucwords($_SESSION['min_user_data'][1]);
-                                    echo $name_data;
+                                    $user_image = $_SESSION['min_user_data'][0];
                                 }
 
+
                                 ?>
-                         </h3>
-                         <?php
-                            if (isset($_SESSION['min_user_data'])) {
-                                $user_image = $_SESSION['min_user_data'][0];
-                            }
 
+                             <a class="h-12  w-12 " href="http://localhost/EchoPost/Assets/Components/profile.php?id=<?php echo $user_image ?>">
+                                 <?php
+                                    if (isset($_SESSION['min_user_data'])) {
+                                        $user_image = $_SESSION['min_user_data'][4];
+                                    }
+                                    ?>
+                                 <img class="rounded-full  " src="http://localhost/EchoPost/Admin/upload/<?php echo $user_image ?> " alt="">
 
-                            ?>
-
-                         <a class="h-14 w-14" href="http://localhost/EchoPost/Assets/Components/profile.php?id=<?php echo $user_image ?>">
-                             <?php
-                                if (isset($_SESSION['min_user_data'])) {
-                                    $user_image = $_SESSION['min_user_data'][4];
-                                }
-                                ?>
-                             <img class="rounded-full    h-14 w-14  " src="http://localhost/EchoPost/Admin/upload/<?php echo $user_image ?> " alt="">
-
-                         </a>
-                     </div>
+                             </a>
+                         </div>
+                     
 
 
 

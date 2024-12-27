@@ -301,6 +301,7 @@ $result = mysqli_fetch_assoc($query);
     
 
     <section>
+         
         <?php include_once('post_min.php') ?>
 
     </section>

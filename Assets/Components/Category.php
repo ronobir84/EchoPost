@@ -42,8 +42,17 @@ $rows = mysqli_num_rows($query);
                                         </div>
 
                                         <button class="relative  flex gap-6 items-center   font-semibold text-left  md:text-lg   " aria-expanded="false" onclick="toggleFAQ(this)">
+                                            <?php
+                                            if (isset($_SESSION['min_user_data'])) {
+                                                #
 
-                                            <a class="hover:underline duration-500" href="Assets/Components/category_single.php?id=<?php echo $row['category_id'] ?>"><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
+                                            ?>
+                                                <a class="hover:underline duration-500" href="Assets/Components/category_single.php?id=<?php echo $row['category_id'] ?>"><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
+                                            <?php } else { ?>
+                                                <a class="hover:underline duration-500" href="http://localhost/EchoPost/Echo_post.php"><span class="flex-1 text-2xl text-black font-bold"><?php echo $row['category_name'] ?></span></a>
+                                            <?php } ?>
+
+
                                             <!-- <i class="fa-solid fa-turn-down relative  text-xl font-bold text-black"></i> -->
                                             <svg
                                                 class="w-7 h-7 justify-end hover:rotate-180 group-hover:bg-gray-50 t ease-linear duration-300 rounded-full border border-gray-700 group-hover:border-none p-2 rotate-45"
